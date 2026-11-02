@@ -17,7 +17,7 @@ iip_general_base2022,0,10,10
 imports_non_oil_non_gems,18,0,18
 merch_exports,27,0,27
 non_food_credit_all_scb,9,14,14
-non_food_credit_select_banks,3,5,5
+non_food_credit_select_banks,4,6,6
 petrol_ms_consumption,0,22,22
 petrol_ms_consumption_snapshot,0,0,0
 rail_freight_loading,2,1,3

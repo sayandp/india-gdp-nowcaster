@@ -2346,6 +2346,7 @@ non_food_credit_select_banks,2020-11,9198240.0,INR crore (outstanding),2021-01-2
 non_food_credit_select_banks,2020-12,9248528.0,INR crore (outstanding),2021-02-28,first,https://web.archive.org/web/20230620123925id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2802202189B759C19573483D90D21EBF47F67A70.XLSX
 non_food_credit_select_banks,2021-01,9410333.0,INR crore (outstanding),2021-04-26,first,https://web.archive.org/web/20220401095228id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2604202168BB59261A444AD783789D7B312B4B06.XLSX
 non_food_credit_select_banks,2021-02,9494225.0,INR crore (outstanding),2021-04-26,first,https://web.archive.org/web/20220401095228id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2604202168BB59261A444AD783789D7B312B4B06.XLSX
+non_food_credit_select_banks,2021-03,9662022.0,INR crore (outstanding),2021-05-17,first,https://web.archive.org/web/20221206045402id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_170520217D295C33C5C446D1B70280EB96BC2D2E.XLSX
 non_food_credit_select_banks,2014-01,5343900.0,INR crore (outstanding),,latest,https://web.archive.org/web/20150404034451id_/http://rbidocs.rbi.org.in:80/rdocs/Bulletin/DOCs/15T_BULLFL100315.xls
 non_food_credit_select_banks,2014-02,5420300.0,INR crore (outstanding),,latest,https://web.archive.org/web/20140520145754id_/http://rbidocs.rbi.org.in:80/rdocs/Bulletin/DOCs/15T_BUL090514F.xls
 non_food_credit_select_banks,2014-03,5566000.0,INR crore (outstanding),,latest,https://web.archive.org/web/20140828193558id_/http://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_BL090614F.xls
@@ -2420,7 +2421,7 @@ non_food_credit_select_banks,2019-11,8673908.0,INR crore (outstanding),2021-01-2
 non_food_credit_select_banks,2019-12,8737346.0,INR crore (outstanding),2021-02-28,latest,https://web.archive.org/web/20230620123925id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2802202189B759C19573483D90D21EBF47F67A70.XLSX
 non_food_credit_select_banks,2020-01,,INR crore (outstanding),,latest,
 non_food_credit_select_banks,2020-02,8914709.0,INR crore (outstanding),2021-04-26,latest,https://web.archive.org/web/20220401095228id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2604202168BB59261A444AD783789D7B312B4B06.XLSX
-non_food_credit_select_banks,2020-03,9211544.0,INR crore (outstanding),2020-06-10,latest,https://web.archive.org/web/20231204235145id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_100620209E65C2C9AF6F45079EAE812F00CF20C0.XLSX
+non_food_credit_select_banks,2020-03,9211542.0,INR crore (outstanding),2021-05-17,latest,https://web.archive.org/web/20221206045402id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_170520217D295C33C5C446D1B70280EB96BC2D2E.XLSX
 non_food_credit_select_banks,2020-04,9100648.0,INR crore (outstanding),2020-06-10,latest,https://web.archive.org/web/20231204235145id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_100620209E65C2C9AF6F45079EAE812F00CF20C0.XLSX
 non_food_credit_select_banks,2020-05,,INR crore (outstanding),,latest,
 non_food_credit_select_banks,2020-06,9047014.0,INR crore (outstanding),2020-09-11,latest,https://web.archive.org/web/20221104155756id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T11092020C797223E417B4AEFBC565CAE78ADC4E9.XLSX
@@ -2431,7 +2432,8 @@ non_food_credit_select_banks,2020-10,9146631.0,INR crore (outstanding),2021-01-2
 non_food_credit_select_banks,2020-11,9198240.0,INR crore (outstanding),2021-02-28,latest,https://web.archive.org/web/20230620123925id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2802202189B759C19573483D90D21EBF47F67A70.XLSX
 non_food_credit_select_banks,2020-12,9248528.0,INR crore (outstanding),2021-02-28,latest,https://web.archive.org/web/20230620123925id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2802202189B759C19573483D90D21EBF47F67A70.XLSX
 non_food_credit_select_banks,2021-01,9410333.0,INR crore (outstanding),2021-04-26,latest,https://web.archive.org/web/20220401095228id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2604202168BB59261A444AD783789D7B312B4B06.XLSX
-non_food_credit_select_banks,2021-02,9494225.0,INR crore (outstanding),2021-04-26,latest,https://web.archive.org/web/20220401095228id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_2604202168BB59261A444AD783789D7B312B4B06.XLSX
+non_food_credit_select_banks,2021-02,9494225.0,INR crore (outstanding),2021-05-17,latest,https://web.archive.org/web/20221206045402id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_170520217D295C33C5C446D1B70280EB96BC2D2E.XLSX
+non_food_credit_select_banks,2021-03,9662022.0,INR crore (outstanding),2021-05-17,latest,https://web.archive.org/web/20221206045402id_/https://rbidocs.rbi.org.in/rdocs/Bulletin/DOCs/15T_170520217D295C33C5C446D1B70280EB96BC2D2E.XLSX
 petrol_ms_consumption,2020-04,973.0,000 tonnes,,latest,https://ppac.gov.in/download.php?file=reports/1681122599_fy-20-21-eng.xlsx
 petrol_ms_consumption,2020-05,1771.0,000 tonnes,,latest,https://ppac.gov.in/download.php?file=reports/1681122599_fy-20-21-eng.xlsx
 petrol_ms_consumption,2020-06,2282.0,000 tonnes,,latest,https://ppac.gov.in/download.php?file=reports/1681122599_fy-20-21-eng.xlsx
