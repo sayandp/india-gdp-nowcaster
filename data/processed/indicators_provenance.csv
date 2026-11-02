@@ -1,0 +1,856 @@
+indicator,ref_month,vintage,date_method
+air_domestic_passengers_aai,2015-02,first,pdf_created
+air_domestic_passengers_aai,2015-05,first,pdf_created
+air_domestic_passengers_aai,2015-06,first,pdf_created
+air_domestic_passengers_aai,2015-07,first,pdf_created
+air_domestic_passengers_aai,2015-08,first,pdf_created
+air_domestic_passengers_aai,2015-09,first,pdf_created
+air_domestic_passengers_aai,2015-11,first,pdf_created
+air_domestic_passengers_aai,2015-12,first,pdf_created
+air_domestic_passengers_aai,2016-01,first,pdf_created
+air_domestic_passengers_aai,2016-02,first,pdf_created
+air_domestic_passengers_aai,2016-03,first,pdf_created
+air_domestic_passengers_aai,2016-05,first,pdf_created
+air_domestic_passengers_aai,2016-06,first,pdf_created
+air_domestic_passengers_aai,2016-07,first,pdf_created
+air_domestic_passengers_aai,2016-08,first,pdf_created
+air_domestic_passengers_aai,2016-09,first,pdf_created
+air_domestic_passengers_aai,2016-10,first,pdf_created
+air_domestic_passengers_aai,2016-11,first,pdf_created
+air_domestic_passengers_aai,2016-12,first,pdf_created
+air_domestic_passengers_aai,2017-01,first,pdf_created
+air_domestic_passengers_aai,2017-02,first,pdf_created
+air_domestic_passengers_aai,2017-04,first,pdf_created
+air_domestic_passengers_aai,2017-05,first,pdf_created
+air_domestic_passengers_aai,2017-06,first,pdf_created
+air_domestic_passengers_aai,2017-07,first,pdf_created
+air_domestic_passengers_aai,2017-08,first,pdf_created
+air_domestic_passengers_aai,2017-09,first,pdf_created
+air_domestic_passengers_aai,2017-11,first,pdf_created
+air_domestic_passengers_aai,2017-12,first,pdf_created
+air_domestic_passengers_aai,2018-01,first,pdf_created
+air_domestic_passengers_aai,2018-02,first,pdf_created
+air_domestic_passengers_aai,2018-03,first,pdf_created
+air_domestic_passengers_aai,2018-04,first,pdf_created
+air_domestic_passengers_aai,2018-05,first,pdf_created
+air_domestic_passengers_aai,2018-06,first,pdf_created
+air_domestic_passengers_aai,2018-07,first,pdf_created
+air_domestic_passengers_aai,2018-08,first,pdf_created
+air_domestic_passengers_aai,2018-09,first,pdf_created
+air_domestic_passengers_aai,2018-10,first,pdf_created
+air_domestic_passengers_aai,2018-11,first,pdf_created
+air_domestic_passengers_aai,2018-12,first,pdf_created
+air_domestic_passengers_aai,2019-01,first,pdf_created
+air_domestic_passengers_aai,2019-02,first,pdf_created
+air_domestic_passengers_aai,2019-04,first,pdf_created
+air_domestic_passengers_aai,2019-07,first,pdf_created
+air_domestic_passengers_aai,2019-08,first,pdf_created
+air_domestic_passengers_aai,2019-09,first,pdf_created
+air_domestic_passengers_aai,2019-10,first,pdf_created
+air_domestic_passengers_aai,2019-11,first,pdf_created
+air_domestic_passengers_aai,2019-12,first,pdf_created
+air_domestic_passengers_aai,2020-01,first,pdf_created
+air_domestic_passengers_aai,2020-02,first,pdf_created
+air_domestic_passengers_aai,2020-03,first,pdf_created
+air_domestic_passengers_aai,2020-04,first,pdf_created
+air_domestic_passengers_aai,2020-05,first,pdf_created
+air_domestic_passengers_aai,2020-07,first,pdf_created
+air_domestic_passengers_aai,2020-08,first,pdf_created
+air_domestic_passengers_aai,2020-09,first,pdf_created
+air_domestic_passengers_aai,2020-10,first,pdf_created
+air_domestic_passengers_aai,2020-11,first,pdf_created
+air_domestic_passengers_aai,2021-01,first,pdf_created
+air_domestic_passengers_aai,2021-02,first,pdf_created
+air_domestic_passengers_aai,2021-04,first,pdf_created
+air_domestic_passengers_aai,2021-05,first,pdf_created
+air_domestic_passengers_aai,2021-07,first,pdf_created
+air_domestic_passengers_aai,2021-08,first,pdf_created
+air_domestic_passengers_aai,2021-09,first,pdf_created
+air_domestic_passengers_aai,2021-10,first,pdf_created
+air_domestic_passengers_aai,2021-11,first,pdf_created
+air_domestic_passengers_aai,2021-12,first,pdf_created
+air_domestic_passengers_aai,2022-01,first,pdf_created
+air_domestic_passengers_aai,2022-02,first,pdf_created
+air_domestic_passengers_aai,2022-03,first,pdf_created
+air_domestic_passengers_aai,2022-04,first,pdf_created
+air_domestic_passengers_aai,2022-05,first,pdf_created
+air_domestic_passengers_aai,2022-06,first,pdf_created
+air_domestic_passengers_aai,2022-07,first,pdf_created
+air_domestic_passengers_aai,2022-08,first,pdf_created
+air_domestic_passengers_aai,2022-09,first,pdf_created
+air_domestic_passengers_aai,2022-11,first,pdf_created
+air_domestic_passengers_aai,2022-12,first,pdf_created
+air_domestic_passengers_aai,2023-01,first,pdf_created
+air_domestic_passengers_aai,2023-02,first,pdf_created
+air_domestic_passengers_aai,2023-04,first,pdf_created
+air_domestic_passengers_aai,2023-05,first,pdf_created
+air_domestic_passengers_aai,2023-07,first,pdf_created
+air_domestic_passengers_aai,2023-08,first,pdf_created
+air_domestic_passengers_aai,2023-09,first,pdf_created
+air_domestic_passengers_aai,2023-10,first,pdf_created
+air_domestic_passengers_aai,2023-11,first,pdf_created
+air_domestic_passengers_aai,2023-12,first,pdf_created
+air_domestic_passengers_aai,2024-01,first,pdf_created
+air_domestic_passengers_aai,2024-02,first,pdf_created
+air_domestic_passengers_aai,2024-03,first,pdf_created
+air_domestic_passengers_aai,2024-04,first,pdf_created
+air_domestic_passengers_aai,2024-05,first,pdf_created
+air_domestic_passengers_aai,2024-06,first,pdf_created
+air_domestic_passengers_aai,2024-07,first,pdf_created
+air_domestic_passengers_aai,2024-08,first,pdf_created
+air_domestic_passengers_aai,2024-09,first,pdf_created
+air_domestic_passengers_aai,2024-10,first,pdf_created
+air_domestic_passengers_aai,2024-11,first,pdf_created
+air_domestic_passengers_aai,2024-12,first,pdf_created
+air_domestic_passengers_aai,2025-01,first,pdf_created
+air_domestic_passengers_aai,2025-02,first,pdf_created
+air_domestic_passengers_aai,2025-03,first,pdf_created
+air_domestic_passengers_aai,2025-04,first,pdf_created
+air_domestic_passengers_aai,2025-05,first,pdf_created
+air_domestic_passengers_aai,2025-06,first,pdf_created
+air_domestic_passengers_aai,2025-07,first,pdf_created
+air_domestic_passengers_aai,2025-08,first,pdf_created
+air_domestic_passengers_aai,2025-10,first,pdf_created
+air_domestic_passengers_aai,2025-12,first,pdf_created
+air_domestic_passengers_aai,2026-01,first,pdf_created
+air_domestic_passengers_aai,2026-02,first,pdf_created
+air_domestic_passengers_aai,2026-03,first,pdf_created
+air_domestic_passengers_aai,2026-05,first,pdf_created
+air_domestic_passengers_aai,2026-06,first,pdf_created
+air_domestic_passengers_aai,2026-07,first,pdf_created
+air_domestic_passengers_aai,2026-08,first,pdf_created
+core8_overall_base2004,2014-01,first,pdf_created
+core8_overall_base2004,2014-02,first,pdf_created
+core8_overall_base2004,2014-04,first,pdf_created
+core8_overall_base2004,2014-05,first,pdf_created
+core8_overall_base2004,2014-06,first,pdf_created
+core8_overall_base2004,2014-07,first,pdf_created
+core8_overall_base2004,2014-08,first,pdf_created
+core8_overall_base2004,2014-09,first,pdf_created
+core8_overall_base2004,2014-10,first,pdf_created
+core8_overall_base2004,2014-11,first,pdf_created
+core8_overall_base2004,2014-12,first,pdf_created
+core8_overall_base2004,2015-01,first,pdf_created
+core8_overall_base2004,2015-02,first,pdf_created
+core8_overall_base2004,2015-03,first,pdf_created
+core8_overall_base2004,2015-04,first,pdf_created
+core8_overall_base2004,2015-05,first,pdf_created
+core8_overall_base2004,2015-06,first,pdf_created
+core8_overall_base2004,2015-08,first,pdf_created
+core8_overall_base2004,2015-09,first,pdf_created
+core8_overall_base2004,2015-10,first,pdf_created
+core8_overall_base2004,2015-11,first,pdf_created
+core8_overall_base2004,2015-12,first,pdf_created
+core8_overall_base2004,2016-01,first,pdf_created
+core8_overall_base2004,2016-02,first,pdf_created
+core8_overall_base2004,2016-03,first,pdf_created
+core8_overall_base2004,2016-04,first,pdf_created
+core8_overall_base2004,2016-06,first,pdf_created
+core8_overall_base2004,2016-07,first,pdf_created
+core8_overall_base2004,2016-08,first,pdf_created
+core8_overall_base2004,2016-10,first,pdf_created
+core8_overall_base2004,2016-11,first,pdf_created
+core8_overall_base2011,2017-05,first,pdf_created
+core8_overall_base2011,2017-06,first,pdf_created
+core8_overall_base2011,2017-07,first,pdf_created
+core8_overall_base2011,2017-08,first,pdf_created
+core8_overall_base2011,2017-09,first,pdf_created
+core8_overall_base2011,2017-10,first,pdf_created
+core8_overall_base2011,2017-11,first,pdf_created
+core8_overall_base2011,2017-12,first,pdf_created
+core8_overall_base2011,2018-01,first,pdf_created
+core8_overall_base2011,2018-02,first,pdf_created
+core8_overall_base2011,2018-03,first,pdf_created
+core8_overall_base2011,2018-04,first,pdf_created
+core8_overall_base2011,2018-05,first,pdf_created
+core8_overall_base2011,2018-06,first,pdf_created
+core8_overall_base2011,2018-07,first,pdf_created
+core8_overall_base2011,2018-08,first,pdf_created
+core8_overall_base2011,2018-09,first,pdf_created
+core8_overall_base2011,2018-10,first,pdf_created
+core8_overall_base2011,2018-11,first,pdf_created
+core8_overall_base2011,2018-12,first,pdf_created
+core8_overall_base2011,2019-01,first,pdf_created
+core8_overall_base2011,2019-02,first,pdf_created
+core8_overall_base2011,2019-03,first,pdf_created
+core8_overall_base2011,2019-04,first,pdf_created
+core8_overall_base2011,2019-05,first,pdf_created
+core8_overall_base2011,2019-06,first,pdf_created
+core8_overall_base2011,2019-07,first,pdf_created
+core8_overall_base2011,2019-08,first,pdf_created
+core8_overall_base2011,2019-09,first,pdf_created
+core8_overall_base2011,2019-10,first,pdf_created
+core8_overall_base2011,2019-11,first,pdf_created
+core8_overall_base2011,2019-12,first,pdf_created
+core8_overall_base2011,2020-01,first,pdf_created
+core8_overall_base2011,2020-02,first,pdf_created
+core8_overall_base2011,2020-03,first,pdf_created
+core8_overall_base2011,2020-04,first,pdf_created
+core8_overall_base2011,2020-05,first,pdf_created
+core8_overall_base2011,2020-06,first,pdf_created
+core8_overall_base2011,2020-07,first,pdf_created
+core8_overall_base2011,2020-08,first,pdf_created
+core8_overall_base2011,2020-09,first,pdf_created
+core8_overall_base2011,2020-10,first,pdf_created
+core8_overall_base2011,2020-11,first,pdf_created
+core8_overall_base2011,2020-12,first,pdf_created
+core8_overall_base2011,2021-01,first,pdf_created
+core8_overall_base2011,2021-02,first,pdf_created
+core8_overall_base2011,2021-03,first,pdf_created
+core8_overall_base2011,2021-04,first,pdf_created
+core8_overall_base2011,2021-05,first,pdf_created
+core8_overall_base2011,2021-06,first,pdf_created
+core8_overall_base2011,2021-07,first,pdf_created
+core8_overall_base2011,2021-08,first,pdf_created
+core8_overall_base2011,2021-09,first,pdf_created
+core8_overall_base2011,2021-10,first,pdf_created
+core8_overall_base2011,2021-11,first,pdf_created
+core8_overall_base2011,2021-12,first,pdf_created
+core8_overall_base2011,2022-01,first,pdf_created
+core8_overall_base2011,2022-02,first,pdf_created
+core8_overall_base2011,2022-03,first,pdf_created
+core8_overall_base2011,2022-04,first,pdf_created
+core8_overall_base2011,2022-05,first,pdf_created
+core8_overall_base2011,2022-06,first,pdf_created
+core8_overall_base2011,2022-07,first,pdf_created
+core8_overall_base2011,2022-08,first,pdf_created
+core8_overall_base2011,2022-09,first,pdf_created
+core8_overall_base2011,2022-10,first,pdf_created
+core8_overall_base2011,2022-11,first,pdf_created
+core8_overall_base2011,2022-12,first,pdf_created
+core8_overall_base2011,2023-01,first,pdf_created
+core8_overall_base2011,2023-02,first,pdf_created
+core8_overall_base2011,2023-03,first,pdf_created
+core8_overall_base2011,2023-04,first,pdf_created
+core8_overall_base2011,2023-05,first,pdf_created
+core8_overall_base2011,2023-06,first,pdf_created
+core8_overall_base2011,2023-07,first,pdf_created
+core8_overall_base2011,2023-08,first,pdf_created
+core8_overall_base2011,2023-09,first,pdf_created
+core8_overall_base2011,2023-10,first,pdf_created
+core8_overall_base2011,2023-11,first,pdf_created
+core8_overall_base2011,2023-12,first,pdf_created
+core8_overall_base2011,2024-01,first,pdf_created
+core8_overall_base2011,2024-02,first,pdf_created
+core8_overall_base2011,2024-03,first,pdf_created
+core8_overall_base2011,2024-04,first,pdf_created
+core8_overall_base2011,2024-05,first,pdf_created
+core8_overall_base2011,2024-06,first,pdf_created
+core8_overall_base2011,2024-07,first,pdf_created
+core8_overall_base2011,2024-08,first,pdf_created
+core8_overall_base2011,2024-09,first,pdf_created
+core8_overall_base2011,2024-10,first,pdf_created
+core8_overall_base2011,2024-11,first,pdf_created
+core8_overall_base2011,2025-01,first,pdf_created
+core8_overall_base2011,2025-02,first,pdf_created
+core8_overall_base2011,2025-03,first,pdf_created
+core8_overall_base2011,2025-04,first,pdf_created
+core8_overall_base2011,2025-05,first,pdf_created
+core8_overall_base2011,2025-06,first,pdf_created
+core8_overall_base2011,2025-07,first,pdf_created
+core8_overall_base2011,2025-08,first,pdf_created
+core8_overall_base2011,2025-09,first,pdf_created
+core8_overall_base2011,2025-10,first,pdf_created
+core8_overall_base2011,2025-11,first,pdf_created
+core8_overall_base2011,2025-12,first,pdf_created
+core8_overall_base2011,2026-01,first,pdf_created
+core8_overall_base2011,2026-02,first,pdf_created
+core8_overall_base2011,2026-03,first,pdf_created
+core8_overall_base2011,2026-04,first,pdf_created
+core8_overall_base2011,2026-05,first,pdf_created
+core8_overall_base2022,2026-06,first,embargo line
+core8_overall_base2022,2026-07,first,pdf_created; value quoted in next note
+core8_overall_base2022,2026-08,first,embargo line; value quoted in next note
+gst_gross_collection,2018-04,first,PIB posted date
+gst_gross_collection,2018-05,first,PIB posted date
+gst_gross_collection,2018-07,first,PIB posted date
+gst_gross_collection,2018-08,first,PIB posted date
+gst_gross_collection,2018-09,first,PIB posted date
+gst_gross_collection,2018-10,first,PIB posted date
+gst_gross_collection,2018-11,first,PIB posted date
+gst_gross_collection,2018-12,first,PIB posted date
+gst_gross_collection,2019-01,first,PIB posted date
+gst_gross_collection,2019-02,first,PIB posted date
+gst_gross_collection,2019-03,first,PIB posted date
+gst_gross_collection,2019-04,first,PIB posted date
+gst_gross_collection,2019-05,first,PIB posted date
+gst_gross_collection,2019-06,first,PIB posted date
+gst_gross_collection,2019-07,first,PIB posted date
+gst_gross_collection,2019-08,first,PIB posted date
+gst_gross_collection,2019-09,first,PIB posted date
+gst_gross_collection,2019-10,first,PIB posted date
+gst_gross_collection,2019-11,first,PIB posted date
+gst_gross_collection,2019-12,first,PIB posted date
+gst_gross_collection,2020-01,first,PIB posted date
+gst_gross_collection,2020-02,first,PIB posted date
+gst_gross_collection,2020-03,first,PIB posted date
+gst_gross_collection,2020-06,first,PIB posted date
+gst_gross_collection,2020-07,first,PIB posted date
+gst_gross_collection,2020-08,first,PIB posted date
+gst_gross_collection,2020-09,first,PIB posted date
+gst_gross_collection,2020-10,first,PIB posted date
+gst_gross_collection,2020-11,first,PIB posted date
+gst_gross_collection,2020-12,first,PIB posted date
+gst_gross_collection,2021-02,first,PIB posted date
+gst_gross_collection,2021-03,first,PIB posted date
+gst_gross_collection,2021-04,first,PIB posted date
+gst_gross_collection,2021-05,first,PIB posted date
+gst_gross_collection,2021-06,first,PIB posted date
+gst_gross_collection,2021-07,first,PIB posted date
+gst_gross_collection,2021-08,first,PIB posted date
+gst_gross_collection,2021-09,first,PIB posted date
+gst_gross_collection,2021-10,first,PIB posted date
+gst_gross_collection,2021-11,first,PIB posted date
+gst_gross_collection,2021-12,first,PIB posted date
+gst_gross_collection,2022-03,first,PIB posted date
+gst_gross_collection,2022-04,first,PIB posted date
+gst_gross_collection,2022-05,first,PIB posted date
+gst_gross_collection,2022-06,first,PIB posted date
+gst_gross_collection,2022-07,first,PIB posted date
+gst_gross_collection,2022-08,first,PIB posted date
+gst_gross_collection,2022-10,first,PIB posted date
+gst_gross_collection,2022-11,first,PIB posted date
+gst_gross_collection,2023-02,first,PIB posted date
+gst_gross_collection,2023-03,first,PIB posted date
+gst_gross_collection,2023-04,first,PIB posted date
+gst_gross_collection,2023-06,first,PIB posted date
+gst_gross_collection,2023-07,first,PIB posted date
+gst_gross_collection,2023-08,first,PIB posted date
+gst_gross_collection,2023-09,first,PIB posted date
+gst_gross_collection,2023-10,first,PIB posted date
+gst_gross_collection,2023-11,first,PIB posted date
+gst_gross_collection,2023-12,first,PIB posted date
+iip_general_base2004,2014-02,first,press note
+iip_general_base2004,2014-03,first,press note
+iip_general_base2004,2014-04,first,press note
+iip_general_base2004,2014-05,first,press note
+iip_general_base2004,2014-06,first,press note
+iip_general_base2004,2014-07,first,press note
+iip_general_base2004,2014-08,first,press note
+iip_general_base2004,2014-09,first,press note
+iip_general_base2004,2014-10,first,press note
+iip_general_base2004,2014-11,first,press note
+iip_general_base2004,2014-12,first,press note
+iip_general_base2004,2015-01,first,press note
+iip_general_base2004,2015-02,first,press note
+iip_general_base2004,2015-03,first,press note
+iip_general_base2004,2015-04,first,press note
+iip_general_base2004,2015-05,first,press note
+iip_general_base2004,2015-06,first,press note
+iip_general_base2004,2015-07,first,press note
+iip_general_base2004,2015-09,first,press note
+iip_general_base2004,2015-10,first,press note
+iip_general_base2004,2015-11,first,press note
+iip_general_base2004,2015-12,first,press note
+iip_general_base2004,2016-01,first,press note
+iip_general_base2004,2016-02,first,press note
+iip_general_base2004,2016-03,first,press note
+iip_general_base2004,2016-04,first,press note
+iip_general_base2004,2016-05,first,press note
+iip_general_base2004,2016-06,first,press note
+iip_general_base2004,2016-07,first,press note
+iip_general_base2004,2016-08,first,press note
+iip_general_base2004,2016-09,first,press note
+iip_general_base2004,2016-10,first,press note
+iip_general_base2004,2016-11,first,press note
+iip_general_base2004,2016-12,first,press note
+iip_general_base2004,2017-01,first,press note
+iip_general_base2004,2017-02,first,press note
+iip_general_base2011,2017-04,first,press note
+iip_general_base2011,2017-05,first,press note
+iip_general_base2011,2017-06,first,press note
+iip_general_base2011,2017-07,first,press note
+iip_general_base2011,2017-08,first,press note
+iip_general_base2011,2017-09,first,press note
+iip_general_base2011,2017-10,first,press note
+iip_general_base2011,2017-11,first,press note
+iip_general_base2011,2017-12,first,press note
+iip_general_base2011,2018-01,first,press note
+iip_general_base2011,2018-02,first,press note
+iip_general_base2011,2018-03,first,press note
+iip_general_base2011,2018-04,first,press note
+iip_general_base2011,2018-05,first,press note
+iip_general_base2011,2018-06,first,press note
+iip_general_base2011,2018-07,first,press note
+iip_general_base2011,2018-08,first,press note
+iip_general_base2011,2018-10,first,press note
+iip_general_base2011,2018-11,first,press note
+iip_general_base2011,2019-01,first,press note
+iip_general_base2011,2019-03,first,press note
+iip_general_base2011,2019-07,first,press note
+iip_general_base2011,2019-08,first,press note
+iip_general_base2011,2019-09,first,press note
+iip_general_base2011,2019-10,first,press note
+iip_general_base2011,2019-11,first,press note
+iip_general_base2011,2019-12,first,press note
+iip_general_base2011,2020-01,first,press note
+iip_general_base2011,2020-02,first,press note
+iip_general_base2011,2020-03,first,press note
+iip_general_base2011,2020-04,first,press note
+iip_general_base2011,2020-05,first,press note
+iip_general_base2011,2020-06,first,press note
+iip_general_base2011,2020-07,first,press note
+iip_general_base2011,2020-08,first,press note
+iip_general_base2011,2020-09,first,press note
+iip_general_base2011,2020-10,first,press note
+iip_general_base2011,2020-12,first,press note
+iip_general_base2011,2021-01,first,press note
+iip_general_base2011,2021-02,first,press note
+iip_general_base2011,2021-04,first,press note
+iip_general_base2011,2021-05,first,press note
+iip_general_base2011,2021-06,first,press note
+iip_general_base2011,2021-07,first,press note
+iip_general_base2011,2021-08,first,press note; base inferred
+iip_general_base2011,2021-09,first,press note
+iip_general_base2011,2021-10,first,press note
+iip_general_base2011,2021-11,first,press note
+iip_general_base2011,2021-12,first,press note
+iip_general_base2011,2022-01,first,press note; base inferred
+iip_general_base2011,2022-02,first,press note
+iip_general_base2011,2022-03,first,press note
+iip_general_base2011,2022-04,first,press note
+iip_general_base2011,2022-05,first,press note; base inferred
+iip_general_base2011,2022-06,first,press note
+iip_general_base2011,2022-07,first,press note
+iip_general_base2011,2022-08,first,press note
+iip_general_base2011,2022-09,first,press note
+iip_general_base2011,2022-10,first,press note
+iip_general_base2011,2022-11,first,press note
+iip_general_base2011,2022-12,first,press note
+iip_general_base2011,2023-01,first,press note
+iip_general_base2011,2023-02,first,press note
+iip_general_base2011,2023-03,first,press note
+iip_general_base2011,2023-04,first,press note
+iip_general_base2011,2023-05,first,press note
+iip_general_base2011,2023-06,first,press note
+iip_general_base2011,2023-07,first,press note
+iip_general_base2011,2023-08,first,press note
+iip_general_base2011,2023-09,first,press note
+iip_general_base2011,2023-10,first,press note
+iip_general_base2011,2023-11,first,press note
+iip_general_base2011,2023-12,first,press note
+iip_general_base2011,2024-01,first,press note
+iip_general_base2011,2024-02,first,press note
+iip_general_base2011,2024-03,first,press note
+iip_general_base2011,2024-04,first,press note
+iip_general_base2011,2024-05,first,press note
+iip_general_base2011,2024-06,first,press note
+iip_general_base2011,2024-07,first,press note
+iip_general_base2011,2024-08,first,press note
+iip_general_base2011,2024-09,first,press note
+iip_general_base2011,2024-10,first,press note
+iip_general_base2011,2024-11,first,press note
+iip_general_base2011,2024-12,first,press note
+iip_general_base2011,2025-01,first,press note
+iip_general_base2011,2025-02,first,press note
+iip_general_base2011,2025-03,first,press note
+iip_general_base2011,2025-04,first,press note
+iip_general_base2011,2025-05,first,press note
+iip_general_base2011,2025-06,first,press note
+iip_general_base2011,2025-07,first,press note
+iip_general_base2011,2025-08,first,press note
+iip_general_base2011,2025-09,first,press note
+imports_non_oil_non_gems,2020-10,first,PIB posted date
+imports_non_oil_non_gems,2020-11,first,PIB posted date
+imports_non_oil_non_gems,2020-12,first,PIB posted date
+imports_non_oil_non_gems,2021-01,first,PIB posted date
+imports_non_oil_non_gems,2021-02,first,PIB posted date
+imports_non_oil_non_gems,2021-04,first,PIB posted date
+imports_non_oil_non_gems,2021-05,first,PIB posted date
+imports_non_oil_non_gems,2021-06,first,PIB posted date
+imports_non_oil_non_gems,2021-07,first,PIB posted date
+imports_non_oil_non_gems,2021-08,first,PIB posted date
+imports_non_oil_non_gems,2021-09,first,PIB posted date
+imports_non_oil_non_gems,2021-10,first,PIB posted date
+imports_non_oil_non_gems,2021-11,first,PIB posted date
+imports_non_oil_non_gems,2021-12,first,PIB posted date
+imports_non_oil_non_gems,2022-02,first,PIB posted date
+imports_non_oil_non_gems,2022-03,first,PIB posted date
+imports_non_oil_non_gems,2022-04,first,PIB posted date
+imports_non_oil_non_gems,2022-05,first,PIB posted date
+imports_non_oil_non_gems,2022-06,first,PIB posted date
+imports_non_oil_non_gems,2022-07,first,PIB posted date
+imports_non_oil_non_gems,2022-08,first,PIB posted date
+imports_non_oil_non_gems,2022-09,first,PIB posted date
+imports_non_oil_non_gems,2022-10,first,PIB posted date
+imports_non_oil_non_gems,2022-11,first,PIB posted date
+imports_non_oil_non_gems,2022-12,first,PIB posted date
+imports_non_oil_non_gems,2023-01,first,PIB posted date
+imports_non_oil_non_gems,2023-02,first,PIB posted date
+imports_non_oil_non_gems,2023-03,first,PIB posted date
+imports_non_oil_non_gems,2023-04,first,PIB posted date
+imports_non_oil_non_gems,2023-05,first,PIB posted date
+imports_non_oil_non_gems,2023-06,first,PIB posted date
+imports_non_oil_non_gems,2023-07,first,PIB posted date
+imports_non_oil_non_gems,2023-08,first,PIB posted date
+imports_non_oil_non_gems,2023-09,first,PIB posted date
+imports_non_oil_non_gems,2023-10,first,PIB posted date
+imports_non_oil_non_gems,2023-11,first,PIB posted date
+imports_non_oil_non_gems,2023-12,first,PIB posted date
+imports_non_oil_non_gems,2024-01,first,PIB posted date
+imports_non_oil_non_gems,2024-02,first,PIB posted date
+imports_non_oil_non_gems,2024-03,first,PIB posted date
+imports_non_oil_non_gems,2024-04,first,PIB posted date
+imports_non_oil_non_gems,2024-05,first,PIB posted date
+imports_non_oil_non_gems,2024-06,first,PIB posted date
+imports_non_oil_non_gems,2024-07,first,PIB posted date
+imports_non_oil_non_gems,2024-08,first,PIB posted date
+imports_non_oil_non_gems,2024-09,first,PIB posted date
+imports_non_oil_non_gems,2024-10,first,PIB posted date
+imports_non_oil_non_gems,2024-11,first,PIB posted date
+imports_non_oil_non_gems,2024-12,first,PIB posted date
+imports_non_oil_non_gems,2025-01,first,PIB posted date
+imports_non_oil_non_gems,2025-02,first,PIB posted date
+imports_non_oil_non_gems,2025-03,first,PIB posted date
+imports_non_oil_non_gems,2025-04,first,PIB posted date
+imports_non_oil_non_gems,2025-05,first,PIB posted date
+imports_non_oil_non_gems,2025-06,first,PIB posted date
+imports_non_oil_non_gems,2025-07,first,PIB posted date
+imports_non_oil_non_gems,2025-08,first,PIB posted date
+imports_non_oil_non_gems,2025-09,first,PIB posted date
+imports_non_oil_non_gems,2025-10,first,PIB posted date
+imports_non_oil_non_gems,2025-11,first,PIB posted date
+imports_non_oil_non_gems,2025-12,first,PIB posted date
+imports_non_oil_non_gems,2026-01,first,PIB posted date
+imports_non_oil_non_gems,2026-02,first,PIB posted date
+imports_non_oil_non_gems,2026-03,first,PIB posted date
+imports_non_oil_non_gems,2026-04,first,PIB posted date
+imports_non_oil_non_gems,2026-05,first,PIB posted date
+imports_non_oil_non_gems,2026-06,first,PIB posted date
+imports_non_oil_non_gems,2026-07,first,PIB posted date
+imports_non_oil_non_gems,2026-08,first,PIB posted date
+imports_non_oil_non_gems,2026-09,first,PIB posted date
+merch_exports,2018-08,first,PIB posted date
+merch_exports,2018-09,first,PIB posted date
+merch_exports,2018-10,first,PIB posted date
+merch_exports,2018-11,first,PIB posted date
+merch_exports,2018-12,first,PIB posted date
+merch_exports,2019-01,first,PIB posted date
+merch_exports,2019-02,first,PIB posted date
+merch_exports,2019-03,first,PIB posted date
+merch_exports,2019-04,first,PIB posted date
+merch_exports,2019-05,first,PIB posted date
+merch_exports,2019-06,first,PIB posted date
+merch_exports,2019-07,first,PIB posted date
+merch_exports,2019-08,first,PIB posted date
+merch_exports,2019-09,first,PIB posted date
+merch_exports,2019-10,first,PIB posted date
+merch_exports,2019-11,first,PIB posted date
+merch_exports,2019-12,first,PIB posted date
+merch_exports,2020-01,first,PIB posted date
+merch_exports,2020-02,first,PIB posted date
+merch_exports,2020-03,first,PIB posted date
+merch_exports,2020-04,first,PIB posted date
+merch_exports,2020-05,first,PIB posted date
+merch_exports,2020-06,first,PIB posted date
+merch_exports,2020-07,first,PIB posted date
+merch_exports,2020-08,first,PIB posted date
+merch_exports,2020-09,first,PIB posted date
+merch_exports,2020-10,first,PIB posted date
+merch_exports,2020-11,first,PIB posted date
+merch_exports,2020-12,first,PIB posted date
+merch_exports,2021-01,first,PIB posted date
+merch_exports,2021-02,first,PIB posted date
+merch_exports,2021-03,first,PIB posted date
+merch_exports,2021-04,first,PIB posted date
+merch_exports,2021-05,first,PIB posted date
+merch_exports,2021-06,first,PIB posted date
+merch_exports,2021-07,first,PIB posted date
+merch_exports,2021-08,first,PIB posted date
+merch_exports,2021-09,first,PIB posted date
+merch_exports,2021-10,first,PIB posted date
+merch_exports,2021-11,first,PIB posted date
+merch_exports,2021-12,first,PIB posted date
+merch_exports,2022-04,first,PIB posted date
+merch_exports,2022-05,first,PIB posted date
+merch_exports,2022-06,first,PIB posted date
+merch_exports,2022-07,first,PIB posted date
+merch_exports,2022-08,first,PIB posted date
+merch_exports,2022-09,first,PIB posted date
+merch_exports,2022-10,first,PIB posted date
+merch_exports,2022-11,first,PIB posted date
+merch_exports,2022-12,first,PIB posted date
+merch_exports,2023-01,first,PIB posted date
+merch_exports,2023-02,first,PIB posted date
+merch_exports,2023-03,first,PIB posted date
+merch_exports,2023-04,first,PIB posted date
+merch_exports,2023-05,first,PIB posted date
+merch_exports,2023-06,first,PIB posted date
+merch_exports,2023-07,first,PIB posted date
+merch_exports,2023-08,first,PIB posted date
+merch_exports,2023-09,first,PIB posted date
+merch_exports,2023-10,first,PIB posted date
+merch_exports,2023-11,first,PIB posted date
+merch_exports,2023-12,first,PIB posted date
+merch_exports,2024-01,first,PIB posted date
+merch_exports,2024-02,first,PIB posted date
+merch_exports,2024-03,first,PIB posted date
+merch_exports,2024-04,first,PIB posted date
+merch_exports,2024-05,first,PIB posted date
+merch_exports,2024-06,first,PIB posted date
+merch_exports,2024-07,first,PIB posted date
+merch_exports,2024-08,first,PIB posted date
+merch_exports,2024-09,first,PIB posted date
+merch_exports,2024-10,first,PIB posted date
+merch_exports,2024-11,first,PIB posted date
+merch_exports,2024-12,first,PIB posted date
+merch_exports,2025-01,first,PIB posted date
+merch_exports,2025-02,first,PIB posted date
+merch_exports,2025-03,first,PIB posted date
+merch_exports,2025-04,first,PIB posted date
+merch_exports,2025-05,first,PIB posted date
+merch_exports,2025-06,first,PIB posted date
+merch_exports,2025-07,first,PIB posted date
+merch_exports,2025-08,first,PIB posted date
+merch_exports,2025-09,first,PIB posted date
+merch_exports,2025-10,first,PIB posted date
+merch_exports,2025-11,first,PIB posted date
+merch_exports,2025-12,first,PIB posted date
+merch_exports,2026-01,first,PIB posted date
+merch_exports,2026-02,first,PIB posted date
+merch_exports,2026-03,first,PIB posted date
+merch_exports,2026-04,first,PIB posted date
+merch_exports,2026-05,first,PIB posted date
+merch_exports,2026-06,first,PIB posted date
+merch_exports,2026-07,first,PIB posted date
+merch_exports,2026-08,first,PIB posted date
+merch_exports,2026-09,first,PIB posted date
+non_food_credit,2019-08,first,bulletin date in filename
+non_food_credit,2019-09,first,bulletin date in filename
+non_food_credit,2019-11,first,bulletin date in filename
+non_food_credit,2019-12,first,bulletin date in filename
+non_food_credit,2020-03,first,bulletin date in filename
+non_food_credit,2020-11,first,bulletin date in filename
+non_food_credit,2020-12,first,bulletin date in filename
+non_food_credit,2021-02,first,bulletin date in filename
+non_food_credit,2021-03,first,bulletin date in filename
+non_food_credit,2021-04,first,bulletin date in filename
+non_food_credit,2021-05,first,bulletin date in filename
+non_food_credit,2021-06,first,bulletin date in filename
+non_food_credit,2021-09,first,bulletin date in filename
+non_food_credit,2021-10,first,bulletin date in filename
+non_food_credit,2021-12,first,bulletin date in filename
+non_food_credit,2022-01,first,bulletin date in filename
+non_food_credit,2022-02,first,bulletin date in filename
+non_food_credit,2022-03,first,bulletin date in filename
+non_food_credit,2022-04,first,bulletin date in filename
+non_food_credit,2022-05,first,bulletin date in filename
+non_food_credit,2022-06,first,bulletin date in filename
+non_food_credit,2022-07,first,bulletin date in filename
+non_food_credit,2022-11,first,bulletin date in filename
+non_food_credit,2022-12,first,bulletin date in filename
+non_food_credit,2023-01,first,bulletin date in filename
+non_food_credit,2023-03,first,bulletin date in filename
+non_food_credit,2023-04,first,bulletin date in filename
+non_food_credit,2023-05,first,bulletin date in filename
+non_food_credit,2023-06,first,bulletin date in filename
+non_food_credit,2023-07,first,bulletin date in filename
+non_food_credit,2023-08,first,bulletin date in filename
+non_food_credit,2023-09,first,bulletin date in filename
+non_food_credit,2023-10,first,bulletin date in filename
+non_food_credit,2023-12,first,bulletin date in filename
+non_food_credit,2024-01,first,bulletin date in filename
+non_food_credit,2024-02,first,bulletin date in filename
+non_food_credit,2024-03,first,bulletin date in filename
+non_food_credit,2024-04,first,bulletin date in filename
+non_food_credit,2024-05,first,bulletin date in filename
+non_food_credit,2024-06,first,bulletin date in filename
+non_food_credit,2024-07,first,bulletin date in filename
+non_food_credit,2024-08,first,bulletin date in filename
+non_food_credit,2024-09,first,bulletin date in filename
+non_food_credit,2025-01,first,bulletin date in filename
+non_food_credit,2025-02,first,bulletin date in filename
+non_food_credit,2018-09,latest,bulletin date in filename
+non_food_credit,2018-12,latest,bulletin date in filename
+non_food_credit,2019-04,latest,bulletin date in filename
+non_food_credit,2019-08,latest,bulletin date in filename
+non_food_credit,2019-09,latest,bulletin date in filename
+non_food_credit,2019-11,latest,bulletin date in filename
+non_food_credit,2019-12,latest,bulletin date in filename
+non_food_credit,2020-02,latest,bulletin date in filename
+non_food_credit,2020-03,latest,bulletin date in filename
+non_food_credit,2020-04,latest,bulletin date in filename
+non_food_credit,2020-05,latest,bulletin date in filename
+non_food_credit,2020-06,latest,bulletin date in filename
+non_food_credit,2020-10,latest,bulletin date in filename
+non_food_credit,2020-11,latest,bulletin date in filename
+non_food_credit,2020-12,latest,bulletin date in filename
+non_food_credit,2021-01,latest,bulletin date in filename
+non_food_credit,2021-02,latest,bulletin date in filename
+non_food_credit,2021-03,latest,bulletin date in filename
+non_food_credit,2021-04,latest,bulletin date in filename
+non_food_credit,2021-05,latest,bulletin date in filename
+non_food_credit,2021-06,latest,bulletin date in filename
+non_food_credit,2021-07,latest,bulletin date in filename
+non_food_credit,2021-09,latest,bulletin date in filename
+non_food_credit,2021-10,latest,bulletin date in filename
+non_food_credit,2021-12,latest,bulletin date in filename
+non_food_credit,2022-01,latest,bulletin date in filename
+non_food_credit,2022-02,latest,bulletin date in filename
+non_food_credit,2022-03,latest,bulletin date in filename
+non_food_credit,2022-04,latest,bulletin date in filename
+non_food_credit,2022-05,latest,bulletin date in filename
+non_food_credit,2022-06,latest,bulletin date in filename
+non_food_credit,2022-07,latest,bulletin date in filename
+non_food_credit,2022-08,latest,bulletin date in filename
+non_food_credit,2022-09,latest,bulletin date in filename
+non_food_credit,2022-10,latest,bulletin date in filename
+non_food_credit,2022-11,latest,bulletin date in filename
+non_food_credit,2022-12,latest,bulletin date in filename
+non_food_credit,2023-01,latest,bulletin date in filename
+non_food_credit,2023-02,latest,bulletin date in filename
+non_food_credit,2023-03,latest,bulletin date in filename
+non_food_credit,2023-04,latest,bulletin date in filename
+non_food_credit,2023-05,latest,bulletin date in filename
+non_food_credit,2023-06,latest,bulletin date in filename
+non_food_credit,2023-07,latest,bulletin date in filename
+non_food_credit,2023-08,latest,bulletin date in filename
+non_food_credit,2023-09,latest,bulletin date in filename
+non_food_credit,2023-10,latest,bulletin date in filename
+non_food_credit,2023-12,latest,bulletin date in filename
+non_food_credit,2024-01,latest,bulletin date in filename
+non_food_credit,2024-02,latest,bulletin date in filename
+non_food_credit,2024-03,latest,bulletin date in filename
+non_food_credit,2024-04,latest,bulletin date in filename
+non_food_credit,2024-05,latest,bulletin date in filename
+non_food_credit,2024-06,latest,bulletin date in filename
+non_food_credit,2024-07,latest,bulletin date in filename
+non_food_credit,2024-08,latest,bulletin date in filename
+non_food_credit,2024-09,latest,bulletin date in filename
+non_food_credit,2025-01,latest,bulletin date in filename
+non_food_credit,2025-02,latest,bulletin date in filename
+rail_freight_loading,2020-08,first,PIB posted date
+rail_freight_loading,2020-09,first,PIB posted date
+rail_freight_loading,2020-10,first,PIB posted date
+rail_freight_loading,2020-11,first,PIB posted date
+rail_freight_loading,2020-12,first,PIB posted date
+rail_freight_loading,2021-03,first,PIB posted date
+rail_freight_loading,2021-04,first,PIB posted date
+rail_freight_loading,2021-06,first,PIB posted date
+rail_freight_loading,2021-08,first,PIB posted date
+rail_freight_loading,2021-09,first,PIB posted date
+rail_freight_loading,2021-10,first,PIB posted date
+rail_freight_loading,2022-06,first,PIB posted date
+rail_freight_loading,2023-04,first,PIB posted date
+rail_freight_loading,2023-05,first,PIB posted date
+rail_freight_loading,2023-07,first,PIB posted date
+rail_freight_loading,2023-09,first,PIB posted date
+rail_freight_loading,2023-10,first,PIB posted date
+rail_freight_loading,2023-11,first,PIB posted date
+rail_freight_loading,2023-12,first,PIB posted date
+rail_freight_loading,2024-01,first,PIB posted date
+rail_freight_loading,2024-02,first,PIB posted date
+rail_freight_loading,2024-06,first,PIB posted date
+rail_freight_loading,2025-11,first,PIB posted date
+rail_freight_loading,2026-06,first,PIB posted date
+rail_freight_loading,2026-07,first,PIB posted date
+rail_freight_loading,2026-08,first,PIB posted date
+rail_freight_loading,2026-09,first,PIB posted date
+upi_value,2019-11,first,bulletin date in filename
+upi_value,2019-12,first,bulletin date in filename
+upi_value,2020-01,first,bulletin date in filename
+upi_value,2020-03,first,bulletin date in filename
+upi_value,2020-04,first,bulletin date in filename
+upi_value,2020-10,first,bulletin date in filename
+upi_value,2020-11,first,bulletin date in filename
+upi_value,2020-12,first,bulletin date in filename
+upi_value,2021-01,first,bulletin date in filename
+upi_value,2021-02,first,bulletin date in filename
+upi_value,2021-03,first,bulletin date in filename
+upi_value,2021-04,first,bulletin date in filename
+upi_value,2021-05,first,bulletin date in filename
+upi_value,2021-06,first,bulletin date in filename
+upi_value,2021-07,first,bulletin date in filename
+upi_value,2021-08,first,bulletin date in filename
+upi_value,2021-09,first,bulletin date in filename
+upi_value,2021-10,first,bulletin date in filename
+upi_value,2021-12,first,bulletin date in filename
+upi_value,2022-01,first,bulletin date in filename
+upi_value,2022-02,first,bulletin date in filename
+upi_value,2022-03,first,bulletin date in filename
+upi_value,2022-04,first,bulletin date in filename
+upi_value,2022-05,first,bulletin date in filename
+upi_value,2022-06,first,bulletin date in filename
+upi_value,2022-07,first,bulletin date in filename
+upi_value,2022-11,first,bulletin date in filename
+upi_value,2022-12,first,bulletin date in filename
+upi_value,2023-01,first,bulletin date in filename
+upi_value,2023-03,first,bulletin date in filename
+upi_value,2023-04,first,bulletin date in filename
+upi_value,2023-05,first,bulletin date in filename
+upi_value,2023-06,first,bulletin date in filename
+upi_value,2023-07,first,bulletin date in filename
+upi_value,2023-08,first,bulletin date in filename
+upi_value,2023-09,first,bulletin date in filename
+upi_value,2023-10,first,bulletin date in filename
+upi_value,2023-12,first,bulletin date in filename
+upi_value,2024-01,first,bulletin date in filename
+upi_value,2024-02,first,bulletin date in filename
+upi_value,2024-03,first,bulletin date in filename
+upi_value,2024-04,first,bulletin date in filename
+upi_value,2024-05,first,bulletin date in filename
+upi_value,2024-06,first,bulletin date in filename
+upi_value,2024-07,first,bulletin date in filename
+upi_value,2024-08,first,bulletin date in filename
+upi_value,2024-09,first,bulletin date in filename
+upi_value,2024-12,first,bulletin date in filename
+upi_value,2025-01,first,bulletin date in filename
+upi_value,2025-02,first,bulletin date in filename
+upi_value,2019-11,latest,bulletin date in filename
+upi_value,2019-12,latest,bulletin date in filename
+upi_value,2020-01,latest,bulletin date in filename
+upi_value,2020-02,latest,bulletin date in filename
+upi_value,2020-03,latest,bulletin date in filename
+upi_value,2020-04,latest,bulletin date in filename
+upi_value,2020-05,latest,bulletin date in filename
+upi_value,2020-06,latest,bulletin date in filename
+upi_value,2020-08,latest,bulletin date in filename
+upi_value,2020-10,latest,bulletin date in filename
+upi_value,2020-11,latest,bulletin date in filename
+upi_value,2020-12,latest,bulletin date in filename
+upi_value,2021-01,latest,bulletin date in filename
+upi_value,2021-02,latest,bulletin date in filename
+upi_value,2021-03,latest,bulletin date in filename
+upi_value,2021-04,latest,bulletin date in filename
+upi_value,2021-05,latest,bulletin date in filename
+upi_value,2021-06,latest,bulletin date in filename
+upi_value,2021-07,latest,bulletin date in filename
+upi_value,2021-08,latest,bulletin date in filename
+upi_value,2021-09,latest,bulletin date in filename
+upi_value,2021-10,latest,bulletin date in filename
+upi_value,2021-12,latest,bulletin date in filename
+upi_value,2022-01,latest,bulletin date in filename
+upi_value,2022-02,latest,bulletin date in filename
+upi_value,2022-03,latest,bulletin date in filename
+upi_value,2022-04,latest,bulletin date in filename
+upi_value,2022-05,latest,bulletin date in filename
+upi_value,2022-06,latest,bulletin date in filename
+upi_value,2022-07,latest,bulletin date in filename
+upi_value,2022-08,latest,bulletin date in filename
+upi_value,2022-09,latest,bulletin date in filename
+upi_value,2022-10,latest,bulletin date in filename
+upi_value,2022-11,latest,bulletin date in filename
+upi_value,2022-12,latest,bulletin date in filename
+upi_value,2023-01,latest,bulletin date in filename
+upi_value,2023-02,latest,bulletin date in filename
+upi_value,2023-03,latest,bulletin date in filename
+upi_value,2023-04,latest,bulletin date in filename
+upi_value,2023-05,latest,bulletin date in filename
+upi_value,2023-06,latest,bulletin date in filename
+upi_value,2023-07,latest,bulletin date in filename
+upi_value,2023-08,latest,bulletin date in filename
+upi_value,2023-09,latest,bulletin date in filename
+upi_value,2023-10,latest,bulletin date in filename
+upi_value,2023-12,latest,bulletin date in filename
+upi_value,2024-01,latest,bulletin date in filename
+upi_value,2024-02,latest,bulletin date in filename
+upi_value,2024-03,latest,bulletin date in filename
+upi_value,2024-04,latest,bulletin date in filename
+upi_value,2024-05,latest,bulletin date in filename
+upi_value,2024-06,latest,bulletin date in filename
+upi_value,2024-07,latest,bulletin date in filename
+upi_value,2024-08,latest,bulletin date in filename
+upi_value,2024-09,latest,bulletin date in filename
+upi_value,2024-12,latest,bulletin date in filename
+upi_value,2025-01,latest,bulletin date in filename
+upi_value,2025-02,latest,bulletin date in filename
