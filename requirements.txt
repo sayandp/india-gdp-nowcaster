@@ -9,3 +9,4 @@ pdfplumber
 jupyter
 ipykernel
 xlrd
+python-dotenv
