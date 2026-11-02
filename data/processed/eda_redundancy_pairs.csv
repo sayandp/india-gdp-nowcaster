@@ -1,0 +1,73 @@
+a,b,sample,r,n,ci,above_0.85,thin
+IIP,Core 8,all,0.9384218994957595,16,0.83 to 0.98,True,False
+IIP,Exports,all,0.908434434423138,16,0.75 to 0.97,True,False
+IIP,Electricity (CEA),all,0.692317637526238,17,0.32 to 0.88,False,False
+IIP,Air (AAI),all,0.8292258030790954,9,0.37 to 0.96,False,True
+IIP,GST,all,0.9618825372529871,7,0.76 to 0.99,True,True
+IIP,E-way bills [look-ahead],all,0.9355443711173489,17,0.83 to 0.98,True,False
+IIP,Diesel [look-ahead],all,0.7067472621207168,16,0.32 to 0.89,False,False
+IIP,Petrol [look-ahead],all,0.8471506902906534,16,0.61 to 0.95,False,False
+Core 8,Exports,all,0.7934721290300683,21,0.55 to 0.91,False,False
+Core 8,Electricity (CEA),all,0.7273851238065401,18,0.39 to 0.89,False,False
+Core 8,Air (AAI),all,0.8315362530863768,10,0.42 to 0.96,False,False
+Core 8,GST,all,0.9695518612983787,11,0.88 to 0.99,True,False
+Core 8,E-way bills [look-ahead],all,0.8640802903248073,24,0.71 to 0.94,True,False
+Core 8,Diesel [look-ahead],all,0.7403890852355224,17,0.40 to 0.90,False,False
+Core 8,Petrol [look-ahead],all,0.8485546668088705,17,0.62 to 0.94,False,False
+Exports,Electricity (CEA),all,0.666536906566869,17,0.27 to 0.87,False,False
+Exports,Air (AAI),all,0.7834306445312326,9,0.25 to 0.95,False,True
+Exports,GST,all,0.8529997466396597,11,0.52 to 0.96,True,False
+Exports,E-way bills [look-ahead],all,0.7621803055182138,22,0.50 to 0.90,False,False
+Exports,Diesel [look-ahead],all,0.49878820029205057,16,0.00 to 0.80,False,False
+Exports,Petrol [look-ahead],all,0.7170213115581942,16,0.34 to 0.89,False,False
+Electricity (CEA),Air (AAI),all,0.4979146468276819,8,-0.32 to 0.89,False,True
+Electricity (CEA),GST,all,0.7395821692389847,7,-0.03 to 0.96,False,True
+Electricity (CEA),E-way bills [look-ahead],all,0.6490972553936145,19,0.28 to 0.85,False,False
+Electricity (CEA),Diesel [look-ahead],all,0.646717586607274,17,0.24 to 0.86,False,False
+Electricity (CEA),Petrol [look-ahead],all,0.6991691144301871,17,0.33 to 0.88,False,False
+Air (AAI),GST,all,0.961528105118144,7,0.76 to 0.99,True,True
+Air (AAI),E-way bills [look-ahead],all,0.8745015154285205,10,0.54 to 0.97,True,False
+Air (AAI),Diesel [look-ahead],all,0.809591142697165,7,0.14 to 0.97,False,True
+Air (AAI),Petrol [look-ahead],all,0.7499714794254596,7,-0.01 to 0.96,False,True
+GST,E-way bills [look-ahead],all,0.662103965345718,12,0.14 to 0.90,False,False
+GST,Diesel [look-ahead],all,0.7019725872263696,7,-0.11 to 0.95,False,True
+GST,Petrol [look-ahead],all,0.7086836224038559,7,-0.10 to 0.95,False,True
+E-way bills [look-ahead],Diesel [look-ahead],all,0.851682234531245,18,0.64 to 0.94,True,False
+E-way bills [look-ahead],Petrol [look-ahead],all,0.8928913410310821,18,0.73 to 0.96,True,False
+Diesel [look-ahead],Petrol [look-ahead],all,0.9025224854644042,18,0.75 to 0.96,True,False
+IIP,Core 8,ex,0.8443534094617012,12,0.52 to 0.96,False,False
+IIP,Exports,ex,0.15374991728760468,12,-0.46 to 0.67,False,False
+IIP,Electricity (CEA),ex,0.6997040046302911,13,0.24 to 0.90,False,False
+IIP,Air (AAI),ex,-0.12979029705240747,7,-0.80 to 0.69,False,True
+IIP,GST,ex,-0.9310939013206826,4,-1.00 to 0.29,True,True
+IIP,E-way bills [look-ahead],ex,-0.49312385882925713,13,-0.82 to 0.08,False,False
+IIP,Diesel [look-ahead],ex,-0.3548326489290433,13,-0.76 to 0.24,False,False
+IIP,Petrol [look-ahead],ex,-0.43775306166653144,13,-0.80 to 0.15,False,False
+Core 8,Exports,ex,0.24872783363368703,13,-0.35 to 0.70,False,False
+Core 8,Electricity (CEA),ex,0.8035224828507237,12,0.43 to 0.94,False,False
+Core 8,Air (AAI),ex,0.561381758544873,8,-0.24 to 0.91,False,True
+Core 8,GST,ex,0.7058565713027327,6,-0.25 to 0.96,False,True
+Core 8,E-way bills [look-ahead],ex,0.3789059111323648,15,-0.17 to 0.75,False,False
+Core 8,Diesel [look-ahead],ex,0.13171803120860204,12,-0.48 to 0.66,False,False
+Core 8,Petrol [look-ahead],ex,-0.23582183172746587,12,-0.71 to 0.39,False,False
+Exports,Electricity (CEA),ex,0.2356301215705037,12,-0.39 to 0.71,False,False
+Exports,Air (AAI),ex,0.24889571319576265,7,-0.62 to 0.84,False,True
+Exports,GST,ex,0.7995174391881161,6,-0.03 to 0.98,False,True
+Exports,E-way bills [look-ahead],ex,0.17430716884313344,14,-0.39 to 0.65,False,False
+Exports,Diesel [look-ahead],ex,-0.3997935235266345,12,-0.79 to 0.23,False,False
+Exports,Petrol [look-ahead],ex,0.14996986264941,12,-0.46 to 0.67,False,False
+Electricity (CEA),Air (AAI),ex,0.48578591987220093,6,-0.54 to 0.93,False,True
+Electricity (CEA),GST,ex,-0.9350834832036922,4,-1.00 to 0.26,True,True
+Electricity (CEA),E-way bills [look-ahead],ex,-0.06428261110162406,13,-0.59 to 0.50,False,False
+Electricity (CEA),Diesel [look-ahead],ex,0.03335128641123737,13,-0.53 to 0.57,False,False
+Electricity (CEA),Petrol [look-ahead],ex,-0.13528832106536798,13,-0.64 to 0.45,False,False
+Air (AAI),GST,ex,0.517949887268087,5,-0.67 to 0.96,False,True
+Air (AAI),E-way bills [look-ahead],ex,0.45932616692542216,8,-0.36 to 0.88,False,True
+Air (AAI),Diesel [look-ahead],ex,0.9258348851380005,6,0.46 to 0.99,True,True
+Air (AAI),Petrol [look-ahead],ex,0.3705347637305769,6,-0.63 to 0.91,False,True
+GST,E-way bills [look-ahead],ex,0.818018255883577,7,0.17 to 0.97,False,True
+GST,Diesel [look-ahead],ex,-0.2150552483353957,4,-0.97 to 0.94,False,True
+GST,Petrol [look-ahead],ex,-0.19819168857422964,4,-0.97 to 0.94,False,True
+E-way bills [look-ahead],Diesel [look-ahead],ex,0.468894566438734,13,-0.11 to 0.81,False,False
+E-way bills [look-ahead],Petrol [look-ahead],ex,0.06118223524472716,13,-0.51 to 0.59,False,False
+Diesel [look-ahead],Petrol [look-ahead],ex,0.5186912652536441,13,-0.05 to 0.83,False,False

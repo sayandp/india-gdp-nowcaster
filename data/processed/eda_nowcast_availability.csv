@@ -1,0 +1,28 @@
+series,date,months_available,months_available_ex_covid,on_time_share,on_time_n
+IIP,D+0,1,1,1.0,33
+IIP,D+32,2,2,1.0,31
+IIP,D+45,3,3,1.0,28
+Core 8,D+0,2,2,0.9393939393939394,33
+Core 8,D+32,3,3,1.0,32
+Core 8,D+45,3,3,1.0,32
+Exports,D+0,2,2,1.0,27
+Exports,D+32,3,3,1.0,27
+Exports,D+45,3,3,1.0,27
+Electricity (CEA),D+0,undated,undated,,0
+Electricity (CEA),D+32,undated,undated,,0
+Electricity (CEA),D+45,undated,undated,,0
+Air (AAI),D+0,2,2,0.967741935483871,31
+Air (AAI),D+32,3,3,0.9130434782608695,23
+Air (AAI),D+45,3,3,0.9565217391304348,23
+GST,D+0,2,2,1.0,18
+GST,D+32,3,3,1.0,15
+GST,D+45,3,3,1.0,15
+E-way bills [look-ahead],D+0,undated,undated,,0
+E-way bills [look-ahead],D+32,undated,undated,,0
+E-way bills [look-ahead],D+45,undated,undated,,0
+Diesel [look-ahead],D+0,undated,undated,,0
+Diesel [look-ahead],D+32,undated,undated,,0
+Diesel [look-ahead],D+45,undated,undated,,0
+Petrol [look-ahead],D+0,undated,undated,,0
+Petrol [look-ahead],D+32,undated,undated,,0
+Petrol [look-ahead],D+45,undated,undated,,0
