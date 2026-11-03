@@ -60,6 +60,10 @@ reports/
   report.md, report.pdf the two-page write-up
   live_nowcast_2026Q3.md
   *.png                 charts from notebooks 01 to 04
+dashboard/
+  gdp_nowcaster.xlsx    Excel dashboard: summary, every nowcast, metrics, live call
+  build_dashboard.py    builds it from data/processed (no results change)
+  verify_dashboard.py   checks every number in it against the CSVs
 tools/export_report_pdf.py  rebuilds report.pdf from report.md
 ```
 
