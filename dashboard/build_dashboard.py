@@ -19,7 +19,7 @@ OUT = Path(os.environ.get("DASHBOARD_XLSX", ROOT / "dashboard" / "gdp_nowcaster.
 
 # Tokens: Apple system palette; Segoe UI Variable (SF Pro isn't installed), named instances for weights
 BG, CARD, INK, SEC, HAIR = "#F5F5F7", "#FFFFFF", "#1D1D1F", "#6E6E73", "#E5E5EA"
-BLUE, GRAY, RED, COVID_TINT, GREEN, ORANGE = "#007AFF", "#8E8E93", "#FF3B30", "#FFE0DE", "#34C759", "#FF9500"
+BLUE, GRAY, RED, GREEN, ORANGE = "#007AFF", "#8E8E93", "#FF3B30", "#34C759", "#FF9500"
 GREEN_TINT, RED_TINT = "#DDF6E3", "#FFE0DE"
 SEC_GLASS = "#3A3A3C"  # darker secondary text for contrast on the glass background
 BG_IMAGE = ROOT / "dashboard" / "assets" / "glass_bg.png"
@@ -263,9 +263,10 @@ heights = {0: 12, 1: 40, 2: 22, 3: 10, 4: 8, 5: 46, 6: 18, 7: 30, 8: 8, 9: 10}
 CH_TOP1, CH_ROWS = 10, 17
 CH_TOP2 = CH_TOP1 + CH_ROWS + 1
 FOOT = CH_TOP2 + CH_ROWS + 1
-heights[FOOT] = 40
+heights[FOOT] = 28  # two-line footnote; the full notes are on Data & method
 for top in (CH_TOP1, CH_TOP2):
     heights[top], heights[top + 1] = 26, 18
+heights[CH_TOP1 + 1] = 32  # chart 1's subtitle runs to two lines
 for r in range(0, FOOT + 3):
     ws.set_row(r, heights.get(r, 15))
 row_px = lambda r0, r1: round(sum(heights.get(r, 15) for r in range(r0, r1 + 1)) * 4 / 3)
@@ -289,7 +290,7 @@ def text_box(r, c0, c1, text, font, valign, rows=1):
                                     "font": font, "align": {"vertical": valign, "horizontal": "left"}, "object_position": 3})
 
 kpis = [
-    (f"{best_rel:.2f}", "Best RMSE vs naive, outside COVID", f"{BEST}, D+32"),
+    (f"{best_rel:.2f}", f"Best relative RMSE vs naive ({best_n} quarters)", f"{BEST}, D+32"),
     (f"{best_n}", "Non-COVID test quarters", f"{best_quarters.replace('-', ' to ')}, without 2022Q3, for the best model"),
     (f"{naive_pt:.1f}%", "Live call for 2026Q3, naive", f"± {naive_rmse:.2f} points. First print due 30 Nov 2026"),
     (f"{GDP_DAY}", "Median days to the GDP first print", f"After quarter-end, 2017Q2 to 2025Q3 (range {days.min()} to {days.max()})"),
@@ -316,15 +317,17 @@ def place(chart, top, c0, title, subtitle):
 ch1 = wb.add_chart({"type": "line"})
 line(ch1, C1["model"], C1["cat"], BLUE, BEST)
 line(ch1, C1["naive"], C1["cat"], GRAY, "Naive")
-style(ch1, "0.0", 0, 1.4, "RMSE, points", sec=SEC_GLASS)
+style(ch1, "0.0", 0.8, 1.4, "RMSE, points", sec=SEC_GLASS)
 assert all(m > n for m, n in zip(c1_model, c1_naive))  # the title below depends on this
+assert 0.8 <= min(c1_model + c1_naive) and max(c1_model + c1_naive) <= 1.4  # the y-axis range
 place(ch1, CH_TOP1, 1, f"{BEST} stays above naive at every nowcast date",
-      f"RMSE on the same {len(C1Q)} non-COVID quarters at every date ({C1Q[0]} to {C1Q[-1]}), n = {len(C1Q)}")
+      f"RMSE on the same {len(C1Q)} non-COVID quarters at every date ({C1Q[0]} to {C1Q[-1]}), n = {len(C1Q)}\n"
+      f"On the {len(C1Q)} quarters shared by all dates; on all {best_n} at D+32 it's {best_rel:.2f}")
 
-# Chart 2: COVID quarters as a light red band (full-height columns behind the lines), then first print, naive and the best model
+# Chart 2: COVID quarters as a light grey band (full-height columns behind the lines), then first print, naive and the best model
 ch2 = wb.add_chart({"type": "column"})
 for key in ("covid", "covid_low"):
-    ch2.add_series({"values": C2[key], "categories": C2["cat"], "gap": 0, "overlap": 100, "fill": {"color": COVID_TINT}, "border": {"none": True}})
+    ch2.add_series({"values": C2[key], "categories": C2["cat"], "gap": 0, "overlap": 100, "fill": {"color": GRAY, "transparency": 80}, "border": {"none": True}})
 ln2 = wb.add_chart({"type": "line"})
 iq = WINDOW.index
 line(ln2, C2["actual"], C2["cat"], INK, "First print", iq("2021Q2"), pos="left")
@@ -361,9 +364,14 @@ ch4.combine(ln4)
 style(ch4, "0", -4, 12, "YoY growth, %", rotate=True, sec=SEC_GLASS)
 place(ch4, CH_TOP2, 9, "The GDP–core 8 gap widened from mid-2024", "Bars: GDP minus core 8 YoY. Core 8 is the latest vintage here (see note)")
 
-ws.merge_range(FOOT, 1, FOOT, 15, "Non-COVID test quarters exclude 2022Q3, where naive carried forward a 13.5% base-effect print. COVID quarters are 2020Q2 to 2022Q2. "
-               f"Gap chart: the 2024Q4 core 8 first print is blank, so this chart alone uses latest-vintage core 8 throughout: the gap averages {gap_early:.1f} points in 2023Q1 to 2024Q2 and {gap_late:.1f} in 2024Q3 to 2025Q3. "
-               f"On first prints, as in the report, it is {gapf_early:.1f} and {gapf_late:.1f} (2024Q4 missing). A hypothesis, not tested. Built by dashboard/build_dashboard.py from data/processed.", g_foot)
+ws.merge_range(FOOT, 1, FOOT, 15, "Non-COVID quarters exclude 2022Q3, when naive carried forward a 13.5% base-effect print. COVID is 2020Q2 to 2022Q2.\n"
+               "The gap chart uses latest-vintage core 8 because the 2024Q4 first print is blank. Full notes are on the Data & method sheet.", g_foot)
+DASH_NOTES = [
+    "Non-COVID test quarters exclude 2022Q3, where naive carried forward a 13.5% base-effect print. COVID quarters are 2020Q2 to 2022Q2.",
+    f"Gap chart: the 2024Q4 core 8 first print is blank, so this chart alone uses latest-vintage core 8 throughout: the gap averages {gap_early:.1f} points in 2023Q1 to 2024Q2 and {gap_late:.1f} in 2024Q3 to 2025Q3.",
+    f"On first prints, as in the report, it is {gapf_early:.1f} and {gapf_late:.1f} (2024Q4 missing). The widening gap is a hypothesis, not tested.",
+    "The dashboard is built by dashboard/build_dashboard.py from data/processed.",
+]
 ws.print_area(0, 0, FOOT + 1, 16)
 ws.fit_to_pages(1, 1)
 ws.center_horizontally()
@@ -469,6 +477,10 @@ for line_txt in [
     "Expanding-window backtest, refitted every quarter, starting once 8 training quarters exist. COVID (2020Q2 to 2022Q2) is either dropped from training or kept with a dummy.",
     "Change model was pre-registered as the only extra model before its results were seen.",
 ]:
+    dm.merge_range(r, 0, r, 7, line_txt, F["body"]); dm.set_row(r, 30); r += 1
+r += 1
+dm.write(r, 0, "Dashboard notes", F["h2"]); r += 1
+for line_txt in DASH_NOTES:
     dm.merge_range(r, 0, r, 7, line_txt, F["body"]); dm.set_row(r, 30); r += 1
 r += 1
 dm.write(r, 0, "Indicator coverage", F["h2"]); r += 1

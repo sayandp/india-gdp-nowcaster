@@ -112,9 +112,22 @@ with zipfile.ZipFile(XLSX) as z:
 box_text = ["".join(re.findall(r"<a:t>(.*?)</a:t>", p_)) for p_ in re.findall(r"<a:p>.*?</a:p>", drawing, flags=re.S)]
 texts = {str(c.value) for row in ws.iter_rows() for c in row if c.value is not None} | {t.replace("&amp;", "&") for t in box_text if t}
 best_rel = mx.rel_rmse.min()
+dm_texts = {str(c.value) for row in wb["Data & method"].iter_rows() for c in row if c.value is not None}
+best_n = int(mx[mx.rel_rmse == best_rel].n.iloc[0])
 check("KPI: best relative RMSE 0.97", "0.97" in texts and round(best_rel, 2) == 0.97)
+check("KPI 1 label names the 12 quarters", f"Best relative RMSE vs naive ({best_n} quarters)" in texts and best_n == 12)
 check("KPI 1 subtext is 'Bridge · IIP, D+32'", "Bridge · IIP, D+32" in texts and mx[mx.rel_rmse == best_rel].model.iloc[0] == "5 Bridge: IIP")
 check("Chart 1 subtitle states n", any(f"n = {len(c1q)}" in t for t in texts))
+check("Chart 1 subtitle reconciles with KPI 1",
+      f"On the {len(c1q)} quarters shared by all dates; on all {best_n} at D+32 it's {best_rel:.2f}" in texts and len(c1q) == 10)
+c1x, c2x = dash_charts[0], dash_charts[1]
+c1vals = col(2, 2, 4) + col(3, 2, 4)
+check("Chart 1: y-axis 0.8 to 1.4, all values inside", '<c:min val="0.8"/>' in c1x and '<c:max val="1.4"/>' in c1x and 0.8 <= min(c1vals) and max(c1vals) <= 1.4)
+check("Chart 2: COVID band grey #8E8E93 at 80% transparency, no peach",
+      c2x.count('<a:srgbClr val="8E8E93"><a:alpha val="20000"/></a:srgbClr>') == 2 and "FFE0DE" not in c2x)
+foot = [str(c.value) for row in ws.iter_rows() for c in row if c.value is not None and "13.5%" in str(c.value)]
+check("Footnote: one cell, at most 2 short lines, points to Data & method",
+      len(foot) == 1 and foot[0].count("\n") <= 1 and all(len(l_) <= 130 for l_ in foot[0].split("\n")) and "Data & method" in foot[0])
 check("KPI: 12 test quarters", "12" in texts and int(mx[mx.rel_rmse == best_rel].n.iloc[0]) == 12)
 nr = round(float(mx[(mx.variant == "drop") & (mx.date == "D+32") & (mx.model == "1 Naive")].rmse.iloc[0]), 2)
 check("KPI: live naive 7.8% ± 1.05", "7.8%" in texts and gdp.loc["2026Q2", "gdp_growth_first_print"] == 7.8 and nr == 1.05 and any("± 1.05" in t for t in texts))
@@ -124,8 +137,8 @@ check("Title: within 3% of naive", any("within 3%" in t for t in texts) and roun
 gl, gf = g - c8.reindex(gq), g - c8f.reindex(gq)
 fl = (round(gl.loc["2023Q1":"2024Q2"].mean(), 1), round(gl.loc["2024Q3":"2025Q3"].mean(), 1))
 ff = (round(gf.loc["2023Q1":"2024Q2"].mean(), 1), round(gf.loc["2024Q3":"2025Q3"].mean(), 1))
-check(f"Footnote: latest-vintage gap {fl[0]} then {fl[1]}", any(f"{fl[0]} points in 2023Q1 to 2024Q2 and {fl[1]} in" in t for t in texts))
-check(f"Footnote: first-print gap {ff[0]} and {ff[1]}, as in the report", ff == (0.2, 3.9) and any(f"it is {ff[0]} and {ff[1]}" in t for t in texts))
+check(f"Data & method notes: latest-vintage gap {fl[0]} then {fl[1]}", any(f"{fl[0]} points in 2023Q1 to 2024Q2 and {fl[1]} in" in t for t in dm_texts))
+check(f"Data & method notes: first-print gap {ff[0]} and {ff[1]}, as in the report", ff == (0.2, 3.9) and any(f"it is {ff[0]} and {ff[1]}" in t for t in dm_texts))
 check("Dashboard: columns right of Q hidden", any(d.hidden and d.min == 18 and d.max == 16384 for d in ws.column_dimensions.values()) and not any(d.hidden and d.min <= 17 for d in ws.column_dimensions.values()))
 check("Footer: 13.5% carried into 2022Q3", any("13.5%" in t for t in texts) and gdp.loc["2022Q2", "gdp_growth_first_print"] == 13.5)
 
