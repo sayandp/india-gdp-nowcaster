@@ -1,0 +1,52 @@
+image,key,shown,value,source,rule
+01_headline.png,first_quarter,2022Q4,2022Q4,backtest_metrics_main_without_2022Q3.csv,"D+32 naive, earliest quarter"
+01_headline.png,last_quarter,2025Q3,2025Q3,backtest_metrics_main_without_2022Q3.csv,"D+32 naive, latest quarter"
+01_headline.png,n_min,9,9,backtest_metrics_main_without_2022Q3.csv,"D+32 non-naive, min n"
+01_headline.png,n_max,12,12,backtest_metrics_main_without_2022Q3.csv,"D+32 non-naive, max n"
+01_headline.png,rel_rmse|3 Bridge: core 8|dummy,1.81,1.80954269972785,backtest_metrics_main_without_2022Q3.csv,D+32 dummy 3 Bridge: core 8 rel_rmse
+01_headline.png,rel_rmse|4 Bridge + AR: core 8|dummy,1.80,1.8045165436554755,backtest_metrics_main_without_2022Q3.csv,D+32 dummy 4 Bridge + AR: core 8 rel_rmse
+01_headline.png,rel_rmse|4 Bridge + AR: core 8|drop,1.75,1.745980942481029,backtest_metrics_main_without_2022Q3.csv,D+32 drop 4 Bridge + AR: core 8 rel_rmse
+01_headline.png,rel_rmse|8 Change: Δ core 8|dummy,1.61,1.6072190624976845,backtest_metrics_main_without_2022Q3.csv,D+32 dummy 8 Change: Δ core 8 rel_rmse
+01_headline.png,rel_rmse|3 Bridge: core 8|drop,1.20,1.197796506917578,backtest_metrics_main_without_2022Q3.csv,D+32 drop 3 Bridge: core 8 rel_rmse
+01_headline.png,rel_rmse|8 Change: Δ core 8|drop,1.17,1.1712939929660635,backtest_metrics_main_without_2022Q3.csv,D+32 drop 8 Change: Δ core 8 rel_rmse
+01_headline.png,rel_rmse|5 Bridge: IIP|drop,1.15,1.1517989102604165,backtest_metrics_main_without_2022Q3.csv,D+32 drop 5 Bridge: IIP rel_rmse
+01_headline.png,rel_rmse|2 AR(1)|drop,1.13,1.1251411669012865,backtest_metrics_main_without_2022Q3.csv,D+32 drop 2 AR(1) rel_rmse
+01_headline.png,rel_rmse|2 AR(1)|dummy,1.12,1.1168173752791248,backtest_metrics_main_without_2022Q3.csv,D+32 dummy 2 AR(1) rel_rmse
+01_headline.png,rel_rmse|5 Bridge: IIP|dummy,0.97,0.96821240381554,backtest_metrics_main_without_2022Q3.csv,D+32 dummy 5 Bridge: IIP rel_rmse
+02_covid.png,first_quarter,2020Q3,2020Q3,backtest_metrics_covid.csv,"naive and core 8 bridge, quarters start"
+02_covid.png,last_quarter,2022Q2,2022Q2,backtest_metrics_covid.csv,"naive and core 8 bridge, quarters end"
+02_covid.png,n,8,8,backtest_metrics_covid.csv,"naive and core 8 bridge, n"
+02_covid.png,rmse_naive|D+0,10.67,10.671222985206523,backtest_metrics_covid.csv,D+0 1 Naive rmse
+02_covid.png,rmse_bridge|D+0,6.25,6.247714281258261,backtest_metrics_covid.csv,D+0 3 Bridge: core 8 rmse
+02_covid.png,cut_pct|D+0,41,41.45268738251047,backtest_metrics_covid.csv,D+0 100*(1 - bridge rmse / naive rmse)
+02_covid.png,rmse_naive|D+32,10.67,10.671222985206523,backtest_metrics_covid.csv,D+32 1 Naive rmse
+02_covid.png,rmse_bridge|D+32,4.29,4.286876328699158,backtest_metrics_covid.csv,D+32 3 Bridge: core 8 rmse
+02_covid.png,cut_pct|D+32,60,59.827694214224195,backtest_metrics_covid.csv,D+32 100*(1 - bridge rmse / naive rmse)
+02_covid.png,rmse_naive|D+45,10.67,10.671222985206523,backtest_metrics_covid.csv,D+45 1 Naive rmse
+02_covid.png,rmse_bridge|D+45,4.29,4.286876328699158,backtest_metrics_covid.csv,D+45 3 Bridge: core 8 rmse
+02_covid.png,cut_pct|D+45,60,59.827694214224195,backtest_metrics_covid.csv,D+45 100*(1 - bridge rmse / naive rmse)
+03_timeline.png,n_quarters,34,34,gdp.csv,quarters 2017Q2 to 2025Q3
+03_timeline.png,best_first_quarter,2020Q4,2020Q4,backtest_nowcasts.csv,"5 Bridge: IIP dummy D+32, first quarter"
+03_timeline.png,best_n,18,18,backtest_nowcasts.csv,5 Bridge: IIP dummy D+32 nowcasts in window
+03_timeline.png,naive_2022Q3,13.5,13.5,backtest_nowcasts.csv,1 Naive dummy D+32 2022Q3 nowcast
+03_timeline.png,actual_2022Q3,6.3,6.3,gdp.csv,2022Q3 first print
+04_info_calendar.png,gdp_n,34,34,gdp.csv,GDP quarters 2017Q2 to 2025Q3
+04_info_calendar.png,core8_d32_on_time_pct,100,100.0,eda_nowcast_availability.csv,Core 8 D+32 on_time_share x 100
+04_info_calendar.png,median_day|Core 8|M1,-32,-32.0,indicators_monthly.csv,"core8_overall_base2011 first, month 1, median release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,median_day|Core 8|M2,-1,-1.0,indicators_monthly.csv,"core8_overall_base2011 first, month 2, median release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,median_day|Core 8|M3,30,30.0,indicators_monthly.csv,"core8_overall_base2011 first, month 3, median release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,median_day|IIP|M1,-19,-19.0,indicators_monthly.csv,"iip_general_base2011 first, month 1, median release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,median_day|IIP|M2,12,12.0,indicators_monthly.csv,"iip_general_base2011 first, month 2, median release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,median_day|IIP|M3,42,42.0,indicators_monthly.csv,"iip_general_base2011 first, month 3, median release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,gdp_median_day,61,61.0,gdp.csv,"median release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,gdp_min_day,57,57,gdp.csv,"min release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,gdp_max_day,62,62,gdp.csv,"max release day after quarter-end, 2017Q2-2025Q3"
+04_info_calendar.png,core8_m3_lead_days,31,31.0,indicators_monthly.csv + gdp.csv,GDP median day minus core 8 month 3 median day
+05_gap.png,first_early_mean,0.2,0.21333333333333307,gdp.csv + indicators_quarterly.csv,"first-print core 8, mean gap 2023Q1-2024Q2"
+05_gap.png,first_late_mean,3.9,3.8825000000000003,gdp.csv + indicators_quarterly.csv,"first-print core 8, mean gap 2024Q3-2025Q3 (2024Q4 missing)"
+05_gap.png,n,11,11,gdp.csv,quarters 2023Q1 to 2025Q3
+05_gap.png,early_mean,0.1,0.0683333333333332,gdp.csv + indicators_quarterly.csv,"latest-vintage core 8, mean gap 2023Q1-2024Q2"
+05_gap.png,late_mean,3.5,3.4859999999999998,gdp.csv + indicators_quarterly.csv,"latest-vintage core 8, mean gap 2024Q3-2025Q3"
+05_gap.png,gap|2023Q1,-0.9,-0.9100000000000001,gdp.csv + indicators_quarterly.csv,2023Q1 first-print GDP minus latest core 8 YoY
+05_gap.png,gap|2025Q2,6.3,6.34,gdp.csv + indicators_quarterly.csv,2025Q2 first-print GDP minus latest core 8 YoY
+05_gap.png,gap|2025Q3,3.7,3.6899999999999995,gdp.csv + indicators_quarterly.csv,2025Q3 first-print GDP minus latest core 8 YoY

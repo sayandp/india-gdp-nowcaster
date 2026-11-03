@@ -2,6 +2,42 @@
 
 **With real-time data, simple indicators don't beat a naive rule for India's GDP first print in normal quarters. They only help in shocks.**
 
+## Key insights
+
+<!-- dashboard screenshot: add reports/readme/00_dashboard.png -->
+
+**Outside COVID, no model reliably beats repeating last quarter's GDP print.**
+
+![Horizontal bars of each model's RMSE relative to naive at D+32 outside COVID. Only Bridge: IIP with the COVID dummy dips below the naive line, to 0.97; every other bar is above it, up to 1.81](reports/readme/01_headline.png)
+
+Ten model and variant pairs on the test quarters 2022Q4 to 2025Q3 without 2022Q3, 9 to 12 quarters each: only Bridge: IIP with the COVID dummy edges below naive, at 0.97, and the core 8 bridge has 1.20 to 1.81 times naive's error.
+
+**In COVID, the core 8 bridge cut naive's error by 60%.**
+
+![Paired bars of RMSE in COVID test quarters at D+0, D+32 and D+45. Naive is 10.67 at every date; the core 8 bridge is 6.25 at D+0 and 4.29 at D+32 and D+45](reports/readme/02_covid.png)
+
+At D+32 its RMSE was 4.29 points against naive's 10.67, over 8 COVID test quarters from 2020Q3 to 2022Q2. At D+0, with fewer months out, the cut was 41%.
+
+**Outside COVID, nowcasts hug last quarter's print, which is why beating naive is hard.**
+
+![Line chart of GDP first-print growth from 2017Q2 to 2025Q3 with the naive and Bridge: IIP nowcasts at D+32. The COVID quarters are shaded; outside them all three lines run close together](reports/readme/03_timeline.png)
+
+Bridge: IIP has 18 nowcasts at D+32, from 2020Q4. Naive's one big miss outside COVID was 2022Q3, when it carried forward 13.5% against a 6.3% first print; that quarter is excluded from the headline comparison.
+
+**All three months of core 8 are out about a month before GDP.**
+
+![Dot plot of median release days after quarter-end. Core 8's three months land on days -32, -1 and 30, IIP's on days -19, 12 and 42, and the GDP first print on day 61](reports/readme/04_info_calendar.png)
+
+Core 8's third month lands on day 30 after quarter-end at the median, 31 days before GDP's median day 61 (range 57 to 62). All three months were out by D+32 in 100% of quarters.
+
+**GDP growth pulled away from core 8 growth from mid-2024.**
+
+![Column chart of GDP first-print growth minus core 8 YoY growth from 2023Q1 to 2025Q3. Columns are mostly near zero until 2024Q2, then positive, peaking at 6.3 points in 2025Q2](reports/readme/05_gap.png)
+
+The gap averaged 0.1 points in 2023Q1 to 2024Q2 and 3.5 in 2024Q3 to 2025Q3, using latest-vintage core 8 because its 2024Q4 first print is blank. On first prints the averages are 0.2 and 3.9. It's a pattern, not a tested explanation.
+
+## Overview
+
 ![RMSE by days before the GDP release: best model vs naive](reports/backtest_rmse_by_horizon.png)
 
 - **Question:** can monthly indicators such as the core 8 industries index and IIP predict India's quarterly real GDP growth before the official first estimate, and how early?
