@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 import numpy as np
 import pandas as pd
 import xlsxwriter
+from PIL import Image, ImageDraw, ImageFilter
 from xlsxwriter.utility import xl_rowcol_to_cell
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,8 @@ OUT = Path(os.environ.get("DASHBOARD_XLSX", ROOT / "dashboard" / "gdp_nowcaster.
 BG, CARD, INK, SEC, HAIR = "#F5F5F7", "#FFFFFF", "#1D1D1F", "#6E6E73", "#E5E5EA"
 BLUE, GRAY, RED, COVID_TINT, GREEN, ORANGE = "#007AFF", "#8E8E93", "#FF3B30", "#FFE0DE", "#34C759", "#FF9500"
 GREEN_TINT, RED_TINT = "#DDF6E3", "#FFE0DE"
+SEC_GLASS = "#3A3A3C"  # darker secondary text for contrast on the glass background
+BG_IMAGE = ROOT / "dashboard" / "assets" / "glass_bg.png"
 DISPLAY, DISPLAY_SEMI = "Segoe UI Variable Display", "Segoe UI Variable Display Semib"
 TEXT, TEXT_SEMI = "Segoe UI Variable Text", "Segoe UI Variable Text Semibold"
 
@@ -199,7 +202,9 @@ cd.hide()
 
 # ---------- chart helpers ----------
 AXIS_FONT = {"name": TEXT, "size": 10, "color": SEC}
-def style(chart, y_fmt="0.0", y_min=None, y_max=None, y_title=None, rotate=False, title=None):
+AXIS_GLASS = {**AXIS_FONT, "color": SEC_GLASS}
+def style(chart, y_fmt="0.0", y_min=None, y_max=None, y_title=None, rotate=False, title=None, sec=SEC):
+    axis_font = {**AXIS_FONT, "color": sec}
     if title:  # charts outside a card carry their own title
         chart.set_title({"name": title, "overlay": False, "layout": {"x": 0.02, "y": 0.03}, "name_font": {"name": TEXT_SEMI, "size": 13, "color": INK, "bold": False}})
     else:  # dashboard titles live in the card header cells
@@ -208,15 +213,15 @@ def style(chart, y_fmt="0.0", y_min=None, y_max=None, y_title=None, rotate=False
     chart.set_chartarea({"border": {"none": True}, "fill": {"none": True}})
     chart.set_plotarea({"border": {"none": True}, "fill": {"none": True}, "layout": {"x": 0.13, "y": 0.06, "width": 0.67, "height": 0.72 if rotate else 0.8}})
     chart.set_x_axis({"line": {"none": True}, "major_tick_mark": "none", "minor_tick_mark": "none", "label_position": "low",
-                      "num_font": {**AXIS_FONT, "rotation": -90} if rotate else AXIS_FONT, "major_gridlines": {"visible": False}})
-    y = {"line": {"none": True}, "major_tick_mark": "none", "num_font": AXIS_FONT, "num_format": y_fmt,
+                      "num_font": {**axis_font, "rotation": -90} if rotate else axis_font, "major_gridlines": {"visible": False}})
+    y = {"line": {"none": True}, "major_tick_mark": "none", "num_font": axis_font, "num_format": y_fmt,
          "major_gridlines": {"visible": True, "line": {"color": HAIR, "width": 0.5}}}
     if y_min is not None:
         y["min"] = y_min
     if y_max is not None:
         y["max"] = y_max
     if y_title:
-        y["name"], y["name_font"] = y_title, {"name": TEXT, "size": 10, "color": SEC, "bold": False}
+        y["name"], y["name_font"] = y_title, {"name": TEXT, "size": 10, "color": sec, "bold": False}
     chart.set_y_axis(y)
 
 def end_label(n, text, color, at=None, pos="right"):
@@ -232,12 +237,23 @@ def line(chart, values, cats, color, label=None, at=None, width=2.0, dash=None, 
         s["data_labels"] = end_label(values[3] - values[1] + 1, label, color, at, pos)
     chart.add_series(s)
 
-# ---------- Dashboard ----------
+# ---------- Dashboard (glass style) ----------
+def make_background(path):
+    """Soft pastel mesh: large colour blobs on #EEF2F8, blurred smooth. Deterministic."""
+    img = Image.new("RGB", (2400, 1400), "#EEF2F8")
+    d = ImageDraw.Draw(img)
+    for (cx, cy, r), colour in zip([(170, 140, 430), (920, 90, 400), (1080, 760, 440), (330, 860, 400)], ["#7AB8FF", "#C9A7FF", "#FFC7D9", "#A8F0E0"]):
+        d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=colour)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    img.filter(ImageFilter.GaussianBlur(120)).save(path, optimize=True)
+
+make_background(BG_IMAGE)
 setup(ws, landscape=True)
+ws.set_background(str(BG_IMAGE))  # shows on screen only; print and PDF fall back to white
 GUT, COLW = 1.6, 11.5
-LAYOUT = ["g"] + (["c"] * 3 + ["g"]) * 4  # A..Q: gutter, 4 x (3 card cols + gutter)
+LAYOUT = ["g"] + (["c"] * 3 + ["g"]) * 4  # A..Q: gutter, 4 x (3 card columns + gutter)
 for i, kind in enumerate(LAYOUT):
-    ws.set_column(i, i, GUT if kind == "g" else COLW, F["bg"])
+    ws.set_column(i, i, GUT if kind == "g" else COLW)  # no cell fill, so the background shows through
 ws.set_column(len(LAYOUT), 16383, None, None, {"hidden": True})  # nothing right of the dashboard area
 ws.set_default_row(15, hide_unused_rows=True)
 px_col = lambda w: int(w * 7 + 0.5) + 5
@@ -252,14 +268,25 @@ for top in (CH_TOP1, CH_TOP2):
     heights[top], heights[top + 1] = 26, 18
 for r in range(0, FOOT + 3):
     ws.set_row(r, heights.get(r, 15))
+row_px = lambda r0, r1: round(sum(heights.get(r, 15) for r in range(r0, r1 + 1)) * 4 / 3)
+col_px = lambda c0, c1: sum(px_col(GUT if LAYOUT[c] == "g" else COLW) for c in range(c0, c1 + 1))
 
-ws.merge_range(1, 1, 1, 15, "Can monthly indicators beat a naive rule for India's GDP?", F["title"])
-ws.merge_range(2, 1, 2, 15, "Not in normal quarters: the best model comes within 3% of naive. Indicators help only in shocks like COVID.", F["subtitle"])
+g_title = wb.add_format({"font_name": DISPLAY_SEMI, "font_size": 28, "font_color": INK, "valign": "bottom"})
+g_sub = wb.add_format({"font_name": TEXT, "font_size": 13, "font_color": SEC_GLASS, "valign": "top"})
+g_foot = wb.add_format({"font_name": TEXT, "font_size": 9, "font_color": SEC_GLASS, "valign": "top", "text_wrap": True})
+ws.merge_range(1, 1, 1, 15, "Can monthly indicators beat a naive rule for India's GDP?", g_title)
+ws.merge_range(2, 1, 2, 15, "Not in normal quarters: the best model comes within 3% of naive. Indicators help only in shocks like COVID.", g_sub)
 
-def card(r0, r1, c0, c1):
-    for r in range(r0, r1 + 1):
-        for c in range(c0, c1 + 1):
-            ws.write_blank(r, c, None, F["card"])
+GLASS_FILL = {"color": "#FFFFFF", "transparency": 40}
+GLASS_LINE = {"color": "#FFFFFF", "transparency": 40, "width": 1}
+def glass_card(r0, r1, c0, c1):
+    """Frosted card: a translucent white shape (rounded after saving), drawn behind the charts."""
+    ws.insert_textbox(r0, c0, "", {"width": col_px(c0, c1), "height": row_px(r0, r1), "fill": GLASS_FILL, "line": GLASS_LINE,
+                                   "object_position": 3, "description": "glass card"})
+
+def text_box(r, c0, c1, text, font, valign, rows=1):
+    ws.insert_textbox(r, c0, text, {"width": col_px(c0, c1), "height": row_px(r, r + rows - 1), "fill": {"none": True}, "line": {"none": True},
+                                    "font": font, "align": {"vertical": valign, "horizontal": "left"}, "object_position": 3})
 
 kpis = [
     (f"{best_rel:.2f}", "Best RMSE vs naive, outside COVID", f"{BEST}, D+32"),
@@ -267,18 +294,21 @@ kpis = [
     (f"{naive_pt:.1f}%", "Live call for 2026Q3, naive", f"± {naive_rmse:.2f} points. First print due 30 Nov 2026"),
     (f"{GDP_DAY}", "Median days to the GDP first print", f"After quarter-end, 2017Q2 to 2025Q3 (range {days.min()} to {days.max()})"),
 ]
+CHART_CARDS = [(CH_TOP1, 1), (CH_TOP1, 9), (CH_TOP2, 1), (CH_TOP2, 9)]
+for c0, c1 in CARD_COLS:
+    glass_card(4, 8, c0, c1)
+for top, c0 in CHART_CARDS:
+    glass_card(top, top + CH_ROWS - 1, c0, c0 + 6)
 for (c0, c1), (big, label, note) in zip(CARD_COLS, kpis):
-    card(4, 8, c0, c1)
-    ws.merge_range(5, c0, 5, c1, big, F["kpi"])
-    ws.merge_range(6, c0, 6, c1, label, F["kpi_label"])
-    ws.merge_range(7, c0, 7, c1, note, F["kpi_note"])
+    text_box(5, c0, c1, big, {"name": DISPLAY_SEMI, "size": 32, "color": INK}, "bottom")
+    text_box(6, c0, c1, label, {"name": TEXT, "size": 11, "color": INK}, "top")
+    text_box(7, c0, c1, note, {"name": TEXT, "size": 10, "color": SEC_GLASS}, "top")
 
 chart_w = px_col(COLW) * 6 + px_col(GUT) - 16  # 6 card columns + 1 gutter, less 8px padding each side
 chart_h = int((CH_ROWS - 2) * 20) - 8  # below the two header rows
 def place(chart, top, c0, title, subtitle):
-    card(top, top + CH_ROWS - 1, c0, c0 + 6)
-    ws.merge_range(top, c0, top, c0 + 6, title, F["card_title"])
-    ws.merge_range(top + 1, c0, top + 1, c0 + 6, subtitle, F["card_sub"])
+    text_box(top, c0, c0 + 6, title, {"name": TEXT_SEMI, "size": 13, "color": INK}, "bottom")
+    text_box(top + 1, c0, c0 + 6, subtitle, {"name": TEXT, "size": 10, "color": SEC_GLASS}, "top")
     chart.set_size({"width": chart_w, "height": chart_h})
     ws.insert_chart(top + 2, c0, chart, {"x_offset": 8, "y_offset": 0, "object_position": 1})
 
@@ -286,7 +316,7 @@ def place(chart, top, c0, title, subtitle):
 ch1 = wb.add_chart({"type": "line"})
 line(ch1, C1["model"], C1["cat"], BLUE, BEST)
 line(ch1, C1["naive"], C1["cat"], GRAY, "Naive")
-style(ch1, "0.0", 0, 1.4, "RMSE, points")
+style(ch1, "0.0", 0, 1.4, "RMSE, points", sec=SEC_GLASS)
 assert all(m > n for m, n in zip(c1_model, c1_naive))  # the title below depends on this
 place(ch1, CH_TOP1, 1, f"{BEST} stays above naive at every nowcast date",
       f"RMSE on the same {len(C1Q)} non-COVID quarters at every date ({C1Q[0]} to {C1Q[-1]}), n = {len(C1Q)}")
@@ -301,8 +331,8 @@ line(ln2, C2["actual"], C2["cat"], INK, "First print", iq("2021Q2"), pos="left")
 line(ln2, C2["naive"], C2["cat"], GRAY, "Naive", iq("2021Q3"), pos="right")
 line(ln2, C2["model"], C2["cat"], BLUE, BEST, c2_last_model, pos="below")
 ch2.combine(ln2)
-style(ch2, "0", -30, 25, "GDP growth, %", rotate=True)
-ch2.set_x_axis({"line": {"none": True}, "major_tick_mark": "none", "label_position": "low", "num_font": {**AXIS_FONT, "rotation": -90}, "interval_unit": 4})
+style(ch2, "0", -30, 25, "GDP growth, %", rotate=True, sec=SEC_GLASS)
+ch2.set_x_axis({"line": {"none": True}, "major_tick_mark": "none", "label_position": "low", "num_font": {**AXIS_GLASS, "rotation": -90}, "interval_unit": 4})
 ln2.show_blanks_as("gap")
 place(ch2, CH_TOP1, 9, "Outside COVID, nowcasts hug last quarter's print", f"{BEST} at D+32, {VARIANTS[BEST_VAR]}. COVID quarters shaded")
 
@@ -310,13 +340,13 @@ place(ch2, CH_TOP1, 9, "Outside COVID, nowcasts hug last quarter's print", f"{BE
 ch3 = wb.add_chart({"type": "bar"})
 ch3.add_series({"values": C3["rel"], "categories": C3["cat"], "gap": 45, "border": {"none": True},
                 "points": [{"fill": {"color": GREEN if v < 1 else GRAY}} for v in c3.rel_rmse],
-                "data_labels": {"value": True, "num_format": "0.00", "position": "outside_end", "font": {"name": TEXT, "size": 9, "color": SEC}}})
-style(ch3)
+                "data_labels": {"value": True, "num_format": "0.00", "position": "outside_end", "font": {"name": TEXT, "size": 9, "color": SEC_GLASS}}})
+style(ch3, sec=SEC_GLASS)
 ch3.set_x_axis({"min": 0.8, "max": 2.0, "crossing": 1, "label_position": "high", "major_unit": 0.2, "num_format": "0.0", "line": {"none": True}, "major_tick_mark": "none",
-                "num_font": AXIS_FONT, "major_gridlines": {"visible": False}, "name": "RMSE relative to naive (1.0 = naive)",
-                "name_font": {"name": TEXT, "size": 10, "color": SEC, "bold": False}})
+                "num_font": AXIS_GLASS, "major_gridlines": {"visible": False}, "name": "RMSE relative to naive (1.0 = naive)",
+                "name_font": {"name": TEXT, "size": 10, "color": SEC_GLASS, "bold": False}})
 ch3.set_y_axis({"reverse": True, "label_position": "low", "line": {"color": INK, "width": 1}, "major_tick_mark": "none",
-                "num_font": {**AXIS_FONT, "size": 9}, "major_gridlines": {"visible": False}})
+                "num_font": {**AXIS_GLASS, "size": 9}, "major_gridlines": {"visible": False}})
 ch3.set_plotarea({"border": {"none": True}, "fill": {"none": True}, "layout": {"x": 0.42, "y": 0.1, "width": 0.5, "height": 0.72}})
 place(ch3, CH_TOP2, 1, f"Only {BEST} edges below naive, by {100 * (1 - best_rel):.0f}%, at D+32", "Non-COVID quarters, excluding 2022Q3. Bars start at naive (1.0)")
 
@@ -328,12 +358,12 @@ ln4 = wb.add_chart({"type": "line"})
 line(ln4, C4["gdp"], C4["cat"], INK, "GDP")
 line(ln4, C4["core8"], C4["cat"], GRAY, "Core 8", GAPQ.index("2023Q3"), pos="above")
 ch4.combine(ln4)
-style(ch4, "0", -4, 12, "YoY growth, %", rotate=True)
+style(ch4, "0", -4, 12, "YoY growth, %", rotate=True, sec=SEC_GLASS)
 place(ch4, CH_TOP2, 9, "The GDP–core 8 gap widened from mid-2024", "Bars: GDP minus core 8 YoY. Core 8 is the latest vintage here (see note)")
 
 ws.merge_range(FOOT, 1, FOOT, 15, "Non-COVID test quarters exclude 2022Q3, where naive carried forward a 13.5% base-effect print. COVID quarters are 2020Q2 to 2022Q2. "
                f"Gap chart: the 2024Q4 core 8 first print is blank, so this chart alone uses latest-vintage core 8 throughout: the gap averages {gap_early:.1f} points in 2023Q1 to 2024Q2 and {gap_late:.1f} in 2024Q3 to 2025Q3. "
-               f"On first prints, as in the report, it is {gapf_early:.1f} and {gapf_late:.1f} (2024Q4 missing). A hypothesis, not tested. Built by dashboard/build_dashboard.py from data/processed.", F["footer"])
+               f"On first prints, as in the report, it is {gapf_early:.1f} and {gapf_late:.1f} (2024Q4 missing). A hypothesis, not tested. Built by dashboard/build_dashboard.py from data/processed.", g_foot)
 ws.print_area(0, 0, FOOT + 1, 16)
 ws.fit_to_pages(1, 1)
 ws.center_horizontally()
@@ -471,5 +501,39 @@ for i, w in enumerate([34, 13, 13, 15, 18, 20, 16, 40]):
     dm.set_column(i, i, w)
 
 wb.close()
+
+def finish_glass(path, radius_px=12):
+    """xlsxwriter writes charts before shapes and has no rounded rectangle. Move shapes behind the charts and round the glass cards."""
+    import zipfile
+    with zipfile.ZipFile(path) as z:
+        items = [(i, z.read(i.filename)) for i in z.infolist()]
+    out = []
+    for info, data in items:
+        if info.filename.startswith("xl/drawings/drawing") and b"<xdr:sp" in data:
+            xml = data.decode("utf8")
+            anchors = re.findall(r"<xdr:twoCellAnchor.*?</xdr:twoCellAnchor>", xml, flags=re.S)
+            head, tail = xml.split(anchors[0], 1)[0], xml.rsplit(anchors[-1], 1)[1]
+            def round_card(a):
+                if 'descr="glass card"' not in a:
+                    return a
+                # xlsxwriter drops transparency on shapes, so write the alpha into the fill and the line
+                fill_alpha, line_alpha = 100000 - GLASS_FILL["transparency"] * 1000, 100000 - GLASS_LINE["transparency"] * 1000
+                a = a.replace('<a:solidFill><a:srgbClr val="FFFFFF"/></a:solidFill><a:ln',
+                              f'<a:solidFill><a:srgbClr val="FFFFFF"><a:alpha val="{fill_alpha}"/></a:srgbClr></a:solidFill><a:ln', 1)
+                a = re.sub(r'(<a:ln w="\d+" cmpd="sng"><a:solidFill>)<a:srgbClr val="FFFFFF"/>', rf'\1<a:srgbClr val="FFFFFF"><a:alpha val="{line_alpha}"/></a:srgbClr>', a)
+                assert a.count("<a:alpha ") == 2, "glass card XML changed shape"
+                cx, cy = map(int, re.search(r'<a:ext cx="(\d+)" cy="(\d+)"', a).groups())
+                adj = int(radius_px * 9525 / min(cx, cy) * 100000)
+                return re.sub(r'<a:prstGeom prst="rect">\s*<a:avLst\s*/>\s*</a:prstGeom>',
+                              f'<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val {adj}"/></a:avLst></a:prstGeom>', a)
+            shapes = [round_card(a) for a in anchors if "<xdr:sp>" in a or "<xdr:sp " in a]
+            others = [a for a in anchors if not ("<xdr:sp>" in a or "<xdr:sp " in a)]
+            data = (head + "".join(shapes + others) + tail).encode("utf8")
+        out.append((info, data))
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as z:
+        for info, data in out:
+            z.writestr(info, data)
+
+finish_glass(OUT)
 print("Wrote", OUT)
 print("Best:", BEST, VARIANTS[BEST_VAR], round(best_rel, 4), "n", best_n, "| GDP day", GDP_DAY, "| gap", round(gap_early, 2), round(gap_late, 2))

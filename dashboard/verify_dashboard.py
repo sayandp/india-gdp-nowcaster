@@ -101,7 +101,16 @@ check("Chart 4: gap", close(col(19, 2, 12), (g - c8.reindex(gq)).round(4)))
 
 # Dashboard numbers
 ws = wb["Dashboard"]
-texts = {str(c.value) for row in ws.iter_rows() for c in row if c.value is not None}
+import zipfile
+XLSX = os.environ.get("DASHBOARD_XLSX", ROOT / "dashboard" / "gdp_nowcaster.xlsx")
+with zipfile.ZipFile(XLSX) as z:
+    drawing = z.read("xl/drawings/drawing1.xml").decode("utf8")  # Dashboard is sheet 1
+    sheet1 = z.read("xl/worksheets/sheet1.xml").decode("utf8")
+    media = [n for n in z.namelist() if n.startswith("xl/media/")]
+    dash_charts = [z.read(n).decode("utf8") for n in sorted(z.namelist()) if re.fullmatch(r"xl/charts/chart[1-4]\.xml", n)]
+# KPI and chart-header text now lives in text boxes, so read paragraphs from the drawing as well as cells
+box_text = ["".join(re.findall(r"<a:t>(.*?)</a:t>", p_)) for p_ in re.findall(r"<a:p>.*?</a:p>", drawing, flags=re.S)]
+texts = {str(c.value) for row in ws.iter_rows() for c in row if c.value is not None} | {t.replace("&amp;", "&") for t in box_text if t}
 best_rel = mx.rel_rmse.min()
 check("KPI: best relative RMSE 0.97", "0.97" in texts and round(best_rel, 2) == 0.97)
 check("KPI 1 subtext is 'Bridge · IIP, D+32'", "Bridge · IIP, D+32" in texts and mx[mx.rel_rmse == best_rel].model.iloc[0] == "5 Bridge: IIP")
@@ -119,6 +128,17 @@ check(f"Footnote: latest-vintage gap {fl[0]} then {fl[1]}", any(f"{fl[0]} points
 check(f"Footnote: first-print gap {ff[0]} and {ff[1]}, as in the report", ff == (0.2, 3.9) and any(f"it is {ff[0]} and {ff[1]}" in t for t in texts))
 check("Dashboard: columns right of Q hidden", any(d.hidden and d.min == 18 and d.max == 16384 for d in ws.column_dimensions.values()) and not any(d.hidden and d.min <= 17 for d in ws.column_dimensions.values()))
 check("Footer: 13.5% carried into 2022Q3", any("13.5%" in t for t in texts) and gdp.loc["2022Q2", "gdp_growth_first_print"] == 13.5)
+
+# Glass style (Dashboard)
+anchors = re.findall(r"<xdr:twoCellAnchor.*?</xdr:twoCellAnchor>", drawing, flags=re.S)
+kinds = ["shape" if "<xdr:sp" in a_ else "chart" for a_ in anchors]
+cards = [a_ for a_ in anchors if 'descr="glass card"' in a_]
+check("Glass: background image attached to the Dashboard", "<picture " in sheet1 and len(media) >= 1)
+check("Glass: no cell fills on the Dashboard", all(c.fill is None or c.fill.fill_type in (None, "none") for row in ws.iter_rows(min_row=1, max_row=50, max_col=17) for c in row))
+check("Glass: 8 rounded cards, white at 40% transparency with a 40% white border",
+      len(cards) == 8 and all('prst="roundRect"' in c_ and c_.count('<a:alpha val="60000"/>') == 2 for c_ in cards))
+check("Glass: cards and text drawn behind the charts", kinds == ["shape"] * kinds.count("shape") + ["chart"] * 4)
+check("Glass: dashboard chart and plot areas have no fill or border", len(dash_charts) >= 4 and all(x.count("<a:noFill/>") >= 4 for x in dash_charts[:4]))
 
 # Live call sheet against the live file
 lv = sheet_table(wb["Live call"], "LiveCall")

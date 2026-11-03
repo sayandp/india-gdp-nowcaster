@@ -11,3 +11,4 @@ ipykernel
 xlrd
 python-dotenv
 xlsxwriter
+pillow
