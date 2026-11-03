@@ -34,3 +34,5 @@ The Jul to Sep 2025 values in the YoY are from the 2022-23 back series in the sa
 ## Backtest context
 
 At D+32, outside COVID and excluding 2022Q3, 3 Bridge: core 8 had RMSE 1.26 points, against 1.05 for the naive rule (relative RMSE 1.20, Diebold-Mariano p = 0.58, n = 11 test quarters). With so few quarters, the test can't tell the two apart. See notebooks/04_models.ipynb.
+
+**Model 8 (change model, Phase 4b), added 03 Nov 2026:** 7.7% (range 6.6% to 8.8%, ±1 RMSE 1.09, (a) COVID dropped from training, D+32, excluding 2022Q3; relative RMSE 1.17 vs naive, DM p = 0.30, n = 9). It adds the predicted change to the 2026Q2 first print of 7.8%. The predicted change comes from the move in 2022-23 base core 8 YoY from 3.94% in 2026Q2 to 6.27% in 2026Q3, both from the 21 Oct 2026 file. The same base mismatch applies.

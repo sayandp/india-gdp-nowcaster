@@ -132,6 +132,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 3 Bridge: core 8,dummy,D+0,2020Q4,2020-12-31,-4.063212947730488,9.0,core8:12,0.4,-7.5,2020Q3,57
 4 Bridge + AR: core 8,dummy,D+0,2020Q4,2020-12-31,-10.254843855210293,9.0,core8:12,0.4,-7.5,2020Q3,57
 5 Bridge: IIP,dummy,D+0,2020Q4,2020-12-31,-4.927323164446409,8.0,iip:1,0.4,-7.5,2020Q3,57
+8 Change: Δ core 8,dummy,D+0,2020Q4,2020-12-31,-2.895523110421103,8.0,core8:12,0.4,-7.5,2020Q3,57
 1 Naive,drop,D+32,2020Q4,2021-02-01,-7.5,,,0.4,-7.5,2020Q3,25
 1 Naive,dummy,D+32,2020Q4,2021-02-01,-7.5,,,0.4,-7.5,2020Q3,25
 2 AR(1),drop,D+32,2020Q4,2021-02-01,-8.84776724563037,12.0,,0.4,-7.5,2020Q3,25
@@ -139,12 +140,14 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 3 Bridge: core 8,dummy,D+32,2020Q4,2021-02-01,-4.0764289280123975,9.0,core8:123,0.4,-7.5,2020Q3,25
 4 Bridge + AR: core 8,dummy,D+32,2020Q4,2021-02-01,-8.461108852162281,9.0,core8:123,0.4,-7.5,2020Q3,25
 5 Bridge: IIP,dummy,D+32,2020Q4,2021-02-01,-4.927323164446409,8.0,iip:1,0.4,-7.5,2020Q3,25
+8 Change: Δ core 8,dummy,D+32,2020Q4,2021-02-01,-4.355157629406009,8.0,core8:123,0.4,-7.5,2020Q3,25
 1 Naive,drop,D+45,2020Q4,2021-02-14,-7.5,,,0.4,-7.5,2020Q3,12
 1 Naive,dummy,D+45,2020Q4,2021-02-14,-7.5,,,0.4,-7.5,2020Q3,12
 2 AR(1),drop,D+45,2020Q4,2021-02-14,-8.84776724563037,12.0,,0.4,-7.5,2020Q3,12
 2 AR(1),dummy,D+45,2020Q4,2021-02-14,-17.265487401541947,14.0,,0.4,-7.5,2020Q3,12
 3 Bridge: core 8,dummy,D+45,2020Q4,2021-02-14,-4.0764289280123975,9.0,core8:123,0.4,-7.5,2020Q3,12
 4 Bridge + AR: core 8,dummy,D+45,2020Q4,2021-02-14,-8.461108852162281,9.0,core8:123,0.4,-7.5,2020Q3,12
+8 Change: Δ core 8,dummy,D+45,2020Q4,2021-02-14,-4.355157629406009,8.0,core8:123,0.4,-7.5,2020Q3,12
 1 Naive,drop,D+0,2021Q1,2021-03-31,0.4,,,1.6,0.4,2020Q4,61
 1 Naive,dummy,D+0,2021Q1,2021-03-31,0.4,,,1.6,0.4,2020Q4,61
 2 AR(1),drop,D+0,2021Q1,2021-03-31,-0.3166675798586349,12.0,,1.6,0.4,2020Q4,61
@@ -152,18 +155,21 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 3 Bridge: core 8,dummy,D+0,2021Q1,2021-03-31,-1.725754030974341,10.0,core8:12,1.6,0.4,2020Q4,61
 4 Bridge + AR: core 8,dummy,D+0,2021Q1,2021-03-31,-1.8394004386012246,10.0,core8:12,1.6,0.4,2020Q4,61
 5 Bridge: IIP,dummy,D+0,2021Q1,2021-03-31,-2.0893838741814252,9.0,iip:1,1.6,0.4,2020Q4,61
+8 Change: Δ core 8,dummy,D+0,2021Q1,2021-03-31,0.30854730678914566,9.0,core8:12,1.6,0.4,2020Q4,61
 1 Naive,drop,D+32,2021Q1,2021-05-02,0.4,,,1.6,0.4,2020Q4,29
 1 Naive,dummy,D+32,2021Q1,2021-05-02,0.4,,,1.6,0.4,2020Q4,29
 2 AR(1),drop,D+32,2021Q1,2021-05-02,-0.3166675798586349,12.0,,1.6,0.4,2020Q4,29
 2 AR(1),dummy,D+32,2021Q1,2021-05-02,-14.769997123571786,15.0,,1.6,0.4,2020Q4,29
 3 Bridge: core 8,dummy,D+32,2021Q1,2021-05-02,-0.5212151339762241,10.0,core8:123,1.6,0.4,2020Q4,29
 4 Bridge + AR: core 8,dummy,D+32,2021Q1,2021-05-02,-0.24766674282439238,10.0,core8:123,1.6,0.4,2020Q4,29
+8 Change: Δ core 8,dummy,D+32,2021Q1,2021-05-02,0.7958253358655984,9.0,core8:123,1.6,0.4,2020Q4,29
 1 Naive,drop,D+45,2021Q1,2021-05-15,0.4,,,1.6,0.4,2020Q4,16
 1 Naive,dummy,D+45,2021Q1,2021-05-15,0.4,,,1.6,0.4,2020Q4,16
 2 AR(1),drop,D+45,2021Q1,2021-05-15,-0.3166675798586349,12.0,,1.6,0.4,2020Q4,16
 2 AR(1),dummy,D+45,2021Q1,2021-05-15,-14.769997123571786,15.0,,1.6,0.4,2020Q4,16
 3 Bridge: core 8,dummy,D+45,2021Q1,2021-05-15,-0.5212151339762241,10.0,core8:123,1.6,0.4,2020Q4,16
 4 Bridge + AR: core 8,dummy,D+45,2021Q1,2021-05-15,-0.24766674282439238,10.0,core8:123,1.6,0.4,2020Q4,16
+8 Change: Δ core 8,dummy,D+45,2021Q1,2021-05-15,0.7958253358655984,9.0,core8:123,1.6,0.4,2020Q4,16
 1 Naive,drop,D+0,2021Q2,2021-06-30,1.6,,,20.1,1.6,2021Q1,62
 1 Naive,dummy,D+0,2021Q2,2021-06-30,1.6,,,20.1,1.6,2021Q1,62
 2 AR(1),drop,D+0,2021Q2,2021-06-30,0.9791956605117553,12.0,,20.1,1.6,2021Q1,62
@@ -171,18 +177,21 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 3 Bridge: core 8,dummy,D+0,2021Q2,2021-06-30,29.437111961863664,11.0,core8:12,20.1,1.6,2021Q1,62
 4 Bridge + AR: core 8,dummy,D+0,2021Q2,2021-06-30,30.88785724249541,11.0,core8:12,20.1,1.6,2021Q1,62
 5 Bridge: IIP,dummy,D+0,2021Q2,2021-06-30,62.8424193304416,10.0,iip:1,20.1,1.6,2021Q1,62
+8 Change: Δ core 8,dummy,D+0,2021Q2,2021-06-30,30.266271109221943,10.0,core8:12,20.1,1.6,2021Q1,62
 1 Naive,drop,D+32,2021Q2,2021-08-01,1.6,,,20.1,1.6,2021Q1,30
 1 Naive,dummy,D+32,2021Q2,2021-08-01,1.6,,,20.1,1.6,2021Q1,30
 2 AR(1),drop,D+32,2021Q2,2021-08-01,0.9791956605117553,12.0,,20.1,1.6,2021Q1,30
 2 AR(1),dummy,D+32,2021Q2,2021-08-01,-8.957746166755243,16.0,,20.1,1.6,2021Q1,30
 3 Bridge: core 8,dummy,D+32,2021Q2,2021-08-01,25.431518246927197,11.0,core8:123,20.1,1.6,2021Q1,30
 4 Bridge + AR: core 8,dummy,D+32,2021Q2,2021-08-01,26.50953182520958,11.0,core8:123,20.1,1.6,2021Q1,30
+8 Change: Δ core 8,dummy,D+32,2021Q2,2021-08-01,27.50684568268034,10.0,core8:123,20.1,1.6,2021Q1,30
 1 Naive,drop,D+45,2021Q2,2021-08-14,1.6,,,20.1,1.6,2021Q1,17
 1 Naive,dummy,D+45,2021Q2,2021-08-14,1.6,,,20.1,1.6,2021Q1,17
 2 AR(1),drop,D+45,2021Q2,2021-08-14,0.9791956605117553,12.0,,20.1,1.6,2021Q1,17
 2 AR(1),dummy,D+45,2021Q2,2021-08-14,-8.957746166755243,16.0,,20.1,1.6,2021Q1,17
 3 Bridge: core 8,dummy,D+45,2021Q2,2021-08-14,25.431518246927197,11.0,core8:123,20.1,1.6,2021Q1,17
 4 Bridge + AR: core 8,dummy,D+45,2021Q2,2021-08-14,26.50953182520958,11.0,core8:123,20.1,1.6,2021Q1,17
+8 Change: Δ core 8,dummy,D+45,2021Q2,2021-08-14,27.50684568268034,10.0,core8:123,20.1,1.6,2021Q1,17
 1 Naive,drop,D+0,2021Q3,2021-09-30,20.1,,,8.4,20.1,2021Q2,61
 1 Naive,dummy,D+0,2021Q3,2021-09-30,20.1,,,8.4,20.1,2021Q2,61
 2 AR(1),drop,D+0,2021Q3,2021-09-30,20.957087282888605,12.0,,8.4,20.1,2021Q2,61
@@ -191,6 +200,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 4 Bridge + AR: core 8,dummy,D+0,2021Q3,2021-09-30,6.607762843468883,12.0,core8:12,8.4,20.1,2021Q2,61
 5 Bridge: IIP,dummy,D+0,2021Q3,2021-09-30,0.6312587437738664,11.0,iip:1,8.4,20.1,2021Q2,61
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2021Q3,2021-09-30,10.74391499733266,8.0,"core8:12,eway:12",8.4,20.1,2021Q2,61
+8 Change: Δ core 8,dummy,D+0,2021Q3,2021-09-30,4.646935562555269,11.0,core8:12,8.4,20.1,2021Q2,61
 1 Naive,drop,D+32,2021Q3,2021-11-01,20.1,,,8.4,20.1,2021Q2,29
 1 Naive,dummy,D+32,2021Q3,2021-11-01,20.1,,,8.4,20.1,2021Q2,29
 2 AR(1),drop,D+32,2021Q3,2021-11-01,20.957087282888605,12.0,,8.4,20.1,2021Q2,29
@@ -199,6 +209,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 4 Bridge + AR: core 8,dummy,D+32,2021Q3,2021-11-01,7.614423404088239,12.0,core8:123,8.4,20.1,2021Q2,29
 5 Bridge: IIP,dummy,D+32,2021Q3,2021-11-01,2.5369806502682275,8.0,iip:12,8.4,20.1,2021Q2,29
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2021Q3,2021-11-01,3.1658151948989026,8.0,"core8:123,eway:123",8.4,20.1,2021Q2,29
+8 Change: Δ core 8,dummy,D+32,2021Q3,2021-11-01,4.133499000573767,11.0,core8:123,8.4,20.1,2021Q2,29
 1 Naive,drop,D+45,2021Q3,2021-11-14,20.1,,,8.4,20.1,2021Q2,16
 1 Naive,dummy,D+45,2021Q3,2021-11-14,20.1,,,8.4,20.1,2021Q2,16
 2 AR(1),drop,D+45,2021Q3,2021-11-14,20.957087282888605,12.0,,8.4,20.1,2021Q2,16
@@ -206,6 +217,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 3 Bridge: core 8,dummy,D+45,2021Q3,2021-11-14,7.596655832295627,12.0,core8:123,8.4,20.1,2021Q2,16
 4 Bridge + AR: core 8,dummy,D+45,2021Q3,2021-11-14,7.614423404088239,12.0,core8:123,8.4,20.1,2021Q2,16
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2021Q3,2021-11-14,3.1658151948989026,8.0,"core8:123,eway:123",8.4,20.1,2021Q2,16
+8 Change: Δ core 8,dummy,D+45,2021Q3,2021-11-14,4.133499000573767,11.0,core8:123,8.4,20.1,2021Q2,16
 1 Naive,drop,D+0,2021Q4,2021-12-31,8.4,,,5.4,8.4,2021Q3,59
 1 Naive,dummy,D+0,2021Q4,2021-12-31,8.4,,,5.4,8.4,2021Q3,59
 2 AR(1),drop,D+0,2021Q4,2021-12-31,8.3224206892773,12.0,,5.4,8.4,2021Q3,59
@@ -215,6 +227,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 5 Bridge: IIP,dummy,D+0,2021Q4,2021-12-31,1.1023083454732356,12.0,iip:1,5.4,8.4,2021Q3,59
 6a Bridge + exports,dummy,D+0,2021Q4,2021-12-31,3.353960484001068,8.0,"core8:12,exports:12",5.4,8.4,2021Q3,59
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2021Q4,2021-12-31,6.76530881832886,9.0,"core8:12,eway:12",5.4,8.4,2021Q3,59
+8 Change: Δ core 8,dummy,D+0,2021Q4,2021-12-31,5.004608107019107,12.0,core8:12,5.4,8.4,2021Q3,59
 1 Naive,drop,D+32,2021Q4,2022-02-01,8.4,,,5.4,8.4,2021Q3,27
 1 Naive,dummy,D+32,2021Q4,2022-02-01,8.4,,,5.4,8.4,2021Q3,27
 2 AR(1),drop,D+32,2021Q4,2022-02-01,8.3224206892773,12.0,,5.4,8.4,2021Q3,27
@@ -224,6 +237,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 5 Bridge: IIP,dummy,D+32,2021Q4,2022-02-01,1.1023083454732356,12.0,iip:1,5.4,8.4,2021Q3,27
 6a Bridge + exports,dummy,D+32,2021Q4,2022-02-01,4.471648931152343,8.0,"core8:123,exports:123",5.4,8.4,2021Q3,27
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2021Q4,2022-02-01,2.423655805515607,9.0,"core8:123,eway:123",5.4,8.4,2021Q3,27
+8 Change: Δ core 8,dummy,D+32,2021Q4,2022-02-01,4.677608284052724,12.0,core8:123,5.4,8.4,2021Q3,27
 1 Naive,drop,D+45,2021Q4,2022-02-14,8.4,,,5.4,8.4,2021Q3,14
 1 Naive,dummy,D+45,2021Q4,2022-02-14,8.4,,,5.4,8.4,2021Q3,14
 2 AR(1),drop,D+45,2021Q4,2022-02-14,8.3224206892773,12.0,,5.4,8.4,2021Q3,14
@@ -232,6 +246,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 4 Bridge + AR: core 8,dummy,D+45,2021Q4,2022-02-14,4.727300411301454,13.0,core8:123,5.4,8.4,2021Q3,14
 6a Bridge + exports,dummy,D+45,2021Q4,2022-02-14,4.471648931152343,8.0,"core8:123,exports:123",5.4,8.4,2021Q3,14
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2021Q4,2022-02-14,2.423655805515607,9.0,"core8:123,eway:123",5.4,8.4,2021Q3,14
+8 Change: Δ core 8,dummy,D+45,2021Q4,2022-02-14,4.677608284052724,12.0,core8:123,5.4,8.4,2021Q3,14
 1 Naive,drop,D+0,2022Q1,2022-03-31,5.4,,,4.1,5.4,2021Q4,61
 1 Naive,dummy,D+0,2022Q1,2022-03-31,5.4,,,4.1,5.4,2021Q4,61
 2 AR(1),drop,D+0,2022Q1,2022-03-31,5.082762588351324,12.0,,4.1,5.4,2021Q4,61
@@ -240,6 +255,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 4 Bridge + AR: core 8,dummy,D+0,2022Q1,2022-03-31,3.4528646629641386,14.0,core8:12,4.1,5.4,2021Q4,61
 5 Bridge: IIP,dummy,D+0,2022Q1,2022-03-31,1.6497532039492828,13.0,iip:1,4.1,5.4,2021Q4,61
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2022Q1,2022-03-31,4.30507303465074,10.0,"core8:12,eway:12",4.1,5.4,2021Q4,61
+8 Change: Δ core 8,dummy,D+0,2022Q1,2022-03-31,4.793167933904972,13.0,core8:12,4.1,5.4,2021Q4,61
 1 Naive,drop,D+32,2022Q1,2022-05-02,5.4,,,4.1,5.4,2021Q4,29
 1 Naive,dummy,D+32,2022Q1,2022-05-02,5.4,,,4.1,5.4,2021Q4,29
 2 AR(1),drop,D+32,2022Q1,2022-05-02,5.082762588351324,12.0,,4.1,5.4,2021Q4,29
@@ -249,6 +265,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 5 Bridge: IIP,dummy,D+32,2022Q1,2022-05-02,0.9660904466134088,9.0,iip:12,4.1,5.4,2021Q4,29
 6b Bridge + GST,dummy,D+32,2022Q1,2022-05-02,5.908809581690348,10.0,"core8:123,gst:3",4.1,5.4,2021Q4,29
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2022Q1,2022-05-02,5.387123745195734,10.0,"core8:123,eway:123",4.1,5.4,2021Q4,29
+8 Change: Δ core 8,dummy,D+32,2022Q1,2022-05-02,5.685368787412456,13.0,core8:123,4.1,5.4,2021Q4,29
 1 Naive,drop,D+45,2022Q1,2022-05-15,5.4,,,4.1,5.4,2021Q4,16
 1 Naive,dummy,D+45,2022Q1,2022-05-15,5.4,,,4.1,5.4,2021Q4,16
 2 AR(1),drop,D+45,2022Q1,2022-05-15,5.082762588351324,12.0,,4.1,5.4,2021Q4,16
@@ -258,6 +275,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 5 Bridge: IIP,dummy,D+45,2022Q1,2022-05-15,0.9660904466134088,9.0,iip:12,4.1,5.4,2021Q4,16
 6b Bridge + GST,dummy,D+45,2022Q1,2022-05-15,5.908809581690348,10.0,"core8:123,gst:3",4.1,5.4,2021Q4,16
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2022Q1,2022-05-15,5.387123745195734,10.0,"core8:123,eway:123",4.1,5.4,2021Q4,16
+8 Change: Δ core 8,dummy,D+45,2022Q1,2022-05-15,5.685368787412456,13.0,core8:123,4.1,5.4,2021Q4,16
 1 Naive,drop,D+0,2022Q2,2022-06-30,4.1,,,13.5,4.1,2022Q1,62
 1 Naive,dummy,D+0,2022Q2,2022-06-30,4.1,,,13.5,4.1,2022Q1,62
 2 AR(1),drop,D+0,2022Q2,2022-06-30,3.6789107446167337,12.0,,13.5,4.1,2022Q1,62
@@ -268,6 +286,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6a Bridge + exports,dummy,D+0,2022Q2,2022-06-30,11.56569465790912,9.0,"core8:12,exports:12",13.5,4.1,2022Q1,62
 6b Bridge + GST,dummy,D+0,2022Q2,2022-06-30,2.607955790237847,8.0,"core8:12,gst:12",13.5,4.1,2022Q1,62
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2022Q2,2022-06-30,10.068922225138072,11.0,"core8:12,eway:12",13.5,4.1,2022Q1,62
+8 Change: Δ core 8,dummy,D+0,2022Q2,2022-06-30,9.735543266350678,14.0,core8:12,13.5,4.1,2022Q1,62
 1 Naive,drop,D+32,2022Q2,2022-08-01,4.1,,,13.5,4.1,2022Q1,30
 1 Naive,dummy,D+32,2022Q2,2022-08-01,4.1,,,13.5,4.1,2022Q1,30
 2 AR(1),drop,D+32,2022Q2,2022-08-01,3.6789107446167337,12.0,,13.5,4.1,2022Q1,30
@@ -277,6 +296,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 5 Bridge: IIP,dummy,D+32,2022Q2,2022-08-01,4.718423952411066,10.0,iip:12,13.5,4.1,2022Q1,30
 6a Bridge + exports,dummy,D+32,2022Q2,2022-08-01,11.962174003483472,9.0,"core8:123,exports:123",13.5,4.1,2022Q1,30
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2022Q2,2022-08-01,11.454338067115293,11.0,"core8:123,eway:123",13.5,4.1,2022Q1,30
+8 Change: Δ core 8,dummy,D+32,2022Q2,2022-08-01,9.633331591014127,14.0,core8:123,13.5,4.1,2022Q1,30
 1 Naive,drop,D+45,2022Q2,2022-08-14,4.1,,,13.5,4.1,2022Q1,17
 1 Naive,dummy,D+45,2022Q2,2022-08-14,4.1,,,13.5,4.1,2022Q1,17
 2 AR(1),drop,D+45,2022Q2,2022-08-14,3.6789107446167337,12.0,,13.5,4.1,2022Q1,17
@@ -285,6 +305,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 4 Bridge + AR: core 8,dummy,D+45,2022Q2,2022-08-14,11.342902409174282,15.0,core8:123,13.5,4.1,2022Q1,17
 6a Bridge + exports,dummy,D+45,2022Q2,2022-08-14,11.962174003483472,9.0,"core8:123,exports:123",13.5,4.1,2022Q1,17
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2022Q2,2022-08-14,11.454338067115293,11.0,"core8:123,eway:123",13.5,4.1,2022Q1,17
+8 Change: Δ core 8,dummy,D+45,2022Q2,2022-08-14,9.633331591014127,14.0,core8:123,13.5,4.1,2022Q1,17
 1 Naive,drop,D+0,2022Q3,2022-09-30,13.5,,,6.3,13.5,2022Q2,61
 1 Naive,dummy,D+0,2022Q3,2022-09-30,13.5,,,6.3,13.5,2022Q2,61
 2 AR(1),drop,D+0,2022Q3,2022-09-30,13.829839460851456,12.0,,6.3,13.5,2022Q2,61
@@ -295,6 +316,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6a Bridge + exports,dummy,D+0,2022Q3,2022-09-30,7.713097242954281,10.0,"core8:12,exports:12",6.3,13.5,2022Q2,61
 6b Bridge + GST,dummy,D+0,2022Q3,2022-09-30,8.217758159179919,9.0,"core8:12,gst:12",6.3,13.5,2022Q2,61
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2022Q3,2022-09-30,6.984874706660334,12.0,"core8:12,eway:12",6.3,13.5,2022Q2,61
+8 Change: Δ core 8,dummy,D+0,2022Q3,2022-09-30,6.215695173967959,15.0,core8:12,6.3,13.5,2022Q2,61
 1 Naive,drop,D+32,2022Q3,2022-11-01,13.5,,,6.3,13.5,2022Q2,29
 1 Naive,dummy,D+32,2022Q3,2022-11-01,13.5,,,6.3,13.5,2022Q2,29
 2 AR(1),drop,D+32,2022Q3,2022-11-01,13.829839460851456,12.0,,6.3,13.5,2022Q2,29
@@ -305,6 +327,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6a Bridge + exports,dummy,D+32,2022Q3,2022-11-01,9.95126182963298,10.0,"core8:123,exports:123",6.3,13.5,2022Q2,29
 6b Bridge + GST,dummy,D+32,2022Q3,2022-11-01,9.827153491517448,9.0,"core8:123,gst:12",6.3,13.5,2022Q2,29
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2022Q3,2022-11-01,9.89749194457628,12.0,"core8:123,eway:123",6.3,13.5,2022Q2,29
+8 Change: Δ core 8,dummy,D+32,2022Q3,2022-11-01,5.926119474985861,15.0,core8:123,6.3,13.5,2022Q2,29
 1 Naive,drop,D+45,2022Q3,2022-11-14,13.5,,,6.3,13.5,2022Q2,16
 1 Naive,dummy,D+45,2022Q3,2022-11-14,13.5,,,6.3,13.5,2022Q2,16
 2 AR(1),drop,D+45,2022Q3,2022-11-14,13.829839460851456,12.0,,6.3,13.5,2022Q2,16
@@ -314,6 +337,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6a Bridge + exports,dummy,D+45,2022Q3,2022-11-14,9.95126182963298,10.0,"core8:123,exports:123",6.3,13.5,2022Q2,16
 6b Bridge + GST,dummy,D+45,2022Q3,2022-11-14,9.827153491517448,9.0,"core8:123,gst:12",6.3,13.5,2022Q2,16
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2022Q3,2022-11-14,9.89749194457628,12.0,"core8:123,eway:123",6.3,13.5,2022Q2,16
+8 Change: Δ core 8,dummy,D+45,2022Q3,2022-11-14,5.926119474985861,15.0,core8:123,6.3,13.5,2022Q2,16
 1 Naive,drop,D+0,2022Q4,2022-12-31,6.3,,,4.4,6.3,2022Q3,59
 1 Naive,dummy,D+0,2022Q4,2022-12-31,6.3,,,4.4,6.3,2022Q3,59
 2 AR(1),drop,D+0,2022Q4,2022-12-31,6.054660018629116,12.0,,4.4,6.3,2022Q3,59
@@ -326,6 +350,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6a Bridge + exports,dummy,D+0,2022Q4,2022-12-31,7.164167987864068,11.0,"core8:12,exports:12",4.4,6.3,2022Q3,59
 6b Bridge + GST,dummy,D+0,2022Q4,2022-12-31,5.758437952293302,10.0,"core8:12,gst:12",4.4,6.3,2022Q3,59
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2022Q4,2022-12-31,4.678988320875925,13.0,"core8:12,eway:12",4.4,6.3,2022Q3,59
+8 Change: Δ core 8,dummy,D+0,2022Q4,2022-12-31,5.1843243026268055,16.0,core8:12,4.4,6.3,2022Q3,59
 1 Naive,drop,D+32,2022Q4,2023-02-01,6.3,,,4.4,6.3,2022Q3,27
 1 Naive,dummy,D+32,2022Q4,2023-02-01,6.3,,,4.4,6.3,2022Q3,27
 2 AR(1),drop,D+32,2022Q4,2023-02-01,6.054660018629116,12.0,,4.4,6.3,2022Q3,27
@@ -337,6 +362,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6a Bridge + exports,dummy,D+32,2022Q4,2023-02-01,8.047720129450441,11.0,"core8:123,exports:123",4.4,6.3,2022Q3,27
 6b Bridge + GST,dummy,D+32,2022Q4,2023-02-01,8.078322228571425,10.0,"core8:123,gst:12",4.4,6.3,2022Q3,27
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2022Q4,2023-02-01,8.434885120267115,13.0,"core8:123,eway:123",4.4,6.3,2022Q3,27
+8 Change: Δ core 8,dummy,D+32,2022Q4,2023-02-01,5.461616103052011,16.0,core8:123,4.4,6.3,2022Q3,27
 1 Naive,drop,D+45,2022Q4,2023-02-14,6.3,,,4.4,6.3,2022Q3,14
 1 Naive,dummy,D+45,2022Q4,2023-02-14,6.3,,,4.4,6.3,2022Q3,14
 2 AR(1),drop,D+45,2022Q4,2023-02-14,6.054660018629116,12.0,,4.4,6.3,2022Q3,14
@@ -347,6 +373,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6a Bridge + exports,dummy,D+45,2022Q4,2023-02-14,8.047720129450441,11.0,"core8:123,exports:123",4.4,6.3,2022Q3,14
 6b Bridge + GST,dummy,D+45,2022Q4,2023-02-14,8.078322228571425,10.0,"core8:123,gst:12",4.4,6.3,2022Q3,14
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2022Q4,2023-02-14,8.434885120267115,13.0,"core8:123,eway:123",4.4,6.3,2022Q3,14
+8 Change: Δ core 8,dummy,D+45,2022Q4,2023-02-14,5.461616103052011,16.0,core8:123,4.4,6.3,2022Q3,14
 1 Naive,drop,D+0,2023Q1,2023-03-31,4.4,,,6.1,4.4,2022Q4,61
 1 Naive,dummy,D+0,2023Q1,2023-03-31,4.4,,,6.1,4.4,2022Q4,61
 2 AR(1),drop,D+0,2023Q1,2023-03-31,3.886407766990294,13.0,,6.1,4.4,2022Q4,61
@@ -358,6 +385,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 5 Bridge: IIP,drop,D+0,2023Q1,2023-03-31,6.42803995854646,9.0,iip:1,6.1,4.4,2022Q4,61
 5 Bridge: IIP,dummy,D+0,2023Q1,2023-03-31,6.141391698291067,17.0,iip:1,6.1,4.4,2022Q4,61
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2023Q1,2023-03-31,8.884096595057898,14.0,"core8:12,eway:12",6.1,4.4,2022Q4,61
+8 Change: Δ core 8,dummy,D+0,2023Q1,2023-03-31,6.087451070511897,17.0,core8:12,6.1,4.4,2022Q4,61
 1 Naive,drop,D+32,2023Q1,2023-05-02,4.4,,,6.1,4.4,2022Q4,29
 1 Naive,dummy,D+32,2023Q1,2023-05-02,4.4,,,6.1,4.4,2022Q4,29
 2 AR(1),drop,D+32,2023Q1,2023-05-02,3.886407766990294,13.0,,6.1,4.4,2022Q4,29
@@ -369,6 +397,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 5 Bridge: IIP,dummy,D+32,2023Q1,2023-05-02,6.851184760777062,13.0,iip:12,6.1,4.4,2022Q4,29
 6b Bridge + GST,dummy,D+32,2023Q1,2023-05-02,10.835333148678133,12.0,"core8:123,gst:3",6.1,4.4,2022Q4,29
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2023Q1,2023-05-02,8.313894571841033,14.0,"core8:123,eway:123",6.1,4.4,2022Q4,29
+8 Change: Δ core 8,dummy,D+32,2023Q1,2023-05-02,5.212152035436116,17.0,core8:123,6.1,4.4,2022Q4,29
 1 Naive,drop,D+45,2023Q1,2023-05-15,4.4,,,6.1,4.4,2022Q4,16
 1 Naive,dummy,D+45,2023Q1,2023-05-15,4.4,,,6.1,4.4,2022Q4,16
 2 AR(1),drop,D+45,2023Q1,2023-05-15,3.886407766990294,13.0,,6.1,4.4,2022Q4,16
@@ -379,6 +408,7 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 4 Bridge + AR: core 8,dummy,D+45,2023Q1,2023-05-15,8.163289126682852,18.0,core8:123,6.1,4.4,2022Q4,16
 6b Bridge + GST,dummy,D+45,2023Q1,2023-05-15,10.835333148678133,12.0,"core8:123,gst:3",6.1,4.4,2022Q4,16
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2023Q1,2023-05-15,8.313894571841033,14.0,"core8:123,eway:123",6.1,4.4,2022Q4,16
+8 Change: Δ core 8,dummy,D+45,2023Q1,2023-05-15,5.212152035436116,17.0,core8:123,6.1,4.4,2022Q4,16
 1 Naive,drop,D+0,2023Q2,2023-06-30,6.1,,,7.8,6.1,2023Q1,62
 1 Naive,dummy,D+0,2023Q2,2023-06-30,6.1,,,7.8,6.1,2023Q1,62
 2 AR(1),drop,D+0,2023Q2,2023-06-30,5.873320895522391,14.0,,7.8,6.1,2023Q1,62
@@ -393,6 +423,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6b Bridge + GST,dummy,D+0,2023Q2,2023-06-30,6.813046327024105,11.0,"core8:12,gst:1",7.8,6.1,2023Q1,62
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2023Q2,2023-06-30,6.787649970841862,15.0,"core8:12,eway:12",7.8,6.1,2023Q1,62
 7b Bridge + diesel [look-ahead],dummy,D+0,2023Q2,2023-06-30,5.542276628927397,8.0,"core8:12,diesel:12",7.8,6.1,2023Q1,62
+8 Change: Δ core 8,drop,D+0,2023Q2,2023-06-30,5.618222315454876,8.0,core8:12,7.8,6.1,2023Q1,62
+8 Change: Δ core 8,dummy,D+0,2023Q2,2023-06-30,4.22079234972942,18.0,core8:12,7.8,6.1,2023Q1,62
 1 Naive,drop,D+32,2023Q2,2023-08-01,6.1,,,7.8,6.1,2023Q1,30
 1 Naive,dummy,D+32,2023Q2,2023-08-01,6.1,,,7.8,6.1,2023Q1,30
 2 AR(1),drop,D+32,2023Q2,2023-08-01,5.873320895522391,14.0,,7.8,6.1,2023Q1,30
@@ -407,6 +439,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6b Bridge + GST,dummy,D+32,2023Q2,2023-08-01,9.88933488391655,8.0,"core8:123,gst:13",7.8,6.1,2023Q1,30
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2023Q2,2023-08-01,8.05419792692072,15.0,"core8:123,eway:123",7.8,6.1,2023Q1,30
 7b Bridge + diesel [look-ahead],dummy,D+32,2023Q2,2023-08-01,5.70100811693635,8.0,"core8:123,diesel:123",7.8,6.1,2023Q1,30
+8 Change: Δ core 8,drop,D+32,2023Q2,2023-08-01,5.570810707126707,8.0,core8:123,7.8,6.1,2023Q1,30
+8 Change: Δ core 8,dummy,D+32,2023Q2,2023-08-01,6.250705948223197,18.0,core8:123,7.8,6.1,2023Q1,30
 1 Naive,drop,D+45,2023Q2,2023-08-14,6.1,,,7.8,6.1,2023Q1,17
 1 Naive,dummy,D+45,2023Q2,2023-08-14,6.1,,,7.8,6.1,2023Q1,17
 2 AR(1),drop,D+45,2023Q2,2023-08-14,5.873320895522391,14.0,,7.8,6.1,2023Q1,17
@@ -420,6 +454,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6b Bridge + GST,dummy,D+45,2023Q2,2023-08-14,9.88933488391655,8.0,"core8:123,gst:13",7.8,6.1,2023Q1,17
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2023Q2,2023-08-14,8.05419792692072,15.0,"core8:123,eway:123",7.8,6.1,2023Q1,17
 7b Bridge + diesel [look-ahead],dummy,D+45,2023Q2,2023-08-14,5.70100811693635,8.0,"core8:123,diesel:123",7.8,6.1,2023Q1,17
+8 Change: Δ core 8,drop,D+45,2023Q2,2023-08-14,5.570810707126707,8.0,core8:123,7.8,6.1,2023Q1,17
+8 Change: Δ core 8,dummy,D+45,2023Q2,2023-08-14,6.250705948223197,18.0,core8:123,7.8,6.1,2023Q1,17
 1 Naive,drop,D+0,2023Q3,2023-09-30,7.8,,,7.6,7.8,2023Q2,61
 1 Naive,dummy,D+0,2023Q3,2023-09-30,7.8,,,7.6,7.8,2023Q2,61
 2 AR(1),drop,D+0,2023Q3,2023-09-30,7.474221867517961,15.0,,7.6,7.8,2023Q2,61
@@ -434,6 +470,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6b Bridge + GST,dummy,D+0,2023Q3,2023-09-30,10.31443059333287,11.0,"core8:12,gst:12",7.6,7.8,2023Q2,61
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2023Q3,2023-09-30,11.416569537440415,16.0,"core8:12,eway:12",7.6,7.8,2023Q2,61
 7b Bridge + diesel [look-ahead],dummy,D+0,2023Q3,2023-09-30,6.43212214024209,9.0,"core8:12,diesel:12",7.6,7.8,2023Q2,61
+8 Change: Δ core 8,drop,D+0,2023Q3,2023-09-30,7.2065699991610614,9.0,core8:12,7.6,7.8,2023Q2,61
+8 Change: Δ core 8,dummy,D+0,2023Q3,2023-09-30,11.113467104449299,19.0,core8:12,7.6,7.8,2023Q2,61
 1 Naive,drop,D+32,2023Q3,2023-11-01,7.8,,,7.6,7.8,2023Q2,29
 1 Naive,dummy,D+32,2023Q3,2023-11-01,7.8,,,7.6,7.8,2023Q2,29
 2 AR(1),drop,D+32,2023Q3,2023-11-01,7.474221867517961,15.0,,7.6,7.8,2023Q2,29
@@ -448,6 +486,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6b Bridge + GST,dummy,D+32,2023Q3,2023-11-01,11.811787816658462,11.0,"core8:123,gst:12",7.6,7.8,2023Q2,29
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2023Q3,2023-11-01,11.220873017372694,16.0,"core8:123,eway:123",7.6,7.8,2023Q2,29
 7b Bridge + diesel [look-ahead],dummy,D+32,2023Q3,2023-11-01,8.079016103838704,9.0,"core8:123,diesel:123",7.6,7.8,2023Q2,29
+8 Change: Δ core 8,drop,D+32,2023Q3,2023-11-01,7.726262300528437,9.0,core8:123,7.6,7.8,2023Q2,29
+8 Change: Δ core 8,dummy,D+32,2023Q3,2023-11-01,11.226901588081923,19.0,core8:123,7.6,7.8,2023Q2,29
 1 Naive,drop,D+45,2023Q3,2023-11-14,7.8,,,7.6,7.8,2023Q2,16
 1 Naive,dummy,D+45,2023Q3,2023-11-14,7.8,,,7.6,7.8,2023Q2,16
 2 AR(1),drop,D+45,2023Q3,2023-11-14,7.474221867517961,15.0,,7.6,7.8,2023Q2,16
@@ -461,6 +501,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 6b Bridge + GST,dummy,D+45,2023Q3,2023-11-14,11.811787816658462,11.0,"core8:123,gst:12",7.6,7.8,2023Q2,16
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2023Q3,2023-11-14,11.220873017372694,16.0,"core8:123,eway:123",7.6,7.8,2023Q2,16
 7b Bridge + diesel [look-ahead],dummy,D+45,2023Q3,2023-11-14,8.079016103838704,9.0,"core8:123,diesel:123",7.6,7.8,2023Q2,16
+8 Change: Δ core 8,drop,D+45,2023Q3,2023-11-14,7.726262300528437,9.0,core8:123,7.6,7.8,2023Q2,16
+8 Change: Δ core 8,dummy,D+45,2023Q3,2023-11-14,11.226901588081923,19.0,core8:123,7.6,7.8,2023Q2,16
 1 Naive,drop,D+0,2023Q4,2023-12-31,7.6,,,8.4,7.6,2023Q3,60
 1 Naive,dummy,D+0,2023Q4,2023-12-31,7.6,,,8.4,7.6,2023Q3,60
 2 AR(1),drop,D+0,2023Q4,2023-12-31,7.32190906120994,16.0,,8.4,7.6,2023Q3,60
@@ -476,6 +518,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+0,2023Q4,2023-12-31,7.160690697656811,8.0,"core8:12,eway:12",8.4,7.6,2023Q3,60
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2023Q4,2023-12-31,10.403112325644152,17.0,"core8:12,eway:12",8.4,7.6,2023Q3,60
 7b Bridge + diesel [look-ahead],dummy,D+0,2023Q4,2023-12-31,6.847123278896684,10.0,"core8:12,diesel:12",8.4,7.6,2023Q3,60
+8 Change: Δ core 8,drop,D+0,2023Q4,2023-12-31,7.360085754914252,10.0,core8:12,8.4,7.6,2023Q3,60
+8 Change: Δ core 8,dummy,D+0,2023Q4,2023-12-31,6.883206513750999,20.0,core8:12,8.4,7.6,2023Q3,60
 1 Naive,drop,D+32,2023Q4,2024-02-01,7.6,,,8.4,7.6,2023Q3,28
 1 Naive,dummy,D+32,2023Q4,2024-02-01,7.6,,,8.4,7.6,2023Q3,28
 2 AR(1),drop,D+32,2023Q4,2024-02-01,7.32190906120994,16.0,,8.4,7.6,2023Q3,28
@@ -491,6 +535,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+32,2023Q4,2024-02-01,7.092497736637494,8.0,"core8:123,eway:123",8.4,7.6,2023Q3,28
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2023Q4,2024-02-01,9.18724328921221,17.0,"core8:123,eway:123",8.4,7.6,2023Q3,28
 7b Bridge + diesel [look-ahead],dummy,D+32,2023Q4,2024-02-01,6.401501405784145,10.0,"core8:123,diesel:123",8.4,7.6,2023Q3,28
+8 Change: Δ core 8,drop,D+32,2023Q4,2024-02-01,7.272622183601069,10.0,core8:123,8.4,7.6,2023Q3,28
+8 Change: Δ core 8,dummy,D+32,2023Q4,2024-02-01,6.039554581344762,20.0,core8:123,8.4,7.6,2023Q3,28
 1 Naive,drop,D+45,2023Q4,2024-02-14,7.6,,,8.4,7.6,2023Q3,15
 1 Naive,dummy,D+45,2023Q4,2024-02-14,7.6,,,8.4,7.6,2023Q3,15
 2 AR(1),drop,D+45,2023Q4,2024-02-14,7.32190906120994,16.0,,8.4,7.6,2023Q3,15
@@ -505,6 +551,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+45,2023Q4,2024-02-14,7.092497736637494,8.0,"core8:123,eway:123",8.4,7.6,2023Q3,15
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2023Q4,2024-02-14,9.18724328921221,17.0,"core8:123,eway:123",8.4,7.6,2023Q3,15
 7b Bridge + diesel [look-ahead],dummy,D+45,2023Q4,2024-02-14,6.401501405784145,10.0,"core8:123,diesel:123",8.4,7.6,2023Q3,15
+8 Change: Δ core 8,drop,D+45,2023Q4,2024-02-14,7.272622183601069,10.0,core8:123,8.4,7.6,2023Q3,15
+8 Change: Δ core 8,dummy,D+45,2023Q4,2024-02-14,6.039554581344762,20.0,core8:123,8.4,7.6,2023Q3,15
 1 Naive,drop,D+0,2024Q1,2024-03-31,8.4,,,7.8,8.4,2023Q4,61
 1 Naive,dummy,D+0,2024Q1,2024-03-31,8.4,,,7.8,8.4,2023Q4,61
 2 AR(1),drop,D+0,2024Q1,2024-03-31,8.214659524054806,17.0,,7.8,8.4,2023Q4,61
@@ -519,6 +567,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+0,2024Q1,2024-03-31,6.5222852088979835,9.0,"core8:12,eway:12",7.8,8.4,2023Q4,61
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2024Q1,2024-03-31,7.407568457661991,18.0,"core8:12,eway:12",7.8,8.4,2023Q4,61
 7b Bridge + diesel [look-ahead],dummy,D+0,2024Q1,2024-03-31,6.3407151323246005,11.0,"core8:12,diesel:12",7.8,8.4,2023Q4,61
+8 Change: Δ core 8,drop,D+0,2024Q1,2024-03-31,8.41239270714242,11.0,core8:12,7.8,8.4,2023Q4,61
+8 Change: Δ core 8,dummy,D+0,2024Q1,2024-03-31,5.710276915198616,21.0,core8:12,7.8,8.4,2023Q4,61
 1 Naive,drop,D+32,2024Q1,2024-05-02,8.4,,,7.8,8.4,2023Q4,29
 1 Naive,dummy,D+32,2024Q1,2024-05-02,8.4,,,7.8,8.4,2023Q4,29
 2 AR(1),drop,D+32,2024Q1,2024-05-02,8.214659524054806,17.0,,7.8,8.4,2023Q4,29
@@ -533,6 +583,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+32,2024Q1,2024-05-02,6.693442016322928,9.0,"core8:123,eway:123",7.8,8.4,2023Q4,29
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2024Q1,2024-05-02,7.555691754546657,18.0,"core8:123,eway:123",7.8,8.4,2023Q4,29
 7b Bridge + diesel [look-ahead],dummy,D+32,2024Q1,2024-05-02,6.185541733436882,11.0,"core8:123,diesel:123",7.8,8.4,2023Q4,29
+8 Change: Δ core 8,drop,D+32,2024Q1,2024-05-02,8.224413857283404,11.0,core8:123,7.8,8.4,2023Q4,29
+8 Change: Δ core 8,dummy,D+32,2024Q1,2024-05-02,6.753248596198942,21.0,core8:123,7.8,8.4,2023Q4,29
 1 Naive,drop,D+45,2024Q1,2024-05-15,8.4,,,7.8,8.4,2023Q4,16
 1 Naive,dummy,D+45,2024Q1,2024-05-15,8.4,,,7.8,8.4,2023Q4,16
 2 AR(1),drop,D+45,2024Q1,2024-05-15,8.214659524054806,17.0,,7.8,8.4,2023Q4,16
@@ -546,6 +598,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+45,2024Q1,2024-05-15,6.693442016322928,9.0,"core8:123,eway:123",7.8,8.4,2023Q4,16
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2024Q1,2024-05-15,7.555691754546657,18.0,"core8:123,eway:123",7.8,8.4,2023Q4,16
 7b Bridge + diesel [look-ahead],dummy,D+45,2024Q1,2024-05-15,6.185541733436882,11.0,"core8:123,diesel:123",7.8,8.4,2023Q4,16
+8 Change: Δ core 8,drop,D+45,2024Q1,2024-05-15,8.224413857283404,11.0,core8:123,7.8,8.4,2023Q4,16
+8 Change: Δ core 8,dummy,D+45,2024Q1,2024-05-15,6.753248596198942,21.0,core8:123,7.8,8.4,2023Q4,16
 1 Naive,drop,D+0,2024Q2,2024-06-30,7.8,,,6.7,7.8,2024Q1,61
 1 Naive,dummy,D+0,2024Q2,2024-06-30,7.8,,,6.7,7.8,2024Q1,61
 2 AR(1),drop,D+0,2024Q2,2024-06-30,7.587323335184842,18.0,,6.7,7.8,2024Q1,61
@@ -561,6 +615,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+0,2024Q2,2024-06-30,6.878017237637241,10.0,"core8:12,eway:12",6.7,7.8,2024Q1,61
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2024Q2,2024-06-30,7.828030454102437,19.0,"core8:12,eway:12",6.7,7.8,2024Q1,61
 7b Bridge + diesel [look-ahead],dummy,D+0,2024Q2,2024-06-30,6.4688428482083,12.0,"core8:12,diesel:12",6.7,7.8,2024Q1,61
+8 Change: Δ core 8,drop,D+0,2024Q2,2024-06-30,7.578953376521489,12.0,core8:12,6.7,7.8,2024Q1,61
+8 Change: Δ core 8,dummy,D+0,2024Q2,2024-06-30,7.816526898578613,22.0,core8:12,6.7,7.8,2024Q1,61
 1 Naive,drop,D+32,2024Q2,2024-08-01,7.8,,,6.7,7.8,2024Q1,29
 1 Naive,dummy,D+32,2024Q2,2024-08-01,7.8,,,6.7,7.8,2024Q1,29
 2 AR(1),drop,D+32,2024Q2,2024-08-01,7.587323335184842,18.0,,6.7,7.8,2024Q1,29
@@ -576,6 +632,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+32,2024Q2,2024-08-01,6.730356775005735,10.0,"core8:123,eway:123",6.7,7.8,2024Q1,29
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2024Q2,2024-08-01,7.343105518002796,19.0,"core8:123,eway:123",6.7,7.8,2024Q1,29
 7b Bridge + diesel [look-ahead],dummy,D+32,2024Q2,2024-08-01,6.0080604865543235,12.0,"core8:123,diesel:123",6.7,7.8,2024Q1,29
+8 Change: Δ core 8,drop,D+32,2024Q2,2024-08-01,7.592032876159475,12.0,core8:123,6.7,7.8,2024Q1,29
+8 Change: Δ core 8,dummy,D+32,2024Q2,2024-08-01,7.6270122573658385,22.0,core8:123,6.7,7.8,2024Q1,29
 1 Naive,drop,D+45,2024Q2,2024-08-14,7.8,,,6.7,7.8,2024Q1,16
 1 Naive,dummy,D+45,2024Q2,2024-08-14,7.8,,,6.7,7.8,2024Q1,16
 2 AR(1),drop,D+45,2024Q2,2024-08-14,7.587323335184842,18.0,,6.7,7.8,2024Q1,16
@@ -591,6 +649,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],drop,D+45,2024Q2,2024-08-14,6.730356775005735,10.0,"core8:123,eway:123",6.7,7.8,2024Q1,16
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2024Q2,2024-08-14,7.343105518002796,19.0,"core8:123,eway:123",6.7,7.8,2024Q1,16
 7b Bridge + diesel [look-ahead],dummy,D+45,2024Q2,2024-08-14,6.0080604865543235,12.0,"core8:123,diesel:123",6.7,7.8,2024Q1,16
+8 Change: Δ core 8,drop,D+45,2024Q2,2024-08-14,7.592032876159475,12.0,core8:123,6.7,7.8,2024Q1,16
+8 Change: Δ core 8,dummy,D+45,2024Q2,2024-08-14,7.6270122573658385,22.0,core8:123,6.7,7.8,2024Q1,16
 1 Naive,drop,D+0,2024Q3,2024-09-30,6.7,,,5.4,6.7,2024Q2,60
 1 Naive,dummy,D+0,2024Q3,2024-09-30,6.7,,,5.4,6.7,2024Q2,60
 2 AR(1),drop,D+0,2024Q3,2024-09-30,6.534978266428024,19.0,,5.4,6.7,2024Q2,60
@@ -607,6 +667,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2024Q3,2024-09-30,4.601701382987222,20.0,"core8:12,eway:12",5.4,6.7,2024Q2,60
 7b Bridge + diesel [look-ahead],drop,D+0,2024Q3,2024-09-30,6.576185870448579,8.0,"core8:12,diesel:12",5.4,6.7,2024Q2,60
 7b Bridge + diesel [look-ahead],dummy,D+0,2024Q3,2024-09-30,4.781118440170635,13.0,"core8:12,diesel:12",5.4,6.7,2024Q2,60
+8 Change: Δ core 8,drop,D+0,2024Q3,2024-09-30,6.569095319784488,13.0,core8:12,5.4,6.7,2024Q2,60
+8 Change: Δ core 8,dummy,D+0,2024Q3,2024-09-30,3.7586729230859177,23.0,core8:12,5.4,6.7,2024Q2,60
 1 Naive,drop,D+32,2024Q3,2024-11-01,6.7,,,5.4,6.7,2024Q2,28
 1 Naive,dummy,D+32,2024Q3,2024-11-01,6.7,,,5.4,6.7,2024Q2,28
 2 AR(1),drop,D+32,2024Q3,2024-11-01,6.534978266428024,19.0,,5.4,6.7,2024Q2,28
@@ -623,6 +685,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2024Q3,2024-11-01,4.896359142884233,20.0,"core8:123,eway:123",5.4,6.7,2024Q2,28
 7b Bridge + diesel [look-ahead],drop,D+32,2024Q3,2024-11-01,6.369250926277395,8.0,"core8:123,diesel:123",5.4,6.7,2024Q2,28
 7b Bridge + diesel [look-ahead],dummy,D+32,2024Q3,2024-11-01,3.9252465023299097,13.0,"core8:123,diesel:123",5.4,6.7,2024Q2,28
+8 Change: Δ core 8,drop,D+32,2024Q3,2024-11-01,6.380691141102667,13.0,core8:123,5.4,6.7,2024Q2,28
+8 Change: Δ core 8,dummy,D+32,2024Q3,2024-11-01,4.075360670474254,23.0,core8:123,5.4,6.7,2024Q2,28
 1 Naive,drop,D+45,2024Q3,2024-11-14,6.7,,,5.4,6.7,2024Q2,15
 1 Naive,dummy,D+45,2024Q3,2024-11-14,6.7,,,5.4,6.7,2024Q2,15
 2 AR(1),drop,D+45,2024Q3,2024-11-14,6.534978266428024,19.0,,5.4,6.7,2024Q2,15
@@ -639,6 +703,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2024Q3,2024-11-14,4.896359142884233,20.0,"core8:123,eway:123",5.4,6.7,2024Q2,15
 7b Bridge + diesel [look-ahead],drop,D+45,2024Q3,2024-11-14,6.369250926277395,8.0,"core8:123,diesel:123",5.4,6.7,2024Q2,15
 7b Bridge + diesel [look-ahead],dummy,D+45,2024Q3,2024-11-14,3.9252465023299097,13.0,"core8:123,diesel:123",5.4,6.7,2024Q2,15
+8 Change: Δ core 8,drop,D+45,2024Q3,2024-11-14,6.380691141102667,13.0,core8:123,5.4,6.7,2024Q2,15
+8 Change: Δ core 8,dummy,D+45,2024Q3,2024-11-14,4.075360670474254,23.0,core8:123,5.4,6.7,2024Q2,15
 1 Naive,drop,D+0,2024Q4,2024-12-31,5.4,,,6.2,5.4,2024Q3,59
 1 Naive,dummy,D+0,2024Q4,2024-12-31,5.4,,,6.2,5.4,2024Q3,59
 2 AR(1),drop,D+0,2024Q4,2024-12-31,5.360890505890506,20.0,,6.2,5.4,2024Q3,59
@@ -655,6 +721,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2024Q4,2024-12-31,5.422836605803227,21.0,"core8:12,eway:12",6.2,5.4,2024Q3,59
 7b Bridge + diesel [look-ahead],drop,D+0,2024Q4,2024-12-31,5.969486837689188,9.0,"core8:12,diesel:12",6.2,5.4,2024Q3,59
 7b Bridge + diesel [look-ahead],dummy,D+0,2024Q4,2024-12-31,5.571275183489522,14.0,"core8:12,diesel:12",6.2,5.4,2024Q3,59
+8 Change: Δ core 8,drop,D+0,2024Q4,2024-12-31,5.038979461946562,14.0,core8:12,6.2,5.4,2024Q3,59
+8 Change: Δ core 8,dummy,D+0,2024Q4,2024-12-31,5.801254876281988,24.0,core8:12,6.2,5.4,2024Q3,59
 1 Naive,drop,D+32,2024Q4,2025-02-01,5.4,,,6.2,5.4,2024Q3,27
 1 Naive,dummy,D+32,2024Q4,2025-02-01,5.4,,,6.2,5.4,2024Q3,27
 2 AR(1),drop,D+32,2024Q4,2025-02-01,5.360890505890506,20.0,,6.2,5.4,2024Q3,27
@@ -671,6 +739,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2024Q4,2025-02-01,5.422836605803227,21.0,"core8:12,eway:12",6.2,5.4,2024Q3,27
 7b Bridge + diesel [look-ahead],drop,D+32,2024Q4,2025-02-01,5.969486837689188,9.0,"core8:12,diesel:12",6.2,5.4,2024Q3,27
 7b Bridge + diesel [look-ahead],dummy,D+32,2024Q4,2025-02-01,5.571275183489522,14.0,"core8:12,diesel:12",6.2,5.4,2024Q3,27
+8 Change: Δ core 8,drop,D+32,2024Q4,2025-02-01,5.038979461946562,14.0,core8:12,6.2,5.4,2024Q3,27
+8 Change: Δ core 8,dummy,D+32,2024Q4,2025-02-01,5.801254876281988,24.0,core8:12,6.2,5.4,2024Q3,27
 1 Naive,drop,D+45,2024Q4,2025-02-14,5.4,,,6.2,5.4,2024Q3,14
 1 Naive,dummy,D+45,2024Q4,2025-02-14,5.4,,,6.2,5.4,2024Q3,14
 2 AR(1),drop,D+45,2024Q4,2025-02-14,5.360890505890506,20.0,,6.2,5.4,2024Q3,14
@@ -687,6 +757,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2024Q4,2025-02-14,5.422836605803227,21.0,"core8:12,eway:12",6.2,5.4,2024Q3,14
 7b Bridge + diesel [look-ahead],drop,D+45,2024Q4,2025-02-14,5.969486837689188,9.0,"core8:12,diesel:12",6.2,5.4,2024Q3,14
 7b Bridge + diesel [look-ahead],dummy,D+45,2024Q4,2025-02-14,5.571275183489522,14.0,"core8:12,diesel:12",6.2,5.4,2024Q3,14
+8 Change: Δ core 8,drop,D+45,2024Q4,2025-02-14,5.038979461946562,14.0,core8:12,6.2,5.4,2024Q3,14
+8 Change: Δ core 8,dummy,D+45,2024Q4,2025-02-14,5.801254876281988,24.0,core8:12,6.2,5.4,2024Q3,14
 1 Naive,drop,D+0,2025Q1,2025-03-31,6.2,,,7.4,6.2,2024Q4,60
 1 Naive,dummy,D+0,2025Q1,2025-03-31,6.2,,,7.4,6.2,2024Q4,60
 2 AR(1),drop,D+0,2025Q1,2025-03-31,6.0947259861009755,21.0,,7.4,6.2,2024Q4,60
@@ -703,6 +775,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2025Q1,2025-03-31,5.586337209326061,22.0,"core8:12,eway:12",7.4,6.2,2024Q4,60
 7b Bridge + diesel [look-ahead],drop,D+0,2025Q1,2025-03-31,6.161370537364134,10.0,"core8:12,diesel:12",7.4,6.2,2024Q4,60
 7b Bridge + diesel [look-ahead],dummy,D+0,2025Q1,2025-03-31,5.452743456586633,15.0,"core8:12,diesel:12",7.4,6.2,2024Q4,60
+8 Change: Δ core 8,drop,D+0,2025Q1,2025-03-31,5.926148349297169,15.0,core8:12,7.4,6.2,2024Q4,60
+8 Change: Δ core 8,dummy,D+0,2025Q1,2025-03-31,6.116166190926316,25.0,core8:12,7.4,6.2,2024Q4,60
 1 Naive,drop,D+32,2025Q1,2025-05-02,6.2,,,7.4,6.2,2024Q4,28
 1 Naive,dummy,D+32,2025Q1,2025-05-02,6.2,,,7.4,6.2,2024Q4,28
 2 AR(1),drop,D+32,2025Q1,2025-05-02,6.0947259861009755,21.0,,7.4,6.2,2024Q4,28
@@ -751,6 +825,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2025Q2,2025-06-30,3.529249491121143,23.0,"core8:12,eway:12",7.8,7.4,2025Q1,60
 7b Bridge + diesel [look-ahead],drop,D+0,2025Q2,2025-06-30,5.604388612841023,11.0,"core8:12,diesel:12",7.8,7.4,2025Q1,60
 7b Bridge + diesel [look-ahead],dummy,D+0,2025Q2,2025-06-30,4.658774626496785,16.0,"core8:12,diesel:12",7.8,7.4,2025Q1,60
+8 Change: Δ core 8,drop,D+0,2025Q2,2025-06-30,7.215937679169322,16.0,core8:12,7.8,7.4,2025Q1,60
+8 Change: Δ core 8,dummy,D+0,2025Q2,2025-06-30,5.467780010845321,26.0,core8:12,7.8,7.4,2025Q1,60
 1 Naive,drop,D+32,2025Q2,2025-08-01,7.4,,,7.8,7.4,2025Q1,28
 1 Naive,dummy,D+32,2025Q2,2025-08-01,7.4,,,7.8,7.4,2025Q1,28
 2 AR(1),drop,D+32,2025Q2,2025-08-01,7.138959429227886,22.0,,7.8,7.4,2025Q1,28
@@ -767,6 +843,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2025Q2,2025-08-01,4.126441325211176,22.0,"core8:123,eway:123",7.8,7.4,2025Q1,28
 7b Bridge + diesel [look-ahead],drop,D+32,2025Q2,2025-08-01,5.291656951771074,10.0,"core8:123,diesel:123",7.8,7.4,2025Q1,28
 7b Bridge + diesel [look-ahead],dummy,D+32,2025Q2,2025-08-01,3.735720052505874,15.0,"core8:123,diesel:123",7.8,7.4,2025Q1,28
+8 Change: Δ core 8,drop,D+32,2025Q2,2025-08-01,6.918979831904405,14.0,core8:123,7.8,7.4,2025Q1,28
+8 Change: Δ core 8,dummy,D+32,2025Q2,2025-08-01,5.218558287107362,24.0,core8:123,7.8,7.4,2025Q1,28
 1 Naive,drop,D+45,2025Q2,2025-08-14,7.4,,,7.8,7.4,2025Q1,15
 1 Naive,dummy,D+45,2025Q2,2025-08-14,7.4,,,7.8,7.4,2025Q1,15
 2 AR(1),drop,D+45,2025Q2,2025-08-14,7.138959429227886,22.0,,7.8,7.4,2025Q1,15
@@ -783,6 +861,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2025Q2,2025-08-14,4.126441325211176,22.0,"core8:123,eway:123",7.8,7.4,2025Q1,15
 7b Bridge + diesel [look-ahead],drop,D+45,2025Q2,2025-08-14,5.291656951771074,10.0,"core8:123,diesel:123",7.8,7.4,2025Q1,15
 7b Bridge + diesel [look-ahead],dummy,D+45,2025Q2,2025-08-14,3.735720052505874,15.0,"core8:123,diesel:123",7.8,7.4,2025Q1,15
+8 Change: Δ core 8,drop,D+45,2025Q2,2025-08-14,6.918979831904405,14.0,core8:123,7.8,7.4,2025Q1,15
+8 Change: Δ core 8,dummy,D+45,2025Q2,2025-08-14,5.218558287107362,24.0,core8:123,7.8,7.4,2025Q1,15
 1 Naive,drop,D+0,2025Q3,2025-09-30,7.8,,,8.2,7.8,2025Q2,59
 1 Naive,dummy,D+0,2025Q3,2025-09-30,7.8,,,8.2,7.8,2025Q2,59
 2 AR(1),drop,D+0,2025Q3,2025-09-30,7.521206078139484,23.0,,8.2,7.8,2025Q2,59
@@ -799,6 +879,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2025Q3,2025-09-30,6.043683926282108,24.0,"core8:12,eway:12",8.2,7.8,2025Q2,59
 7b Bridge + diesel [look-ahead],drop,D+0,2025Q3,2025-09-30,7.002810425094358,12.0,"core8:12,diesel:12",8.2,7.8,2025Q2,59
 7b Bridge + diesel [look-ahead],dummy,D+0,2025Q3,2025-09-30,5.991669879358009,17.0,"core8:12,diesel:12",8.2,7.8,2025Q2,59
+8 Change: Δ core 8,drop,D+0,2025Q3,2025-09-30,7.62963052439045,17.0,core8:12,8.2,7.8,2025Q2,59
+8 Change: Δ core 8,dummy,D+0,2025Q3,2025-09-30,9.690910729081159,27.0,core8:12,8.2,7.8,2025Q2,59
 1 Naive,drop,D+32,2025Q3,2025-11-01,7.8,,,8.2,7.8,2025Q2,27
 1 Naive,dummy,D+32,2025Q3,2025-11-01,7.8,,,8.2,7.8,2025Q2,27
 2 AR(1),drop,D+32,2025Q3,2025-11-01,7.521206078139484,23.0,,8.2,7.8,2025Q2,27
@@ -815,6 +897,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2025Q3,2025-11-01,6.33974728824601,23.0,"core8:123,eway:123",8.2,7.8,2025Q2,27
 7b Bridge + diesel [look-ahead],drop,D+32,2025Q3,2025-11-01,6.723440912242712,11.0,"core8:123,diesel:123",8.2,7.8,2025Q2,27
 7b Bridge + diesel [look-ahead],dummy,D+32,2025Q3,2025-11-01,5.774264772764675,16.0,"core8:123,diesel:123",8.2,7.8,2025Q2,27
+8 Change: Δ core 8,drop,D+32,2025Q3,2025-11-01,7.592255155531639,15.0,core8:123,8.2,7.8,2025Q2,27
+8 Change: Δ core 8,dummy,D+32,2025Q3,2025-11-01,10.027286764346446,25.0,core8:123,8.2,7.8,2025Q2,27
 1 Naive,drop,D+45,2025Q3,2025-11-14,7.8,,,8.2,7.8,2025Q2,14
 1 Naive,dummy,D+45,2025Q3,2025-11-14,7.8,,,8.2,7.8,2025Q2,14
 2 AR(1),drop,D+45,2025Q3,2025-11-14,7.521206078139484,23.0,,8.2,7.8,2025Q2,14
@@ -831,6 +915,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2025Q3,2025-11-14,6.33974728824601,23.0,"core8:123,eway:123",8.2,7.8,2025Q2,14
 7b Bridge + diesel [look-ahead],drop,D+45,2025Q3,2025-11-14,6.723440912242712,11.0,"core8:123,diesel:123",8.2,7.8,2025Q2,14
 7b Bridge + diesel [look-ahead],dummy,D+45,2025Q3,2025-11-14,5.774264772764675,16.0,"core8:123,diesel:123",8.2,7.8,2025Q2,14
+8 Change: Δ core 8,drop,D+45,2025Q3,2025-11-14,7.592255155531639,15.0,core8:123,8.2,7.8,2025Q2,14
+8 Change: Δ core 8,dummy,D+45,2025Q3,2025-11-14,10.027286764346446,25.0,core8:123,8.2,7.8,2025Q2,14
 1 Naive,drop,D+0,2025Q4,2025-12-31,8.2,,,7.8,8.2,2025Q3,58
 1 Naive,dummy,D+0,2025Q4,2025-12-31,8.2,,,7.8,8.2,2025Q3,58
 2 AR(1),drop,D+0,2025Q4,2025-12-31,7.92876659856997,24.0,,7.8,8.2,2025Q3,58
@@ -845,6 +931,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2025Q4,2025-12-31,4.579142301981597,25.0,"core8:12,eway:12",7.8,8.2,2025Q3,58
 7b Bridge + diesel [look-ahead],drop,D+0,2025Q4,2025-12-31,6.7671282494930685,13.0,"core8:12,diesel:12",7.8,8.2,2025Q3,58
 7b Bridge + diesel [look-ahead],dummy,D+0,2025Q4,2025-12-31,5.386648729741742,18.0,"core8:12,diesel:12",7.8,8.2,2025Q3,58
+8 Change: Δ core 8,drop,D+0,2025Q4,2025-12-31,8.078927851324641,18.0,core8:12,7.8,8.2,2025Q3,58
+8 Change: Δ core 8,dummy,D+0,2025Q4,2025-12-31,6.645188689433831,28.0,core8:12,7.8,8.2,2025Q3,58
 1 Naive,drop,D+32,2025Q4,2026-02-01,8.2,,,7.8,8.2,2025Q3,26
 1 Naive,dummy,D+32,2025Q4,2026-02-01,8.2,,,7.8,8.2,2025Q3,26
 2 AR(1),drop,D+32,2025Q4,2026-02-01,7.92876659856997,24.0,,7.8,8.2,2025Q3,26
@@ -859,6 +947,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2025Q4,2026-02-01,4.579142301981597,25.0,"core8:12,eway:12",7.8,8.2,2025Q3,26
 7b Bridge + diesel [look-ahead],drop,D+32,2025Q4,2026-02-01,6.7671282494930685,13.0,"core8:12,diesel:12",7.8,8.2,2025Q3,26
 7b Bridge + diesel [look-ahead],dummy,D+32,2025Q4,2026-02-01,5.386648729741742,18.0,"core8:12,diesel:12",7.8,8.2,2025Q3,26
+8 Change: Δ core 8,drop,D+32,2025Q4,2026-02-01,8.078927851324641,18.0,core8:12,7.8,8.2,2025Q3,26
+8 Change: Δ core 8,dummy,D+32,2025Q4,2026-02-01,6.645188689433831,28.0,core8:12,7.8,8.2,2025Q3,26
 1 Naive,drop,D+45,2025Q4,2026-02-14,8.2,,,7.8,8.2,2025Q3,13
 1 Naive,dummy,D+45,2025Q4,2026-02-14,8.2,,,7.8,8.2,2025Q3,13
 2 AR(1),drop,D+45,2025Q4,2026-02-14,7.92876659856997,24.0,,7.8,8.2,2025Q3,13
@@ -873,6 +963,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2025Q4,2026-02-14,4.579142301981597,25.0,"core8:12,eway:12",7.8,8.2,2025Q3,13
 7b Bridge + diesel [look-ahead],drop,D+45,2025Q4,2026-02-14,6.7671282494930685,13.0,"core8:12,diesel:12",7.8,8.2,2025Q3,13
 7b Bridge + diesel [look-ahead],dummy,D+45,2025Q4,2026-02-14,5.386648729741742,18.0,"core8:12,diesel:12",7.8,8.2,2025Q3,13
+8 Change: Δ core 8,drop,D+45,2025Q4,2026-02-14,8.078927851324641,18.0,core8:12,7.8,8.2,2025Q3,13
+8 Change: Δ core 8,dummy,D+45,2025Q4,2026-02-14,6.645188689433831,28.0,core8:12,7.8,8.2,2025Q3,13
 1 Naive,drop,D+0,2026Q1,2026-03-31,7.8,,,7.8,7.8,2025Q4,66
 1 Naive,dummy,D+0,2026Q1,2026-03-31,7.8,,,7.8,7.8,2025Q4,66
 2 AR(1),drop,D+0,2026Q1,2026-03-31,7.582862614913178,24.0,,7.8,7.8,2025Q4,66
@@ -887,6 +979,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2026Q1,2026-03-31,5.788452891967832,25.0,"core8:12,eway:12",7.8,7.8,2025Q4,66
 7b Bridge + diesel [look-ahead],drop,D+0,2026Q1,2026-03-31,6.842524413704266,13.0,"core8:12,diesel:12",7.8,7.8,2025Q4,66
 7b Bridge + diesel [look-ahead],dummy,D+0,2026Q1,2026-03-31,6.134873965177295,18.0,"core8:12,diesel:12",7.8,7.8,2025Q4,66
+8 Change: Δ core 8,drop,D+0,2026Q1,2026-03-31,7.686768024819888,18.0,core8:12,7.8,7.8,2025Q4,66
+8 Change: Δ core 8,dummy,D+0,2026Q1,2026-03-31,8.75921376897846,28.0,core8:12,7.8,7.8,2025Q4,66
 1 Naive,drop,D+32,2026Q1,2026-05-02,7.8,,,7.8,7.8,2025Q4,34
 1 Naive,dummy,D+32,2026Q1,2026-05-02,7.8,,,7.8,7.8,2025Q4,34
 2 AR(1),drop,D+32,2026Q1,2026-05-02,7.582862614913178,24.0,,7.8,7.8,2025Q4,34
@@ -929,6 +1023,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+0,2026Q2,2026-06-30,4.386592083226858,25.0,"core8:12,eway:12",7.8,7.8,2026Q1,62
 7b Bridge + diesel [look-ahead],drop,D+0,2026Q2,2026-06-30,6.8403401444383825,13.0,"core8:12,diesel:12",7.8,7.8,2026Q1,62
 7b Bridge + diesel [look-ahead],dummy,D+0,2026Q2,2026-06-30,5.13521602375034,18.0,"core8:12,diesel:12",7.8,7.8,2026Q1,62
+8 Change: Δ core 8,drop,D+0,2026Q2,2026-06-30,7.679467863749172,18.0,core8:12,7.8,7.8,2026Q1,62
+8 Change: Δ core 8,dummy,D+0,2026Q2,2026-06-30,6.418348732302608,28.0,core8:12,7.8,7.8,2026Q1,62
 1 Naive,drop,D+32,2026Q2,2026-08-01,7.8,,,7.8,7.8,2026Q1,30
 1 Naive,dummy,D+32,2026Q2,2026-08-01,7.8,,,7.8,7.8,2026Q1,30
 2 AR(1),drop,D+32,2026Q2,2026-08-01,7.582862614913178,24.0,,7.8,7.8,2026Q1,30
@@ -943,6 +1039,8 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+32,2026Q2,2026-08-01,4.386592083226858,25.0,"core8:12,eway:12",7.8,7.8,2026Q1,30
 7b Bridge + diesel [look-ahead],drop,D+32,2026Q2,2026-08-01,6.8403401444383825,13.0,"core8:12,diesel:12",7.8,7.8,2026Q1,30
 7b Bridge + diesel [look-ahead],dummy,D+32,2026Q2,2026-08-01,5.13521602375034,18.0,"core8:12,diesel:12",7.8,7.8,2026Q1,30
+8 Change: Δ core 8,drop,D+32,2026Q2,2026-08-01,7.679467863749172,18.0,core8:12,7.8,7.8,2026Q1,30
+8 Change: Δ core 8,dummy,D+32,2026Q2,2026-08-01,6.418348732302608,28.0,core8:12,7.8,7.8,2026Q1,30
 1 Naive,drop,D+45,2026Q2,2026-08-14,7.8,,,7.8,7.8,2026Q1,17
 1 Naive,dummy,D+45,2026Q2,2026-08-14,7.8,,,7.8,7.8,2026Q1,17
 2 AR(1),drop,D+45,2026Q2,2026-08-14,7.582862614913178,24.0,,7.8,7.8,2026Q1,17
@@ -957,3 +1055,5 @@ model,variant,date,quarter,asof,nowcast,n_train,months,actual,naive,last_print,d
 7a Bridge + e-way bills [look-ahead],dummy,D+45,2026Q2,2026-08-14,4.386592083226858,25.0,"core8:12,eway:12",7.8,7.8,2026Q1,17
 7b Bridge + diesel [look-ahead],drop,D+45,2026Q2,2026-08-14,6.8403401444383825,13.0,"core8:12,diesel:12",7.8,7.8,2026Q1,17
 7b Bridge + diesel [look-ahead],dummy,D+45,2026Q2,2026-08-14,5.13521602375034,18.0,"core8:12,diesel:12",7.8,7.8,2026Q1,17
+8 Change: Δ core 8,drop,D+45,2026Q2,2026-08-14,7.679467863749172,18.0,core8:12,7.8,7.8,2026Q1,17
+8 Change: Δ core 8,dummy,D+45,2026Q2,2026-08-14,6.418348732302608,28.0,core8:12,7.8,7.8,2026Q1,17
