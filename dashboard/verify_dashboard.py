@@ -2,6 +2,7 @@
 
 Usage: python dashboard/verify_dashboard.py
 """
+import os
 import re
 import warnings
 from pathlib import Path
@@ -13,7 +14,7 @@ import pandas as pd
 warnings.filterwarnings("ignore", category=UserWarning)  # openpyxl doesn't read conditional-format extensions
 ROOT = Path(__file__).resolve().parents[1]
 P = ROOT / "data" / "processed"
-wb = openpyxl.load_workbook(ROOT / "dashboard" / "gdp_nowcaster.xlsx")
+wb = openpyxl.load_workbook(os.environ.get("DASHBOARD_XLSX", ROOT / "dashboard" / "gdp_nowcaster.xlsx"))
 NAMES = {"1 Naive": "Naive", "2 AR(1)": "AR(1)", "3 Bridge: core 8": "Bridge · Core 8", "4 Bridge + AR: core 8": "Bridge + AR · Core 8",
          "5 Bridge: IIP": "Bridge · IIP", "6a Bridge + exports": "Bridge · Core 8 + Exports", "6b Bridge + GST": "Bridge · Core 8 + GST",
          "7a Bridge + e-way bills [look-ahead]": "Bridge · Core 8 + E-way bills [look-ahead]",
@@ -71,9 +72,15 @@ check("Metrics: n, RMSE, MAE, bias, relative RMSE, DM p match the three metrics 
 # Chart data
 cd = wb["chart_data"]
 col = lambda c, r0, r1: [cd.cell(r, c).value for r in range(r0, r1 + 1)]
-best = mx[(mx.variant == "dummy") & (mx.model == "5 Bridge: IIP")].set_index("date")
-check("Chart 1: best model RMSE by date", close(col(2, 2, 4), [round(best.rmse[d], 4) for d in ["D+0", "D+32", "D+45"]]))
-check("Chart 1: naive RMSE on the same quarters", close(col(3, 2, 4), [round(best.rmse[d] / best.rel_rmse[d], 4) for d in ["D+0", "D+32", "D+45"]]))
+head_q = [x for x in pd.period_range("2022Q4", "2025Q3", freq="Q").astype(str) if x not in COVID]
+assert mx[(mx.variant == "dummy") & (mx.model == "1 Naive") & (mx.date == "D+0")].quarters.iloc[0] == "2022Q4-2025Q3"
+bi = nc[(nc.model == "5 Bridge: IIP") & (nc.variant == "dummy") & nc.quarter.isin(head_q)]
+c1q = sorted(set.intersection(*[set(bi[bi.date == d].quarter) for d in ["D+0", "D+32", "D+45"]]))
+def rm(model, d):
+    x = nc[(nc.model == model) & (nc.variant == "dummy") & (nc.date == d) & nc.quarter.isin(c1q)]
+    return round(float(np.sqrt(((x.nowcast - x.actual) ** 2).mean())), 4)
+check("Chart 1: Bridge · IIP RMSE on one quarter set at all dates", close(col(2, 2, 4), [rm("5 Bridge: IIP", d) for d in ["D+0", "D+32", "D+45"]]), f"n = {len(c1q)}")
+check("Chart 1: naive on the same quarters, flat", close(col(3, 2, 4), [rm("1 Naive", d) for d in ["D+0", "D+32", "D+45"]]) and len(set(col(3, 2, 4))) == 1)
 window = [str(p) for p in pd.period_range("2017Q2", "2025Q3", freq="Q")]
 check("Chart 2: first prints", close(col(6, 2, 35), gdp.loc[window, "gdp_growth_first_print"]))
 b = nc[(nc.model == "5 Bridge: IIP") & (nc.variant == "dummy") & (nc.date == "D+32")].set_index("quarter").nowcast.reindex(window)
@@ -84,28 +91,33 @@ check("Chart 2: COVID band covers 2020Q2 to 2022Q2 only", [q for q, v in zip(win
 c3 = mx[(mx.date == "D+32") & (mx.model != "1 Naive")].sort_values("rel_rmse")
 check("Chart 3: relative RMSE at D+32", close(col(13, 2, 1 + len(c3)), c3.rel_rmse.round(4)))
 q = pd.read_csv(P / "indicators_quarterly.csv")
-c8 = q[(q.indicator == "core8_overall_base2011") & (q.vintage == "first")].set_index("quarter").yoy_pct
+c8 = q[(q.indicator == "core8_overall_base2011") & (q.vintage == "latest")].set_index("quarter").yoy_pct  # chart 4 uses latest vintage
+c8f = q[(q.indicator == "core8_overall_base2011") & (q.vintage == "first")].set_index("quarter").yoy_pct
 gq = [str(p) for p in pd.period_range("2023Q1", "2025Q3", freq="Q")]
 g = gdp.gdp_growth_first_print.reindex(gq)
 check("Chart 4: GDP", close(col(17, 2, 12), g))
-check("Chart 4: core 8 YoY", close([np.nan if v is None else v for v in col(18, 2, 12)], c8.reindex(gq).round(4)))
-check("Chart 4: gap", close([np.nan if v is None else v for v in col(19, 2, 12)], (g - c8.reindex(gq)).round(4)))
+check("Chart 4: core 8 YoY, latest vintage, no blanks", close(col(18, 2, 12), c8.reindex(gq).round(4)) and None not in col(18, 2, 12))
+check("Chart 4: gap", close(col(19, 2, 12), (g - c8.reindex(gq)).round(4)))
 
 # Dashboard numbers
 ws = wb["Dashboard"]
 texts = {str(c.value) for row in ws.iter_rows() for c in row if c.value is not None}
 best_rel = mx.rel_rmse.min()
 check("KPI: best relative RMSE 0.97", "0.97" in texts and round(best_rel, 2) == 0.97)
-check("KPI: best model's DM p 0.87", any("p = 0.87" in t for t in texts) and round(mx[mx.rel_rmse == best_rel].dm_p.iloc[0], 2) == 0.87)
+check("KPI 1 subtext is 'Bridge · IIP, D+32'", "Bridge · IIP, D+32" in texts and mx[mx.rel_rmse == best_rel].model.iloc[0] == "5 Bridge: IIP")
+check("Chart 1 subtitle states n", any(f"n = {len(c1q)}" in t for t in texts))
 check("KPI: 12 test quarters", "12" in texts and int(mx[mx.rel_rmse == best_rel].n.iloc[0]) == 12)
 nr = round(float(mx[(mx.variant == "drop") & (mx.date == "D+32") & (mx.model == "1 Naive")].rmse.iloc[0]), 2)
 check("KPI: live naive 7.8% ± 1.05", "7.8%" in texts and gdp.loc["2026Q2", "gdp_growth_first_print"] == 7.8 and nr == 1.05 and any("± 1.05" in t for t in texts))
 d = (gdp.loc[window, "release_date"] - pd.PeriodIndex(window, freq="Q").end_time.normalize()).dt.days
 check("KPI: median 61 days (range 57 to 62)", "61" in texts and d.median() == 61 and any("range 57 to 62" in t for t in texts) and (d.min(), d.max()) == (57, 62))
 check("Title: within 3% of naive", any("within 3%" in t for t in texts) and round(100 * (1 - best_rel)) == 3)
-gap = g - c8.reindex(gq)
-check("Footer: gap 0.2 then 3.9 points", any("0.2 points" in t and "3.9 in" in t for t in texts)
-      and (round(gap.loc["2023Q1":"2024Q2"].mean(), 1), round(gap.loc["2024Q3":"2025Q3"].mean(), 1)) == (0.2, 3.9))
+gl, gf = g - c8.reindex(gq), g - c8f.reindex(gq)
+fl = (round(gl.loc["2023Q1":"2024Q2"].mean(), 1), round(gl.loc["2024Q3":"2025Q3"].mean(), 1))
+ff = (round(gf.loc["2023Q1":"2024Q2"].mean(), 1), round(gf.loc["2024Q3":"2025Q3"].mean(), 1))
+check(f"Footnote: latest-vintage gap {fl[0]} then {fl[1]}", any(f"{fl[0]} points in 2023Q1 to 2024Q2 and {fl[1]} in" in t for t in texts))
+check(f"Footnote: first-print gap {ff[0]} and {ff[1]}, as in the report", ff == (0.2, 3.9) and any(f"it is {ff[0]} and {ff[1]}" in t for t in texts))
+check("Dashboard: columns right of Q hidden", any(d.hidden and d.min == 18 and d.max == 16384 for d in ws.column_dimensions.values()) and not any(d.hidden and d.min <= 17 for d in ws.column_dimensions.values()))
 check("Footer: 13.5% carried into 2022Q3", any("13.5%" in t for t in texts) and gdp.loc["2022Q2", "gdp_growth_first_print"] == 13.5)
 
 # Live call sheet against the live file

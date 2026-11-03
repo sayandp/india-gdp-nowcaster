@@ -2,6 +2,7 @@
 
 Usage: python dashboard/build_dashboard.py
 """
+import os
 import re
 from pathlib import Path
 from urllib.parse import urlparse
@@ -13,7 +14,7 @@ from xlsxwriter.utility import xl_rowcol_to_cell
 
 ROOT = Path(__file__).resolve().parents[1]
 P, R = ROOT / "data" / "processed", ROOT / "reports"
-OUT = ROOT / "dashboard" / "gdp_nowcaster.xlsx"
+OUT = Path(os.environ.get("DASHBOARD_XLSX", ROOT / "dashboard" / "gdp_nowcaster.xlsx"))
 
 # Tokens: Apple system palette; Segoe UI Variable (SF Pro isn't installed), named instances for weights
 BG, CARD, INK, SEC, HAIR = "#F5F5F7", "#FFFFFF", "#1D1D1F", "#6E6E73", "#E5E5EA"
@@ -75,12 +76,15 @@ LIVE = pd.DataFrame([
     {"forecast": "Change model", "is_primary": False, "made_on": pd.to_datetime(m_change.group(1)), "nowcast": float(m_change.group(2)), "low": float(m_change.group(3)), "high": float(m_change.group(4))},
 ])
 
-# Core 8 vs GDP gap (first-print YoY, 2011-12 base)
-c8 = q[(q.indicator == "core8_overall_base2011") & (q.vintage == "first")].set_index("quarter").yoy_pct
+# Core 8 vs GDP gap (2011-12 base). The 2024Q4 core 8 first print is blank, so this chart alone uses the latest vintage throughout
+core8_yoy = lambda v: q[(q.indicator == "core8_overall_base2011") & (q.vintage == v)].set_index("quarter").yoy_pct
 GAPQ = [str(p) for p in pd.period_range("2023Q1", "2025Q3", freq="Q")]
-gap = pd.DataFrame({"gdp": gdp.gdp_growth_first_print.reindex(GAPQ), "core8": c8.reindex(GAPQ)})
+gap = pd.DataFrame({"gdp": gdp.gdp_growth_first_print.reindex(GAPQ), "core8": core8_yoy("latest").reindex(GAPQ)})
+assert gap.notna().all().all()
 gap["gap"] = gap.gdp - gap.core8
 gap_early, gap_late = gap.gap.loc["2023Q1":"2024Q2"].mean(), gap.gap.loc["2024Q3":"2025Q3"].mean()
+gap_first = gap.gdp - core8_yoy("first").reindex(GAPQ)  # as in the report
+gapf_early, gapf_late = gap_first.loc["2023Q1":"2024Q2"].mean(), gap_first.loc["2024Q3":"2025Q3"].mean()
 
 # ---------- workbook ----------
 wb = xlsxwriter.Workbook(OUT, {"nan_inf_to_errors": False})
@@ -99,6 +103,8 @@ fmt("subtitle", font_size=13, font_color=SEC, bg_color=BG, valign="top")
 fmt("kpi", font_name=DISPLAY_SEMI, font_size=32, bg_color=CARD, indent=1, valign="bottom")
 fmt("kpi_label", font_size=11, bg_color=CARD, indent=1, valign="top")
 fmt("kpi_note", font_size=10, font_color=SEC, bg_color=CARD, indent=1, valign="top", text_wrap=True)
+fmt("card_title", font_name=TEXT_SEMI, font_size=13, bg_color=CARD, indent=1, valign="bottom")
+fmt("card_sub", font_size=10, font_color=SEC, bg_color=CARD, indent=1, valign="top")
 fmt("footer", font_size=9, font_color=SEC, bg_color=BG, text_wrap=True, valign="top")
 fmt("h1", font_name=DISPLAY_SEMI, font_size=20)
 fmt("h2", font_name=TEXT_SEMI, font_size=13)
@@ -148,8 +154,17 @@ def put(r, c, values, f=None):
 
 # Chart 1: RMSE by days before GDP
 c1_lab = [f"{d} ({GDP_DAY - int(d[2:])} days)" for d in DATES]
-c1_model = [round(metric(mx, BEST_VAR, d, BEST, "rmse"), 4) for d in DATES]
-c1_naive = [round(metric(mx, BEST_VAR, d, BEST, "rmse") / metric(mx, BEST_VAR, d, BEST, "rel_rmse"), 4) for d in DATES]
+# Same quarters at every date: headline non-COVID quarters (excluding 2022Q3) where the best model has a nowcast at all three dates
+lo, hi = mx[(mx.variant == BEST_VAR) & (mx.model_name == "Naive") & (mx.date == "D+0")].quarters.iloc[0].split("-")
+HEAD_Q = [x for x in WINDOW if lo <= x <= hi and x not in COVID and x != "2022Q3"]
+bm = nc[(nc.model_name == BEST) & (nc.variant == BEST_VAR) & nc.quarter.isin(HEAD_Q)]
+C1Q = sorted(set.intersection(*[set(bm[bm.date == d].quarter) for d in DATES]))
+def rmse_on(name, d):
+    x = nc[(nc.model_name == name) & (nc.variant == BEST_VAR) & (nc.date == d) & nc.quarter.isin(C1Q)]
+    assert len(x) == len(C1Q)
+    return round(float(np.sqrt(((x.nowcast - x.actual) ** 2).mean())), 4)
+c1_model = [rmse_on(BEST, d) for d in DATES]
+c1_naive = [rmse_on("Naive", d) for d in DATES]
 cd.write_row(0, 0, ["chart 1", "model RMSE", "naive RMSE, same quarters"])
 C1 = dict(cat=put(1, 0, c1_lab), model=put(1, 1, c1_model), naive=put(1, 2, c1_naive))
 
@@ -184,12 +199,14 @@ cd.hide()
 
 # ---------- chart helpers ----------
 AXIS_FONT = {"name": TEXT, "size": 10, "color": SEC}
-def style(chart, title, y_fmt="0.0", y_min=None, y_max=None, y_title=None, rotate=False):
-    chart.set_title({"name": title, "overlay": False, "layout": {"x": 0.02, "y": 0.03},
-                     "name_font": {"name": TEXT_SEMI, "size": 13, "color": INK, "bold": False}})
+def style(chart, y_fmt="0.0", y_min=None, y_max=None, y_title=None, rotate=False, title=None):
+    if title:  # charts outside a card carry their own title
+        chart.set_title({"name": title, "overlay": False, "layout": {"x": 0.02, "y": 0.03}, "name_font": {"name": TEXT_SEMI, "size": 13, "color": INK, "bold": False}})
+    else:  # dashboard titles live in the card header cells
+        chart.set_title({"none": True})
     chart.set_legend({"none": True})
     chart.set_chartarea({"border": {"none": True}, "fill": {"none": True}})
-    chart.set_plotarea({"border": {"none": True}, "fill": {"none": True}, "layout": {"x": 0.13, "y": 0.18, "width": 0.67, "height": 0.6 if rotate else 0.66}})
+    chart.set_plotarea({"border": {"none": True}, "fill": {"none": True}, "layout": {"x": 0.13, "y": 0.06, "width": 0.67, "height": 0.72 if rotate else 0.8}})
     chart.set_x_axis({"line": {"none": True}, "major_tick_mark": "none", "minor_tick_mark": "none", "label_position": "low",
                       "num_font": {**AXIS_FONT, "rotation": -90} if rotate else AXIS_FONT, "major_gridlines": {"visible": False}})
     y = {"line": {"none": True}, "major_tick_mark": "none", "num_font": AXIS_FONT, "num_format": y_fmt,
@@ -221,8 +238,7 @@ GUT, COLW = 1.6, 11.5
 LAYOUT = ["g"] + (["c"] * 3 + ["g"]) * 4  # A..Q: gutter, 4 x (3 card cols + gutter)
 for i, kind in enumerate(LAYOUT):
     ws.set_column(i, i, GUT if kind == "g" else COLW, F["bg"])
-ws.set_column(len(LAYOUT), 30, GUT, F["bg"])
-ws.set_column(31, 16383, None, None, {"hidden": True})
+ws.set_column(len(LAYOUT), 16383, None, None, {"hidden": True})  # nothing right of the dashboard area
 ws.set_default_row(15, hide_unused_rows=True)
 px_col = lambda w: int(w * 7 + 0.5) + 5
 CARD_COLS = [(1, 3), (5, 7), (9, 11), (13, 15)]
@@ -231,7 +247,9 @@ heights = {0: 12, 1: 40, 2: 22, 3: 10, 4: 8, 5: 46, 6: 18, 7: 30, 8: 8, 9: 10}
 CH_TOP1, CH_ROWS = 10, 17
 CH_TOP2 = CH_TOP1 + CH_ROWS + 1
 FOOT = CH_TOP2 + CH_ROWS + 1
-heights[FOOT] = 28
+heights[FOOT] = 40
+for top in (CH_TOP1, CH_TOP2):
+    heights[top], heights[top + 1] = 26, 18
 for r in range(0, FOOT + 3):
     ws.set_row(r, heights.get(r, 15))
 
@@ -244,7 +262,7 @@ def card(r0, r1, c0, c1):
             ws.write_blank(r, c, None, F["card"])
 
 kpis = [
-    (f"{best_rel:.2f}", "Best RMSE vs naive, outside COVID", f"{BEST}, {VARIANTS[BEST_VAR]}, D+32. DM p = {best_p:.2f}"),
+    (f"{best_rel:.2f}", "Best RMSE vs naive, outside COVID", f"{BEST}, D+32"),
     (f"{best_n}", "Non-COVID test quarters", f"{best_quarters.replace('-', ' to ')}, without 2022Q3, for the best model"),
     (f"{naive_pt:.1f}%", "Live call for 2026Q3, naive", f"± {naive_rmse:.2f} points. First print due 30 Nov 2026"),
     (f"{GDP_DAY}", "Median days to the GDP first print", f"After quarter-end, 2017Q2 to 2025Q3 (range {days.min()} to {days.max()})"),
@@ -256,18 +274,22 @@ for (c0, c1), (big, label, note) in zip(CARD_COLS, kpis):
     ws.merge_range(7, c0, 7, c1, note, F["kpi_note"])
 
 chart_w = px_col(COLW) * 6 + px_col(GUT) - 16  # 6 card columns + 1 gutter, less 8px padding each side
-chart_h = int(CH_ROWS * 20) - 16
-def place(chart, top, c0):
+chart_h = int((CH_ROWS - 2) * 20) - 8  # below the two header rows
+def place(chart, top, c0, title, subtitle):
     card(top, top + CH_ROWS - 1, c0, c0 + 6)
+    ws.merge_range(top, c0, top, c0 + 6, title, F["card_title"])
+    ws.merge_range(top + 1, c0, top + 1, c0 + 6, subtitle, F["card_sub"])
     chart.set_size({"width": chart_w, "height": chart_h})
-    ws.insert_chart(top, c0, chart, {"x_offset": 8, "y_offset": 8, "object_position": 1})
+    ws.insert_chart(top + 2, c0, chart, {"x_offset": 8, "y_offset": 0, "object_position": 1})
 
 # Chart 1
 ch1 = wb.add_chart({"type": "line"})
 line(ch1, C1["model"], C1["cat"], BLUE, BEST)
 line(ch1, C1["naive"], C1["cat"], GRAY, "Naive")
-style(ch1, "Waiting for more data never opens a gap over naive", "0.0", 0, 1.4, "RMSE, points")
-place(ch1, CH_TOP1, 1)
+style(ch1, "0.0", 0, 1.4, "RMSE, points")
+assert all(m > n for m, n in zip(c1_model, c1_naive))  # the title below depends on this
+place(ch1, CH_TOP1, 1, f"{BEST} stays above naive at every nowcast date",
+      f"RMSE on the same {len(C1Q)} non-COVID quarters at every date ({C1Q[0]} to {C1Q[-1]}), n = {len(C1Q)}")
 
 # Chart 2: COVID quarters as a light red band (full-height columns behind the lines), then first print, naive and the best model
 ch2 = wb.add_chart({"type": "column"})
@@ -279,36 +301,39 @@ line(ln2, C2["actual"], C2["cat"], INK, "First print", iq("2021Q2"), pos="left")
 line(ln2, C2["naive"], C2["cat"], GRAY, "Naive", iq("2021Q3"), pos="right")
 line(ln2, C2["model"], C2["cat"], BLUE, BEST, c2_last_model, pos="below")
 ch2.combine(ln2)
-style(ch2, "Outside COVID, nowcasts hug last quarter's print", "0", -30, 25, "GDP growth, %", rotate=True)
+style(ch2, "0", -30, 25, "GDP growth, %", rotate=True)
 ch2.set_x_axis({"line": {"none": True}, "major_tick_mark": "none", "label_position": "low", "num_font": {**AXIS_FONT, "rotation": -90}, "interval_unit": 4})
 ln2.show_blanks_as("gap")
-place(ch2, CH_TOP1, 9)
+place(ch2, CH_TOP1, 9, "Outside COVID, nowcasts hug last quarter's print", f"{BEST} at D+32, {VARIANTS[BEST_VAR]}. COVID quarters shaded")
 
 # Chart 3: horizontal bars crossing at 1.0, so the axis is the naive reference: left beats naive, right loses
 ch3 = wb.add_chart({"type": "bar"})
 ch3.add_series({"values": C3["rel"], "categories": C3["cat"], "gap": 45, "border": {"none": True},
                 "points": [{"fill": {"color": GREEN if v < 1 else GRAY}} for v in c3.rel_rmse],
                 "data_labels": {"value": True, "num_format": "0.00", "position": "outside_end", "font": {"name": TEXT, "size": 9, "color": SEC}}})
-style(ch3, f"Only {BEST} edges below naive, by {100 * (1 - best_rel):.0f}%, at D+32")
+style(ch3)
 ch3.set_x_axis({"min": 0.8, "max": 2.0, "crossing": 1, "label_position": "high", "major_unit": 0.2, "num_format": "0.0", "line": {"none": True}, "major_tick_mark": "none",
                 "num_font": AXIS_FONT, "major_gridlines": {"visible": False}, "name": "RMSE relative to naive (1.0 = naive)",
                 "name_font": {"name": TEXT, "size": 10, "color": SEC, "bold": False}})
 ch3.set_y_axis({"reverse": True, "label_position": "low", "line": {"color": INK, "width": 1}, "major_tick_mark": "none",
                 "num_font": {**AXIS_FONT, "size": 9}, "major_gridlines": {"visible": False}})
-ch3.set_plotarea({"border": {"none": True}, "fill": {"none": True}, "layout": {"x": 0.42, "y": 0.16, "width": 0.5, "height": 0.66}})
-place(ch3, CH_TOP2, 1)
+ch3.set_plotarea({"border": {"none": True}, "fill": {"none": True}, "layout": {"x": 0.42, "y": 0.1, "width": 0.5, "height": 0.72}})
+place(ch3, CH_TOP2, 1, f"Only {BEST} edges below naive, by {100 * (1 - best_rel):.0f}%, at D+32", "Non-COVID quarters, excluding 2022Q3. Bars start at naive (1.0)")
 
 # Chart 4
-ch4 = wb.add_chart({"type": "line"})
-line(ch4, C4["gdp"], C4["cat"], INK, "GDP")
-line(ch4, C4["core8"], C4["cat"], GRAY, "Core 8", GAPQ.index("2023Q3"), pos="above")
-line(ch4, C4["gap"], C4["cat"], BLUE, "Gap")
-style(ch4, "The GDP–core 8 gap widened from mid-2024", "0", -4, 12, "YoY growth, %", rotate=True)
-ch4.show_blanks_as("gap")
-place(ch4, CH_TOP2, 9)
+ch4 = wb.add_chart({"type": "column"})
+ch4.add_series({"values": C4["gap"], "categories": C4["cat"], "gap": 70, "border": {"none": True}, "fill": {"color": BLUE},
+                "data_labels": end_label(len(GAPQ), "Gap", BLUE, GAPQ.index("2025Q2"), "outside_end")})
+ln4 = wb.add_chart({"type": "line"})
+line(ln4, C4["gdp"], C4["cat"], INK, "GDP")
+line(ln4, C4["core8"], C4["cat"], GRAY, "Core 8", GAPQ.index("2023Q3"), pos="above")
+ch4.combine(ln4)
+style(ch4, "0", -4, 12, "YoY growth, %", rotate=True)
+place(ch4, CH_TOP2, 9, "The GDP–core 8 gap widened from mid-2024", "Bars: GDP minus core 8 YoY. Core 8 is the latest vintage here (see note)")
 
 ws.merge_range(FOOT, 1, FOOT, 15, "Non-COVID test quarters exclude 2022Q3, where naive carried forward a 13.5% base-effect print. COVID quarters are 2020Q2 to 2022Q2. "
-               f"Gap = GDP minus core 8 YoY: {gap_early:.1f} points on average in 2023Q1 to 2024Q2, {gap_late:.1f} in 2024Q3 to 2025Q3; a hypothesis, not tested. Built by dashboard/build_dashboard.py from data/processed.", F["footer"])
+               f"Gap chart: the 2024Q4 core 8 first print is blank, so this chart alone uses latest-vintage core 8 throughout: the gap averages {gap_early:.1f} points in 2023Q1 to 2024Q2 and {gap_late:.1f} in 2024Q3 to 2025Q3. "
+               f"On first prints, as in the report, it is {gapf_early:.1f} and {gapf_late:.1f} (2024Q4 missing). A hypothesis, not tested. Built by dashboard/build_dashboard.py from data/processed.", F["footer"])
 ws.print_area(0, 0, FOOT + 1, 16)
 ws.fit_to_pages(1, 1)
 ws.center_horizontally()
@@ -396,7 +421,7 @@ lc.add_series({"values": L["val"], "categories": L["cat"], "gap": 120, "border":
 al = wb.add_chart({"type": "line"})
 al.add_series({"values": ["chart_data", 1, 25, 3, 25], "categories": L["cat"], "marker": {"type": "none"}, "line": {"color": INK, "width": 2}})
 lc.combine(al)
-style(lc, "Three calls for 2026Q3, with naive as the primary forecast", "0", 0, 10, "GDP growth, %")
+style(lc, "0", 0, 10, "GDP growth, %", title="Three calls for 2026Q3, with naive as the primary forecast")
 lc.set_plotarea({"border": {"none": True}, "fill": {"none": True}, "layout": {"x": 0.1, "y": 0.18, "width": 0.85, "height": 0.68}})
 lc.set_size({"width": 640, "height": 340})
 lv.insert_chart(12, 0, lc, {"x_offset": 4, "y_offset": 8})
